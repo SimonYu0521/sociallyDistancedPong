@@ -25,8 +25,8 @@ module ChipInterface
 
     assign reset = KEY_synced[0];
 
-    logic [9:0] ballX, ballY;
-    logic [9:0] paddleX, paddleY;
+    logic [9:0] ballX, ballY,
+    logic [9:0] paddleX, paddleY,
 
     displayModule disM(.*);
 
