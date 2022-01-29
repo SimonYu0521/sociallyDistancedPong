@@ -1,3 +1,4 @@
+`default_nettype none
 module ChipInterface
     (input logic CLOCK_50,
     input logic [3:0] KEY,
@@ -13,24 +14,29 @@ module ChipInterface
     logic clock, clock_n;
 
     assign clock = CLOCK_50;
-    assign clock_n = CLOCK_50;
+    assign clock_n = ~CLOCK_50;
 
-    logic vga_blank;
+    assign VGA_CLK = clock_n;
+    assign VGA_SYNC_N = 1'b0;
+
+
 
     logic [3:0] KEY_synced, KEY_inter;
 
-    always_ff @( posedge CLOCK ) begin :
+    always_ff @( posedge CLOCK_50 ) begin 
         KEY_inter <= KEY;
         KEY_synced <= KEY_inter;
     end
 
-    assign vga_blank = !VGA_BLANK_N;
+    logic blank;
+    assign VGA_BLANK_N = !blank;
 
-    vga vgaModule(.CLOCK_50(clock), .reset(KEY[0]), .HS(VGA_VS), .VS(VGA_HS), .blank(vga_blank), .row(row), .col(col));
+    vga vgaModule(.CLOCK_50(clock), .reset(!KEY[0]), .HS(VGA_HS), .VS(VGA_VS), 
+                  .blank, .row(row), .col(col));
 
-    assign VGA_G = 0;
-    assign VGA_B = 0;
-    assign VGA_R = ((row > 100) && (row < 200)) ? 200 : 0;
+    assign VGA_R = (col >= 10'd320 && col <= 10'd639 && row > 10'd240 && row < 10'd479) ? 8'hFF : 8'h00;
+    assign VGA_G = (((col >= 10'd160 && col <= 10'd319) || (col >= 10'd480 && col <= 10'd639)) && row > 10'd240 && row < 10'd479) ? 8'hFF : 8'h00;
+    assign VGA_B = (((col >= 10'd80 && col <= 10'd159) || (col >= 10'd240 && col <= 10'd319) || (col >= 10'd400 && col <= 10'd479) || (col >= 10'd560 && col <= 10'd639)) && row > 10'd240 && row < 10'd479) ? 8'hFF : 8'h00;
 
 
 endmodule: ChipInterface

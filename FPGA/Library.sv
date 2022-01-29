@@ -1,3 +1,4 @@
+`default_nettype none
 module comparator
  #(parameter   WIDTH = 8)
   (output logic             AltB, AeqB, AgtB,

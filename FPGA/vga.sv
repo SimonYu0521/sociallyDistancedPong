@@ -1,3 +1,4 @@
+`default_nettype none
 module vga
   (input  logic CLOCK_50, reset,
    output logic HS, VS, blank,
