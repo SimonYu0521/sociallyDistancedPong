@@ -1,26 +1,31 @@
-`default_nettype = none;
+`default_nettype none
 
 
 
 module Ball (input  logic clock, reset_L,
-             input  logic serve, ball_hit_paddle, score,
+             input  logic serve, ball_hit_paddle,
              input  logic [9:0] row, col,
              output logic disp_ball);
 
-  logic update_screen;
+  logic update_screen, score;
   assign update_screen = (row == 10'd480 && col == 10'd640); // move to CI
   
   
   logic [9:0] ball_top, ball_left, ball_bottom, ball_right; 
   logic down, right;              // current direction of ball
-  logic ball_hit_top_bottom;
+  logic ball_hit_top_bottom, ball_hit_left_right;
 
   assign ball_bottom = ball_top + 1;
   assign ball_right = ball_left + 1;
 
   
   assign ball_hit_top_bottom = ((ball_top == 1 && down)|| 
-                                (ball_bottom == 479 && !down));
+                                (ball_bottom == 478 && !down));
+  
+  assign ball_hit_left_right = (((ball_left == 0) && ~right)|| 
+                                ((ball_right >= 640) && right));
+
+  assign score = ball_hit_left_right && ~ball_hit_paddle;
 
   logic rst_row, rst_col;
 
@@ -29,7 +34,7 @@ module Ball (input  logic clock, reset_L,
                         .clr(1'b0), .load(1'b0), .reset(!reset_L), .Q(down));
 
   counter #(1) right_reg (.D(1'b0),
-                          .clk(clock), .up(1'b1), .en(ball_hit_paddle), 
+                          .clk(clock), .up(1'b1), .en(ball_hit_left_right), 
                           .clr(1'b0), .load(1'b0), .reset(!reset_L), .Q(right));
 
   counter #(10) row_counter (.D(10'd240),
@@ -49,6 +54,9 @@ module Ball (input  logic clock, reset_L,
   assign disp_ball = (row == ball_top || row == ball_bottom) && 
                      (col == ball_left || col == ball_right);
 
+  // assert property (@(posedge clock) row == 480 && col == 680 |-> update_screen)
+  //   else $fatal("ball display error");;
+
 
 
 endmodule: Ball
@@ -67,16 +75,19 @@ module ball_test ();
   end
     
   initial begin 
-    $monitor("display = (%d %d)\tball = (%d %d)\t", row, col, DUT.ball_top, DUT.ball_left,);
-    row = 10'd480;
-    col = 10'd640;
-    ball_hit_paddle <= 1'b0;
+    $monitor("display = (%d %d)\tball = (%d %d)\t", DUT.ball_hit_left_right, DUT.right, DUT.ball_top, DUT.ball_left, disp_ball);
+    row = 10'd0;
+    col = 10'd0;
+    ball_hit_paddle <= 1'b1;
     reset_L = 1'b0;
     @(posedge clock);
     reset_L <= 1'b1;
-    for (logic [4:0] i = 0; i < 10; i++) begin
-      for (logic [9:0] row = 0; row <= 480; row++) begin
-        for (logic [9:0] col = 0; col <= 680; col++) begin
+
+    for (logic [9:0] i = 0; i < 700; i++) begin
+      row = 10'd0;
+      col = 10'd0;
+      for (row = 0; row <= 480; row++) begin
+        for (col = 0; col <= 680; col++) begin
           @(posedge clock);
         end
       end
@@ -85,6 +96,7 @@ module ball_test ();
     $finish;
   end
 
-  assert ();
+  // assert property (@(posedge clock) row == 480 && col == 680 |-> disp_ball)
+  //   else $fatal("ball display error");
 
 endmodule

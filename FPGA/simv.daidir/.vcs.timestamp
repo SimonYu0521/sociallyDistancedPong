@@ -1,0 +1,116 @@
+0 
+27
++lint=all
+-Mamsrun=
+-Masflags=
+-Mcc=gcc
+-Mcfl= -pipe -fPIC -O -I/usr/local/synopsys/vcs-mx_vK-2015.09/include
+-Mcplusplus=g++
+-Mcrt0=
+-Mcrtn=
+-Mcsrc=
+-Mexternalobj=
+-Mldflags= -rdynamic
+-Mobjects= /usr/local/synopsys/vcs-mx_vK-2015.09/linux64/lib/libvirsim.so /usr/local/synopsys/vcs-mx_vK-2015.09/linux64/lib/liberrorinf.so /usr/local/synopsys/vcs-mx_vK-2015.09/linux64/lib/libsnpsmalloc.so
+-Mout=simv
+-Msaverestoreobj=/usr/local/synopsys/vcs-mx_vK-2015.09/linux64/lib/vcs_save_restore_new.o
+-Msyslibs=-ldl
+-Mvcsaceobjs=
+-Mxcflags= -pipe -fPIC -I/usr/local/synopsys/vcs-mx_vK-2015.09/include
+-gen_obj
+-nc
+-picarchive
+-q
+-sverilog
+/usr/local/synopsys/vcs-mx_vK-2015.09/linux64/bin/vcs1
+Library.sv
+ball.sv
+chipinterface_ball.sv
+vga.sv
+74
+sysc_uni_pwd=/afs/ece.cmu.edu/usr/allin/Private/sociallyDistancedPong/FPGA
+no_proxy=localhost,127.0.0.1,.cmu.edu,.cmu.local
+https_proxy=http://proximus.ece.cmu.edu:3128/
+http_proxy=http://proximus.ece.cmu.edu:3128/
+ftp_proxy=http://proximus.ece.cmu.edu:3128/
+XMODIFIERS=@im=ibus
+XDG_VTNR=4
+XDG_SESSION_TYPE=x11
+XDG_SESSION_ID=1044
+XDG_SESSION_DESKTOP=gnome-classic
+XDG_SEAT=seat0
+XDG_RUNTIME_DIR=/run/user/2654136
+XDG_MENU_PREFIX=gnome-
+XDG_DATA_DIRS=/afs/andrew.cmu.edu/usr3/allin/.local/share/flatpak/exports/share/:/var/lib/flatpak/exports/share/:/usr/local/share/:/usr/share/
+XDG_CURRENT_DESKTOP=GNOME-Classic:GNOME
+XAUTHORITY=/run/gdm/auth-for-allin-IklcTZ/database
+WINDOWPATH=1:1:1:1:2:2:2:2:2:3:3:3:4:4
+VTE_VERSION=5204
+VMR_MODE_FLAG=32
+VCS_TARGET_ARCH=amd64
+VCS_MX_HOME_INTERNAL=1
+VCS_MODE_FLAG=64
+VCS_LIC_EXPIRE_WARNING=0
+VCS_HOME=/usr/local/synopsys/vcs-mx_vK-2015.09
+VCS_DEPTH=0
+VCS_ARG_ADDED_FOR_TMP=1
+VCS_ARCH_OVERRIDE=linux
+VCS_ARCH=linux64
+USERNAME=allin
+UNAME=/bin/uname
+TOOL_HOME=/usr/local/synopsys/vcs-mx_vK-2015.09/linux64
+SYN_DIR=/usr/local/synopsys/syn-vJ-2014.09-SP4
+SYNOPSYS=/usr/local/synopsys
+SSH_AUTH_SOCK=/run/user/2654136/keyring/ssh
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+SSH_AGENT_PID=14170
+SESSION_MANAGER=local/unix:@/tmp/.ICE-unix/14149,unix/unix:/tmp/.ICE-unix/14149
+SCRNAME=vcs
+SCRIPT_NAME=vcs
+QUARTUS_64BIT=1
+QT_PLUGIN_PATH=/usr/lib64/kde4/plugins:/usr/lib/kde4/plugins
+QT_IM_MODULE=ibus
+QT_GRAPHICSSYSTEM_CHECKED=1
+QTLIB=/usr/lib64/qt-3.3/lib
+QTINC=/usr/lib64/qt-3.3/include
+QTDIR=/usr/lib64/qt-3.3
+OVA_UUM=0
+NO_PROXY=localhost,127.0.0.1,.cmu.edu,.cmu.local
+MODULESHOME=/usr/share/Modules
+MODULEPATH=/usr/share/Modules/modulefiles:/etc/modulefiles
+LOADEDMODULES=
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+LC_ALL=C
+KRB5CCNAME=KEYRING:persistent:2654136
+KDEDIRS=/usr
+HTTP_PROXY=http://proximus.ece.cmu.edu:3128/
+HTTPS_PROXY=http://proximus.ece.cmu.edu:3128/
+HISTCONTROL=ignoredups
+GNOME_TERMINAL_SERVICE=:1.83
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/06013978_5f3c_4160_884d_8f3e5809d530
+GNOME_SHELL_SESSION_MODE=classic
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+GJS_DEBUG_TOPICS=JS ERROR;JS LOG
+GJS_DEBUG_OUTPUT=stderr
+GDM_LANG=en_US.UTF-8
+GDMSESSION=gnome-classic
+FTP_PROXY=http://proximus.ece.cmu.edu:3128/
+DESKTOP_SESSION=gnome-classic
+DC_HOME=/usr/local/synopsys/syn-vJ-2014.09-SP4/
+DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-o1iybCJfSG,guid=f11dbad6dcc04041028737cb61f83b54
+CVS_RSH=ssh
+COLORTERM=truecolor
+BASH_FUNC_module()=() {  eval `/usr/bin/modulecmd bash $*`_}
+AKLOG=/usr/bin/aklog
+0
+4
+1643486023 vga.sv
+1643660831 ball.sv
+1643486023 Library.sv
+1643659568 chipinterface_ball.sv
+4
+0 
+1440563255 /usr/local/synopsys/vcs-mx_vK-2015.09/linux64/lib/libvirsim.so
+1440562843 /usr/local/synopsys/vcs-mx_vK-2015.09/linux64/lib/liberrorinf.so
+1440562824 /usr/local/synopsys/vcs-mx_vK-2015.09/linux64/lib/libsnpsmalloc.so
+1643660844 simv.daidir

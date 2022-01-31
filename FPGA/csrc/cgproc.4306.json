@@ -1,0 +1,53 @@
+{
+    "Modules": {
+        "...MASTER...": {},
+        "std": {},
+        "mux": {},
+        "mux2to1": {},
+        "decoder": {},
+        "ball_test": {},
+        "Ball": {
+            "Compiled Times": 3,
+            "Compiled": "Yes"
+        },
+        "ChipInterface_ball": {},
+        "game_clock_generator": {},
+        "register": {},
+        "comparator": {},
+        "shift_register": {},
+        "adder": {},
+        "priority_encoder": {},
+        "range_check2D": {},
+        "offset_check2D": {}
+    },
+    "CompUnits": {
+        "amcQw_d": {
+            "mod": "...MASTER...",
+            "bytes": 14685,
+            "out": "objs/amcQw_d.o",
+            "mode": 4,
+            "checksum": 4294967295
+        },
+        "jpYSR_d": {
+            "archive": "archive.20/_4306_archive_1.a",
+            "mod": "Ball",
+            "bytes": 19045,
+            "out": "jpYSR_d.o",
+            "mode": 4,
+            "checksum": 4294967295
+        }
+    },
+    "ObjArchives": [
+        {
+            "archive": "archive.20/_4306_archive_1.a",
+            "objects": [
+                [
+                    "jpYSR_d.o",
+                    19045
+                ]
+            ],
+            "size": 19045
+        }
+    ],
+    "reusePaths": {}
+}

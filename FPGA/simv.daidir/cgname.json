@@ -1,0 +1,82 @@
+{
+    "std": [
+        "std",
+        "reYIK",
+        "module"
+    ],
+    "mux": [
+        "mux",
+        "RZvU4",
+        "module"
+    ],
+    "mux2to1": [
+        "mux2to1",
+        "TDywx",
+        "module"
+    ],
+    "decoder": [
+        "decoder",
+        "zf0bY",
+        "module"
+    ],
+    "ball_test": [
+        "ball_test",
+        "d3s8N",
+        "module"
+    ],
+    "Ball": [
+        "Ball",
+        "jpYSR",
+        "module"
+    ],
+    "ChipInterface_ball": [
+        "ChipInterface_ball",
+        "rRSLc",
+        "module"
+    ],
+    "priority_encoder": [
+        "priority_encoder",
+        "UZ5LL",
+        "module"
+    ],
+    "game_clock_generator": [
+        "game_clock_generator",
+        "MmBEy",
+        "module"
+    ],
+    "register": [
+        "register",
+        "DAC4W",
+        "module"
+    ],
+    "comparator": [
+        "comparator",
+        "U57Qt",
+        "module"
+    ],
+    "shift_register": [
+        "shift_register",
+        "JPGqC",
+        "module"
+    ],
+    "adder": [
+        "adder",
+        "Qq4Ev",
+        "module"
+    ],
+    "range_check2D": [
+        "range_check2D",
+        "CBai6",
+        "module"
+    ],
+    "offset_check2D": [
+        "offset_check2D",
+        "GMywV",
+        "module"
+    ],
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
+        "module"
+    ]
+}
