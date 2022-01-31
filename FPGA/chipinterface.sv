@@ -1,4 +1,7 @@
 `default_nettype none
+
+`define BALL_SIZE 5 // sidelength of the ball
+
 module ChipInterface
     (input logic CLOCK_50,
     input logic [3:0] KEY,
@@ -125,3 +128,97 @@ module CommunicationReceiver
    );
    
 endmodule : CommunicationReceiver
+
+module displayModule
+    (input logic [9:0] ballX, ballY,
+    input logic [9:0] paddleX, paddleY,
+    input logic reset, clock,
+    output logic [7:0] VGA_R, VGA_G, VGA_B,
+    output logic VGA_BLANK_N, VGA_CLK, VGA_SYNC_N,
+    output logic VGA_VS, VGA_HS,
+    output logic update_screen);
+
+    assign update_screen = (row == 10'd480 && col == 10'd640); // move to CI
+    assign VGA_CLK = ~clock;
+    assign VGA_SYNC_N = 1'b0;
+
+    logic disp_ball;
+
+    logic blank;
+    assign VGA_BLANK_N = !blank;
+
+    logic [9:0] vgaRow, vgaCol;
+
+    vga vgaModule(.CLOCK_50(clock), .reset(reset), .HS(VGA_HS), .VS(VGA_VS), 
+                  .blank, .row(vgaRow), .col(vgaCol));
+
+                    // decide when to display ball
+    assign disp_ball = (row == ball_top || row == ball_bottom) && 
+                     (col == ball_left || col == ball_right);
+
+    always_comb begin
+      VGA_R = 0;
+      VGA_G = 0;
+      VGA_B = 0;
+      if (disp_ball) begin
+        VGA_R = 'd255;
+        VGA_G = 'd255;
+        VGA_B = 'd255;
+      end
+    end
+
+endmodule: displayModule
+
+
+module gameStateModule
+  (input logic joystick_up, joystick_down,
+  input logic arcade_button_pressed,
+  output logic [9:0] ball_top, ball_left,
+  output logic [9:0] paddleX, paddleY,
+  input logic update_screen);
+
+
+  logic [9:0] ball_bottom, ball_right; 
+  logic down, right;      // current direction of ball
+  // this is down right good code
+  logic ball_hit_top_bottom, ball_hit_left_right;
+
+  assign ball_bottom = ball_top + BALL_SIZE;
+  assign ball_right = ball_left + BALL_SIZE;
+
+  
+  assign ball_hit_top_bottom = ((ball_top <= 1 && down)|| 
+                                (ball_bottom >= 478 && !down));
+  
+  assign ball_hit_left_right = (((ball_left <= 0) && ~right)|| //watch out for underflow, NEEDS fixing
+                                ((ball_right >= 640) && right));
+
+  assign score = ball_hit_left_right && ~ball_hit_paddle;
+
+  logic rst_row, rst_col;
+
+  counter #(1) down_reg (.D(1'b0),
+                        .clk(clock), .up(1'b1), .en(ball_hit_top_bottom), 
+                        .clr(1'b0), .load(1'b0), .reset(!reset_L), .Q(down));
+
+  counter #(1) right_reg (.D(1'b0),
+                          .clk(clock), .up(1'b1), .en(ball_hit_left_right), 
+                          .clr(1'b0), .load(1'b0), .reset(!reset_L), .Q(right));
+
+  counter #(10) row_counter (.D(10'd240),
+                             .clk(clock), .up(!down), .en(update_screen), 
+                             .clr(1'b0), .load(!reset_L | score), 
+                             .reset(1'b0), 
+                             .Q(ball_top));
+  
+  count_by_2 #(10) col_counter (.D(10'd320),
+                                .clk(clock), .up(right), .en(update_screen), 
+                                .clr(1'b0), .load(!reset_L | score), 
+                                .reset(1'b0), 
+                                .Q(ball_left));
+
+  
+
+
+
+endmodule: gameStateModule
