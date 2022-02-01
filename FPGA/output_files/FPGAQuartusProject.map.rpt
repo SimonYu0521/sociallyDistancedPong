@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FPGAQuartusProject
-Sat Jan 29 17:21:32 2022
+Mon Jan 31 20:24:49 2022
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -10,20 +10,8 @@ Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Parameter Settings for User Entity Instance: displayModule:disM|vga:vgaModule|simple_counter:row_counter
- 11. Parameter Settings for User Entity Instance: displayModule:disM|vga:vgaModule|simple_counter:col_counter
- 12. Port Connectivity Checks: "displayModule:disM|vga:vgaModule|simple_counter:col_counter"
- 13. Port Connectivity Checks: "displayModule:disM|vga:vgaModule"
- 14. Port Connectivity Checks: "displayModule:disM"
- 15. Post-Synthesis Netlist Statistics for Top Partition
- 16. Elapsed Time Per Partition
- 17. Analysis & Synthesis Messages
- 18. Analysis & Synthesis Suppressed Messages
+  5. Analysis & Synthesis Messages
+  6. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -50,20 +38,20 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jan 29 17:21:32 2022       ;
+; Analysis & Synthesis Status        ; Failed - Mon Jan 31 20:24:49 2022           ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; FPGAQuartusProject                          ;
 ; Top-level Entity Name              ; ChipInterface                               ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 52                                          ;
-;     Total combinational functions  ; 50                                          ;
-;     Dedicated logic registers      ; 23                                          ;
-; Total registers                    ; 23                                          ;
-; Total pins                         ; 108                                         ;
-; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0                                           ;
-; Embedded Multiplier 9-bit elements ; 0                                           ;
-; Total PLLs                         ; 0                                           ;
+; Total logic elements               ; N/A until Partition Merge                   ;
+;     Total combinational functions  ; N/A until Partition Merge                   ;
+;     Dedicated logic registers      ; N/A until Partition Merge                   ;
+; Total registers                    ; N/A until Partition Merge                   ;
+; Total pins                         ; N/A until Partition Merge                   ;
+; Total virtual pins                 ; N/A until Partition Merge                   ;
+; Total memory bits                  ; N/A until Partition Merge                   ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
+; Total PLLs                         ; N/A until Partition Merge                   ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -162,180 +150,11 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                           ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                       ; Library ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
-; vga.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/vga.sv           ;         ;
-; Library.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv       ;         ;
-; display.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/display.sv       ;         ;
-; chipinterface.sv                 ; yes             ; User SystemVerilog HDL File  ; C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv ;         ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
-
-
-+--------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                  ;
-+---------------------------------------------+----------------+
-; Resource                                    ; Usage          ;
-+---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 52             ;
-;                                             ;                ;
-; Total combinational functions               ; 50             ;
-; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 20             ;
-;     -- 3 input functions                    ; 5              ;
-;     -- <=2 input functions                  ; 25             ;
-;                                             ;                ;
-; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 31             ;
-;     -- arithmetic mode                      ; 19             ;
-;                                             ;                ;
-; Total registers                             ; 23             ;
-;     -- Dedicated logic registers            ; 23             ;
-;     -- I/O registers                        ; 0              ;
-;                                             ;                ;
-; I/O pins                                    ; 108            ;
-;                                             ;                ;
-; Embedded Multiplier 9-bit elements          ; 0              ;
-;                                             ;                ;
-; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 24             ;
-; Total fan-out                               ; 336            ;
-; Average fan-out                             ; 1.16           ;
-+---------------------------------------------+----------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                           ;
-+---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------+----------------+--------------+
-; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                        ; Entity Name    ; Library Name ;
-+---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------+----------------+--------------+
-; |ChipInterface                        ; 50 (0)              ; 23 (2)                    ; 0           ; 0            ; 0       ; 0         ; 108  ; 0            ; |ChipInterface                                                             ; ChipInterface  ; work         ;
-;    |displayModule:disM|               ; 50 (0)              ; 21 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|displayModule:disM                                          ; displayModule  ; work         ;
-;       |vga:vgaModule|                 ; 50 (18)             ; 21 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|displayModule:disM|vga:vgaModule                            ; vga            ; work         ;
-;          |simple_counter:col_counter| ; 11 (11)             ; 11 (11)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|displayModule:disM|vga:vgaModule|simple_counter:col_counter ; simple_counter ; work         ;
-;          |simple_counter:row_counter| ; 21 (21)             ; 10 (10)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|displayModule:disM|vga:vgaModule|simple_counter:row_counter ; simple_counter ; work         ;
-+---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------+----------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 23    ;
-; Number of registers using Synchronous Clear  ; 11    ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 21    ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 3     ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |ChipInterface|displayModule:disM|vga:vgaModule|simple_counter:row_counter|Q[9] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: displayModule:disM|vga:vgaModule|simple_counter:row_counter ;
-+----------------+-------+---------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                            ;
-+----------------+-------+---------------------------------------------------------------------------------+
-; WIDTH          ; 10    ; Signed Integer                                                                  ;
-+----------------+-------+---------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: displayModule:disM|vga:vgaModule|simple_counter:col_counter ;
-+----------------+-------+---------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                            ;
-+----------------+-------+---------------------------------------------------------------------------------+
-; WIDTH          ; 11    ; Signed Integer                                                                  ;
-+----------------+-------+---------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "displayModule:disM|vga:vgaModule|simple_counter:col_counter" ;
-+------+-------+----------+---------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                       ;
-+------+-------+----------+---------------------------------------------------------------+
-; en   ; Input ; Info     ; Stuck at VCC                                                  ;
-+------+-------+----------+---------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "displayModule:disM|vga:vgaModule"                                                   ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; row  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; col  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------+
-; Port Connectivity Checks: "displayModule:disM" ;
-+---------+-------+----------+-------------------+
-; Port    ; Type  ; Severity ; Details           ;
-+---------+-------+----------+-------------------+
-; ballX   ; Input ; Info     ; Stuck at GND      ;
-; ballY   ; Input ; Info     ; Stuck at GND      ;
-; paddleX ; Input ; Info     ; Stuck at GND      ;
-; paddleY ; Input ; Info     ; Stuck at GND      ;
-+---------+-------+----------+-------------------+
-
-
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; boundary_port         ; 108                         ;
-; cycloneiii_ff         ; 23                          ;
-;     CLR               ; 7                           ;
-;     CLR SCLR          ; 11                          ;
-;     ENA CLR           ; 3                           ;
-;     plain             ; 2                           ;
-; cycloneiii_lcell_comb ; 54                          ;
-;     arith             ; 19                          ;
-;         2 data inputs ; 19                          ;
-;     normal            ; 35                          ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 4                           ;
-;         3 data inputs ; 5                           ;
-;         4 data inputs ; 20                          ;
-;                       ;                             ;
-; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.80                        ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:00     ;
-+----------------+--------------+
 
 
 +-------------------------------+
@@ -344,7 +163,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Sat Jan 29 17:21:18 2022
+    Info: Processing started: Mon Jan 31 20:24:36 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGAQuartusProject -c FPGAQuartusProject
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -368,145 +187,50 @@ Info (12021): Found 16 design units, including 16 entities, in source file libra
     Info (12023): Found entity 14: offset_check File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 183
     Info (12023): Found entity 15: offset_check2D File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 192
     Info (12023): Found entity 16: game_clock_generator File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 207
-Info (12021): Found 1 design units, including 1 entities, in source file display.sv
-    Info (12023): Found entity 1: displayModule File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/display.sv Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file chipinterface.sv
-    Info (12023): Found entity 1: ChipInterface File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 2
+Info (12021): Found 6 design units, including 6 entities, in source file chipinterface.sv
+    Info (12023): Found entity 1: ChipInterface File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 5
+    Info (12023): Found entity 2: UserInterface File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 76
+    Info (12023): Found entity 3: CommunicationSender File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 84
+    Info (12023): Found entity 4: CommunicationReceiver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 114
+    Info (12023): Found entity 5: displayModule File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 140
+    Info (12023): Found entity 6: gameStateModule File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 190
 Info (12127): Elaborating entity "ChipInterface" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at chipinterface.sv(14): object "clock_n" assigned a value but never read File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 14
-Warning (10030): Net "ballX" at chipinterface.sv(28) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 28
-Warning (10030): Net "ballY" at chipinterface.sv(28) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 28
-Warning (10030): Net "paddleX" at chipinterface.sv(29) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 29
-Warning (10030): Net "paddleY" at chipinterface.sv(29) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 29
-Warning (10034): Output port "HEX0" at chipinterface.sv(6) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-Warning (10034): Output port "HEX1" at chipinterface.sv(6) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-Warning (10034): Output port "HEX2" at chipinterface.sv(6) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-Warning (10034): Output port "HEX3" at chipinterface.sv(6) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-Warning (10034): Output port "HEX4" at chipinterface.sv(7) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-Warning (10034): Output port "HEX5" at chipinterface.sv(7) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-Warning (10034): Output port "HEX6" at chipinterface.sv(7) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-Warning (10034): Output port "HEX7" at chipinterface.sv(7) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-Info (12128): Elaborating entity "displayModule" for hierarchy "displayModule:disM" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 31
-Info (12128): Elaborating entity "vga" for hierarchy "displayModule:disM|vga:vgaModule" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/display.sv Line: 19
-Info (12128): Elaborating entity "simple_counter" for hierarchy "displayModule:disM|vga:vgaModule|simple_counter:row_counter" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/vga.sv Line: 22
-Info (12128): Elaborating entity "simple_counter" for hierarchy "displayModule:disM|vga:vgaModule|simple_counter:col_counter" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/vga.sv Line: 37
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX0[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX0[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX0[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX0[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX0[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX0[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX0[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX1[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX1[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX1[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX1[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX1[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX1[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX1[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX2[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX2[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX2[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX2[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX2[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX2[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX2[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX3[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX3[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 6
-    Warning (13410): Pin "HEX4[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX4[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX4[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX4[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX4[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX4[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX4[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX5[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX5[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX5[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX5[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX5[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX5[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX5[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX6[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX6[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX6[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX6[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX6[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX6[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX6[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX7[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX7[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX7[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX7[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX7[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX7[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "HEX7[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 7
-    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_R[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_R[3]" is stuck at VCC File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_R[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_R[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_R[6]" is stuck at VCC File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_R[7]" is stuck at VCC File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_G[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_G[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_G[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_G[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_G[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_G[7]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_B[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_B[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_B[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_B[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_B[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_B[7]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 9
-Info (286030): Timing-Driven Synthesis is running
+Warning (10036): Verilog HDL or VHDL warning at chipinterface.sv(21): object "clock_n" assigned a value but never read File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 21
+Warning (10858): Verilog HDL warning at chipinterface.sv(35): object blank used but never assigned File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 35
+Warning (10030): Net "GPIO_INPUTS" at chipinterface.sv(46) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 46
+Warning (10030): Net "ball_y_tx" at chipinterface.sv(56) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 56
+Warning (10030): Net "velocity_x_tx" at chipinterface.sv(57) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 57
+Warning (10030): Net "velocity_y_tx" at chipinterface.sv(57) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 57
+Warning (10030): Net "my_score_tx" at chipinterface.sv(60) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 60
+Warning (10030): Net "your_score_tx" at chipinterface.sv(60) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 60
+Warning (10030): Net "blank" at chipinterface.sv(35) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 35
+Warning (10030): Net "send_new_message" at chipinterface.sv(51) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 51
+Warning (10030): Net "message_acked" at chipinterface.sv(51) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 51
+Warning (10030): Net "ball_message_tx" at chipinterface.sv(53) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 53
+Warning (10030): Net "miss_message_tx" at chipinterface.sv(53) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 53
+Warning (10030): Net "new_game_message_tx" at chipinterface.sv(53) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 53
+Warning (10030): Net "new_game_ack_message_tx" at chipinterface.sv(53) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 53
+Warning (10030): Net "you_should_serve_tx" at chipinterface.sv(61) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 61
+Warning (10030): Net "you_serve_first_tx" at chipinterface.sv(64) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 64
+Warning (10034): Output port "HEX0" at chipinterface.sv(9) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 9
+Warning (10034): Output port "HEX1" at chipinterface.sv(9) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 9
+Warning (10034): Output port "HEX2" at chipinterface.sv(9) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 9
+Warning (10034): Output port "HEX3" at chipinterface.sv(9) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 9
+Warning (10034): Output port "HEX4" at chipinterface.sv(10) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 10
+Warning (10034): Output port "HEX5" at chipinterface.sv(10) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 10
+Warning (10034): Output port "HEX6" at chipinterface.sv(10) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 10
+Warning (10034): Output port "HEX7" at chipinterface.sv(10) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 10
+Warning (10034): Output port "UART_TXD" at chipinterface.sv(16) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 16
+Warning (10034): Output port "UART_CTS" at chipinterface.sv(17) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 17
+Error (10028): Can't resolve multiple constant drivers for net "VGA_BLANK_N" at chipinterface.sv(42) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 42
+Error (10029): Constant driver at chipinterface.sv(36) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 36
+Error (12153): Can't elaborate top-level user hierarchy
 Info (144001): Generated suppressed messages file C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/output_files/FPGAQuartusProject.map.smsg
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 21 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 4
-    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 4
-    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 4
-    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 5
-    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 5
-    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 5
-    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 5
-    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 5
-    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 5
-    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 5
-    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 5
-    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 5
-    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 5
-    Warning (15610): No output dependent on input pin "SW[10]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 5
-    Warning (15610): No output dependent on input pin "SW[11]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 5
-    Warning (15610): No output dependent on input pin "SW[12]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 5
-    Warning (15610): No output dependent on input pin "SW[13]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 5
-    Warning (15610): No output dependent on input pin "SW[14]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 5
-    Warning (15610): No output dependent on input pin "SW[15]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 5
-    Warning (15610): No output dependent on input pin "SW[16]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 5
-    Warning (15610): No output dependent on input pin "SW[17]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 5
-Info (21057): Implemented 160 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 23 input pins
-    Info (21059): Implemented 85 output pins
-    Info (21061): Implemented 52 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 119 warnings
-    Info: Peak virtual memory: 4776 megabytes
-    Info: Processing ended: Sat Jan 29 17:21:32 2022
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:39
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 3 errors, 29 warnings
+    Error: Peak virtual memory: 4720 megabytes
+    Error: Processing ended: Mon Jan 31 20:24:49 2022
+    Error: Elapsed time: 00:00:13
+    Error: Total CPU time (on all processors): 00:00:37
 
 
 +------------------------------------------+

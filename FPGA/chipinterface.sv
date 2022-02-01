@@ -32,9 +32,12 @@ module ChipInterface
 
     assign reset = KEY_synced[0];
 
-    logic [9:0] ballX, ballY;
-    logic [9:0] paddleX, paddleY;
+    
 
+    logic [9:0] ball_left, ball_right, ball_top, ball_bottom;
+    logic [9:0] paddleX, paddleY;
+	 logic update_screen;
+	 
     displayModule disM(.*);
     
     /* USER INTERFACE: JOYSTICK, BUTTON */
@@ -61,6 +64,10 @@ module ChipInterface
     
     CommunicationSender   cs(.*);
     CommunicationReceiver cr(.*);
+	 
+	 gameStateModule gsm(.*);
+	 
+	 
 
 endmodule: ChipInterface
 
@@ -130,7 +137,7 @@ module CommunicationReceiver
 endmodule : CommunicationReceiver
 
 module displayModule
-    (input logic [9:0] ballX, ballY,
+    (input logic [9:0] ball_left, ball_top,
     input logic [9:0] paddleX, paddleY,
     input logic reset, clock,
     output logic [7:0] VGA_R, VGA_G, VGA_B,
@@ -138,7 +145,7 @@ module displayModule
     output logic VGA_VS, VGA_HS,
     output logic update_screen);
 
-    assign update_screen = (row == 10'd480 && col == 10'd640); // move to CI
+    
     assign VGA_CLK = ~clock;
     assign VGA_SYNC_N = 1'b0;
 
@@ -148,13 +155,24 @@ module displayModule
     assign VGA_BLANK_N = !blank;
 
     logic [9:0] vgaRow, vgaCol;
+	 
+    assign update_screen = (vgaRow == 10'd480 && vgaCol == 10'd640); // move to CI
+	 
+    logic [9:0] ball_bottom, ball_right; 
+ 
+    assign ball_bottom = ball_top + `BALL_SIZE;
+    assign ball_right = ball_left + `BALL_SIZE;
+
+    
+
+
 
     vga vgaModule(.CLOCK_50(clock), .reset(reset), .HS(VGA_HS), .VS(VGA_VS), 
                   .blank, .row(vgaRow), .col(vgaCol));
 
                     // decide when to display ball
-    assign disp_ball = (row == ball_top || row == ball_bottom) && 
-                     (col == ball_left || col == ball_right);
+    assign disp_ball = (vgaRow == ball_top || vgaRow == ball_bottom) && 
+                     (vgaCol == ball_left || vgaCol == ball_right);
 
     always_comb begin
       VGA_R = 0;
@@ -175,16 +193,20 @@ module gameStateModule
   input logic arcade_button_pressed,
   output logic [9:0] ball_top, ball_left,
   output logic [9:0] paddleX, paddleY,
-  input logic update_screen);
+  input logic update_screen, clock, reset);
 
+  
+	logic score, reset_L;
+	
+	assign reset_L = !reset;
 
   logic [9:0] ball_bottom, ball_right; 
   logic down, right;      // current direction of ball
   // this is down right good code
   logic ball_hit_top_bottom, ball_hit_left_right;
 
-  assign ball_bottom = ball_top + BALL_SIZE;
-  assign ball_right = ball_left + BALL_SIZE;
+  assign ball_bottom = ball_top + `BALL_SIZE;
+  assign ball_right = ball_left + `BALL_SIZE;
 
   
   assign ball_hit_top_bottom = ((ball_top <= 1 && down)|| 
@@ -192,6 +214,10 @@ module gameStateModule
   
   assign ball_hit_left_right = (((ball_left <= 0) && ~right)|| //watch out for underflow, NEEDS fixing
                                 ((ball_right >= 640) && right));
+	logic ball_hit_paddle;
+	assign ball_hit_paddle = 1;
+										  
+	
 
   assign score = ball_hit_left_right && ~ball_hit_paddle;
 
