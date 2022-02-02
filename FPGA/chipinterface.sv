@@ -211,11 +211,11 @@ module gameStateModule
   assign ball_right = ball_left + `BALL_SIZE;
 
   
-  assign ball_hit_top_bottom = ((ball_top <= 1)|| 
-                                (ball_bottom >= 478));
+  // assign ball_hit_top_bottom = ((ball_top <= 1)|| 
+  //                               (ball_bottom >= 478));
   
-  assign ball_hit_left_right = (((ball_left <= 0))|| //watch out for underflow, NEEDS fixing
-                                ((ball_right >= 640)));
+  // assign ball_hit_left_right = (((ball_left <= 0))|| //watch out for underflow, NEEDS fixing
+  //                               ((ball_right >= 640)));
   logic ball_hit_paddle;
   assign ball_hit_paddle = 1;
 
@@ -231,14 +231,13 @@ module gameStateModule
 
   logic [9:0] vel_x, vel_y, vel_x_new, vel_y_new;
 
-  logic sign_x_new, sign_y_new, sign_x, sign_y;
 
-  logic regClr, vel_reg_load, pos_reg_load, sign_reg_load;
+
+  logic regClr, vel_reg_load, pos_reg_load,
 
   always_comb begin
     vel_x_new = 0; vel_y_new = 0;
     ball_top_new = 0; ball_left_new = 0;
-    sign_x_new = 0; sign_y_new = 0;
     regClr = 0; vel_reg_load = 0;
     pos_reg_load = 0;
     sign_reg_load = 0;
@@ -253,11 +252,14 @@ module gameStateModule
         sign_reg_load = 1;
       end
       PLAY_MODE:begin
-        ball_top_new = sign_y ? (ball_top + vel_y) : (ball_top - vel_y);
-        ball_left_new = sign_x ? (ball_left + vel_x) : (ball_left - vel_x);
-        sign_x_new = ball_hit_left_right ? !sign_x : sign_x;
-        sign_y_new = ball_hit_top_bottom ? !sign_y : sign_y;
-        sign_reg_load = update_screen;
+        ball_top_new = ball_top + vel_y;
+        ball_left_new = ball_left + vel_x;
+        vel_x_new = vel_x;
+        vel_y_new = vel_y;
+        if (ball_right >= 640 - (vel_x << 2) || ball_left <= 0 + (vel_x << 2)) begin
+          vel_x_new = - vel_x;
+        end
+        vel_reg_load = update_screen;
         pos_reg_load = update_screen;
       end
     endcase
