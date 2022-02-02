@@ -1,6 +1,6 @@
 `default_nettype none
 
-`define BALL_SIZE 5 // sidelength of the ball
+`define BALL_SIZE 10 // sidelength of the ball
 
 module ChipInterface
     (input logic CLOCK_50,
@@ -30,21 +30,25 @@ module ChipInterface
         KEY_synced <= KEY_inter;
     end
 
-    assign reset = KEY_synced[0];
+    assign reset = !KEY_synced[0];
 
     
 
     logic [9:0] ball_left, ball_right, ball_top, ball_bottom;
     logic [9:0] paddleX, paddleY;
-	 logic update_screen;
-	 
+    logic update_screen;
+  
     displayModule disM(.*);
     
     /* USER INTERFACE: JOYSTICK, BUTTON */
     logic joystick_up,joystick_down, arcade_button_pressed;
     logic [2:0] GPIO_INPUTS;  // Needs to be changed when those pins are defined
     
+    gameStateModule gsm(.*);
+
     UserInterface ui(.*);
+
+    
     
     /* Communications */
     logic send_new_message, message_sent, new_message_received, message_acked; // Handshaking
@@ -64,10 +68,10 @@ module ChipInterface
     
     CommunicationSender   cs(.*);
     CommunicationReceiver cr(.*);
-	 
-	 gameStateModule gsm(.*);
-	 
-	 
+
+    
+ 
+ 
 
 endmodule: ChipInterface
 
@@ -171,8 +175,8 @@ module displayModule
                   .blank, .row(vgaRow), .col(vgaCol));
 
                     // decide when to display ball
-    assign disp_ball = (vgaRow == ball_top || vgaRow == ball_bottom) && 
-                     (vgaCol == ball_left || vgaCol == ball_right);
+    assign disp_ball = (vgaRow >= ball_top && vgaRow <= ball_bottom) && 
+                     (vgaCol >= ball_left && vgaCol <= ball_right);
 
     always_comb begin
       VGA_R = 0;
@@ -201,48 +205,92 @@ module gameStateModule
 	assign reset_L = !reset;
 
   logic [9:0] ball_bottom, ball_right; 
-  logic down, right;      // current direction of ball
-  // this is down right good code
   logic ball_hit_top_bottom, ball_hit_left_right;
 
   assign ball_bottom = ball_top + `BALL_SIZE;
   assign ball_right = ball_left + `BALL_SIZE;
 
   
-  assign ball_hit_top_bottom = ((ball_top <= 1 && down)|| 
-                                (ball_bottom >= 478 && !down));
+  assign ball_hit_top_bottom = ((ball_top <= 1)|| 
+                                (ball_bottom >= 478));
   
-  assign ball_hit_left_right = (((ball_left <= 0) && ~right)|| //watch out for underflow, NEEDS fixing
-                                ((ball_right >= 640) && right));
-	logic ball_hit_paddle;
-	assign ball_hit_paddle = 1;
-										  
-	
+  assign ball_hit_left_right = (((ball_left <= 0))|| //watch out for underflow, NEEDS fixing
+                                ((ball_right >= 640)));
+  logic ball_hit_paddle;
+  assign ball_hit_paddle = 1;
+
+  enum {RESET, PLAY_MODE_INIT, PLAY_MODE} state, nextState;
+
 
   assign score = ball_hit_left_right && ~ball_hit_paddle;
 
   logic rst_row, rst_col;
 
-  counter #(1) down_reg (.D(1'b0),
-                        .clk(clock), .up(1'b1), .en(ball_hit_top_bottom), 
-                        .clr(1'b0), .load(1'b0), .reset(!reset_L), .Q(down));
-
-  counter #(1) right_reg (.D(1'b0),
-                          .clk(clock), .up(1'b1), .en(ball_hit_left_right), 
-                          .clr(1'b0), .load(1'b0), .reset(!reset_L), .Q(right));
-
-  counter #(10) row_counter (.D(10'd240),
-                             .clk(clock), .up(!down), .en(update_screen), 
-                             .clr(1'b0), .load(!reset_L | score), 
-                             .reset(1'b0), 
-                             .Q(ball_top));
   
-  count_by_2 #(10) col_counter (.D(10'd320),
-                                .clk(clock), .up(right), .en(update_screen), 
-                                .clr(1'b0), .load(!reset_L | score), 
-                                .reset(1'b0), 
-                                .Q(ball_left));
+  logic [9:0] ball_top_new, ball_left_new;
 
+  logic [9:0] vel_x, vel_y, vel_x_new, vel_y_new;
+
+  logic regClr, vel_reg_load, pos_reg_load;
+
+  always_comb begin
+    vel_x_new = 0; vel_y_new = 0;
+    ball_top_new = 0; ball_left_new = 0;
+    regClr = 0; vel_reg_load = 0;
+    pos_reg_load = 0;
+    case (state)
+      RESET: regClr = 1;
+      PLAY_MODE_INIT: begin
+        vel_x_new = 1; vel_y_new = 0;
+        ball_top_new = 10'd100; ball_left_new = 10'd100;
+        vel_reg_load = 1;
+        pos_reg_load = 1;
+      end
+      PLAY_MODE:begin
+        ball_top_new = ball_top + vel_y;
+        ball_left_new = ball_left + vel_x;
+        vel_x_new = ball_hit_left_right ? (- vel_x) : vel_x;
+        vel_y_new = ball_hit_top_bottom ? (- vel_y) : vel_y;
+        vel_reg_load = update_screen;
+        pos_reg_load = update_screen;
+      end
+    endcase
+  end  
+
+  always_comb begin
+    case(state)
+      RESET: nextState = PLAY_MODE_INIT;
+      PLAY_MODE_INIT: nextState = PLAY_MODE;
+      PLAY_MODE: nextState = PLAY_MODE;
+    endcase
+  end
+
+  always_ff @(posedge clock, posedge reset) begin
+    if (reset) state <= RESET;
+    else state <= nextState;
+  end
+
+
+
+
+  register #(10) vel_x_reg(.D(vel_x_new),
+                          .clk(clock), .en(vel_reg_load), .clr(regClr),
+                          .Q(vel_x));
+
+  register #(10) vel_y_reg(.D(vel_y_new),
+                          .clk(clock), .en(vel_reg_load), .clr(regClr),
+                          .Q(vel_y));
+
+  register #(10) row_register(.D(ball_top_new),
+                              .clk(clock), .en(pos_reg_load), .clr(regClr),
+                              .Q(ball_top));
+
+  register #(10) col_register(.D(ball_left_new),
+                              .clk(clock), .en(pos_reg_load), .clr(regClr),
+                              .Q(ball_left));
+
+                              
+  
   
 
 

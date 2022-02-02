@@ -1,0 +1,14 @@
+Partition Merge Status : Successful - Tue Feb  1 20:39:15 2022
+Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+Revision Name : FPGAQuartusProject
+Top-level Entity Name : ChipInterface
+Family : Cyclone IV E
+Total logic elements : 849
+    Total combinational functions : 632
+    Dedicated logic registers : 542
+Total registers : 542
+Total pins : 113
+Total virtual pins : 0
+Total memory bits : 1,280
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
