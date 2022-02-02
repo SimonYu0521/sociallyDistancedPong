@@ -396,9 +396,9 @@ paddleY[6] <= <GND>
 paddleY[7] <= <GND>
 paddleY[8] <= <GND>
 paddleY[9] <= <GND>
-update_screen => Selector7.IN5
 update_screen => Selector8.IN5
-clock => clock.IN4
+update_screen => Selector9.IN5
+clock => clock.IN6
 reset => state[0].ACLR
 reset => state[1].ACLR
 reset => state[2].ACLR
@@ -537,6 +537,22 @@ Q[6] <= Q[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 Q[7] <= Q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 Q[8] <= Q[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 Q[9] <= Q[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ChipInterface|gameStateModule:gsm|register:sign_x_reg
+D[0] => Q.DATAB
+en => Q.OUTPUTSELECT
+clr => Q.OUTPUTSELECT
+clk => Q[0]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ChipInterface|gameStateModule:gsm|register:sign_y_reg
+D[0] => Q.DATAB
+en => Q.OUTPUTSELECT
+clr => Q.OUTPUTSELECT
+clk => Q[0]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |ChipInterface|gameStateModule:gsm|register:row_register

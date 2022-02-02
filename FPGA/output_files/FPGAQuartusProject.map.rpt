@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FPGAQuartusProject
-Tue Feb  1 22:02:15 2022
+Wed Feb  2 16:39:04 2022
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -25,19 +25,23 @@ Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
  17. Parameter Settings for User Entity Instance: displayModule:disM|vga:vgaModule|simple_counter:col_counter
  18. Parameter Settings for User Entity Instance: gameStateModule:gsm|register:vel_x_reg
  19. Parameter Settings for User Entity Instance: gameStateModule:gsm|register:vel_y_reg
- 20. Parameter Settings for User Entity Instance: gameStateModule:gsm|register:row_register
- 21. Parameter Settings for User Entity Instance: gameStateModule:gsm|register:col_register
- 22. Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0
- 23. Port Connectivity Checks: "CommunicationReceiver:cr"
- 24. Port Connectivity Checks: "CommunicationSender:cs"
- 25. Port Connectivity Checks: "UserInterface:ui"
- 26. Port Connectivity Checks: "displayModule:disM|vga:vgaModule|simple_counter:col_counter"
- 27. Signal Tap Logic Analyzer Settings
- 28. Post-Synthesis Netlist Statistics for Top Partition
- 29. Elapsed Time Per Partition
- 30. Connections to In-System Debugging Instance "auto_signaltap_0"
- 31. Analysis & Synthesis Messages
- 32. Analysis & Synthesis Suppressed Messages
+ 20. Parameter Settings for User Entity Instance: gameStateModule:gsm|register:sign_x_reg
+ 21. Parameter Settings for User Entity Instance: gameStateModule:gsm|register:sign_y_reg
+ 22. Parameter Settings for User Entity Instance: gameStateModule:gsm|register:row_register
+ 23. Parameter Settings for User Entity Instance: gameStateModule:gsm|register:col_register
+ 24. Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0
+ 25. Port Connectivity Checks: "CommunicationReceiver:cr"
+ 26. Port Connectivity Checks: "CommunicationSender:cs"
+ 27. Port Connectivity Checks: "UserInterface:ui"
+ 28. Port Connectivity Checks: "gameStateModule:gsm|register:vel_y_reg"
+ 29. Port Connectivity Checks: "gameStateModule:gsm|register:vel_x_reg"
+ 30. Port Connectivity Checks: "displayModule:disM|vga:vgaModule|simple_counter:col_counter"
+ 31. Signal Tap Logic Analyzer Settings
+ 32. Post-Synthesis Netlist Statistics for Top Partition
+ 33. Elapsed Time Per Partition
+ 34. Connections to In-System Debugging Instance "auto_signaltap_0"
+ 35. Analysis & Synthesis Messages
+ 36. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -64,15 +68,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Feb  1 22:02:15 2022       ;
+; Analysis & Synthesis Status        ; Successful - Wed Feb  2 16:39:04 2022       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; FPGAQuartusProject                          ;
 ; Top-level Entity Name              ; ChipInterface                               ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 789                                         ;
-;     Total combinational functions  ; 573                                         ;
-;     Dedicated logic registers      ; 526                                         ;
-; Total registers                    ; 526                                         ;
+; Total logic elements               ; 782                                         ;
+;     Total combinational functions  ; 566                                         ;
+;     Dedicated logic registers      ; 519                                         ;
+; Total registers                    ; 519                                         ;
 ; Total pins                         ; 113                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 1,280                                       ;
@@ -255,20 +259,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+--------------------------+
 ; Resource                                    ; Usage                    ;
 +---------------------------------------------+--------------------------+
-; Estimated Total logic elements              ; 789                      ;
+; Estimated Total logic elements              ; 782                      ;
 ;                                             ;                          ;
-; Total combinational functions               ; 573                      ;
+; Total combinational functions               ; 566                      ;
 ; Logic element usage by number of LUT inputs ;                          ;
 ;     -- 4 input functions                    ; 216                      ;
 ;     -- 3 input functions                    ; 176                      ;
-;     -- <=2 input functions                  ; 181                      ;
+;     -- <=2 input functions                  ; 174                      ;
 ;                                             ;                          ;
 ; Logic elements by mode                      ;                          ;
 ;     -- normal mode                          ; 439                      ;
-;     -- arithmetic mode                      ; 134                      ;
+;     -- arithmetic mode                      ; 127                      ;
 ;                                             ;                          ;
-; Total registers                             ; 526                      ;
-;     -- Dedicated logic registers            ; 526                      ;
+; Total registers                             ; 519                      ;
+;     -- Dedicated logic registers            ; 519                      ;
 ;     -- I/O registers                        ; 0                        ;
 ;                                             ;                          ;
 ; I/O pins                                    ; 113                      ;
@@ -278,8 +282,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                          ;
 ; Maximum fan-out node                        ; altera_internal_jtag~TDO ;
 ; Maximum fan-out                             ; 335                      ;
-; Total fan-out                               ; 3784                     ;
-; Average fan-out                             ; 2.82                     ;
+; Total fan-out                               ; 3740                     ;
+; Average fan-out                             ; 2.81                     ;
 +---------------------------------------------+--------------------------+
 
 
@@ -288,15 +292,16 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                       ; Entity Name                       ; Library Name ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
-; |ChipInterface                                                                                                                          ; 573 (1)             ; 526 (2)                   ; 1280        ; 0            ; 0       ; 0         ; 113  ; 0            ; |ChipInterface                                                                                                                                                                                                                                                                                                                                            ; ChipInterface                     ; work         ;
-;    |displayModule:disM|                                                                                                                 ; 85 (40)             ; 21 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|displayModule:disM                                                                                                                                                                                                                                                                                                                         ; displayModule                     ; work         ;
+; |ChipInterface                                                                                                                          ; 566 (1)             ; 519 (2)                   ; 1280        ; 0            ; 0       ; 0         ; 113  ; 0            ; |ChipInterface                                                                                                                                                                                                                                                                                                                                            ; ChipInterface                     ; work         ;
+;    |displayModule:disM|                                                                                                                 ; 79 (34)             ; 21 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|displayModule:disM                                                                                                                                                                                                                                                                                                                         ; displayModule                     ; work         ;
 ;       |vga:vgaModule|                                                                                                                   ; 45 (13)             ; 21 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|displayModule:disM|vga:vgaModule                                                                                                                                                                                                                                                                                                           ; vga                               ; work         ;
 ;          |simple_counter:col_counter|                                                                                                   ; 11 (11)             ; 11 (11)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|displayModule:disM|vga:vgaModule|simple_counter:col_counter                                                                                                                                                                                                                                                                                ; simple_counter                    ; work         ;
 ;          |simple_counter:row_counter|                                                                                                   ; 21 (21)             ; 10 (10)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|displayModule:disM|vga:vgaModule|simple_counter:row_counter                                                                                                                                                                                                                                                                                ; simple_counter                    ; work         ;
-;    |gameStateModule:gsm|                                                                                                                ; 39 (12)             ; 22 (2)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|gameStateModule:gsm                                                                                                                                                                                                                                                                                                                        ; gameStateModule                   ; work         ;
-;       |register:col_register|                                                                                                           ; 12 (12)             ; 10 (10)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|gameStateModule:gsm|register:col_register                                                                                                                                                                                                                                                                                                  ; register                          ; work         ;
-;       |register:row_register|                                                                                                           ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|gameStateModule:gsm|register:row_register                                                                                                                                                                                                                                                                                                  ; register                          ; work         ;
-;       |register:vel_x_reg|                                                                                                              ; 14 (14)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|gameStateModule:gsm|register:vel_x_reg                                                                                                                                                                                                                                                                                                     ; register                          ; work         ;
+;    |gameStateModule:gsm|                                                                                                                ; 38 (30)             ; 15 (2)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|gameStateModule:gsm                                                                                                                                                                                                                                                                                                                        ; gameStateModule                   ; work         ;
+;       |register:col_register|                                                                                                           ; 7 (7)               ; 10 (10)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|gameStateModule:gsm|register:col_register                                                                                                                                                                                                                                                                                                  ; register                          ; work         ;
+;       |register:row_register|                                                                                                           ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|gameStateModule:gsm|register:row_register                                                                                                                                                                                                                                                                                                  ; register                          ; work         ;
+;       |register:sign_x_reg|                                                                                                             ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|gameStateModule:gsm|register:sign_x_reg                                                                                                                                                                                                                                                                                                    ; register                          ; work         ;
+;       |register:vel_x_reg|                                                                                                              ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|gameStateModule:gsm|register:vel_x_reg                                                                                                                                                                                                                                                                                                     ; register                          ; work         ;
 ;    |sld_hub:auto_hub|                                                                                                                   ; 126 (1)             ; 90 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                           ; sld_hub                           ; altera_sld   ;
 ;       |alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric| ; 125 (0)             ; 90 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric                                                                                                                                                                                           ; alt_sld_fab_with_jtag_input       ; altera_sld   ;
 ;          |alt_sld_fab:instrumentation_fabric|                                                                                           ; 125 (0)             ; 90 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                                                                                        ; alt_sld_fab                       ; alt_sld_fab  ;
@@ -375,31 +380,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
 
 
-+-------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                          ;
-+------------------------------------------------+------------------------------------------------------------+
-; Register name                                  ; Reason for Removal                                         ;
-+------------------------------------------------+------------------------------------------------------------+
-; gameStateModule:gsm|state[2..31]               ; Stuck at GND due to stuck port data_in                     ;
-; gameStateModule:gsm|register:vel_y_reg|Q[0]    ; Stuck at GND due to stuck port data_in                     ;
-; gameStateModule:gsm|register:row_register|Q[0] ; Stuck at GND due to stuck port data_in                     ;
-; gameStateModule:gsm|register:vel_y_reg|Q[1]    ; Stuck at GND due to stuck port data_in                     ;
-; gameStateModule:gsm|register:row_register|Q[1] ; Stuck at GND due to stuck port data_in                     ;
-; gameStateModule:gsm|register:vel_y_reg|Q[2,3]  ; Stuck at GND due to stuck port data_in                     ;
-; gameStateModule:gsm|register:row_register|Q[3] ; Stuck at GND due to stuck port data_in                     ;
-; gameStateModule:gsm|register:vel_y_reg|Q[4]    ; Stuck at GND due to stuck port data_in                     ;
-; gameStateModule:gsm|register:row_register|Q[4] ; Stuck at GND due to stuck port data_in                     ;
-; gameStateModule:gsm|register:vel_y_reg|Q[5..7] ; Stuck at GND due to stuck port data_in                     ;
-; gameStateModule:gsm|register:row_register|Q[7] ; Stuck at GND due to stuck port data_in                     ;
-; gameStateModule:gsm|register:vel_y_reg|Q[8]    ; Stuck at GND due to stuck port data_in                     ;
-; gameStateModule:gsm|register:row_register|Q[8] ; Stuck at GND due to stuck port data_in                     ;
-; gameStateModule:gsm|register:vel_y_reg|Q[9]    ; Stuck at GND due to stuck port data_in                     ;
-; gameStateModule:gsm|register:row_register|Q[9] ; Stuck at GND due to stuck port data_in                     ;
-; gameStateModule:gsm|register:row_register|Q[5] ; Merged with gameStateModule:gsm|register:row_register|Q[2] ;
-; gameStateModule:gsm|register:vel_x_reg|Q[0]    ; Merged with gameStateModule:gsm|register:row_register|Q[2] ;
-; gameStateModule:gsm|register:row_register|Q[6] ; Merged with gameStateModule:gsm|register:row_register|Q[2] ;
-; Total Number of Removed Registers = 50         ;                                                            ;
-+------------------------------------------------+------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                     ;
++-----------------------------------------------------------+------------------------------------------------------------+
+; Register name                                             ; Reason for Removal                                         ;
++-----------------------------------------------------------+------------------------------------------------------------+
+; gameStateModule:gsm|state[2..31]                          ; Stuck at GND due to stuck port data_in                     ;
+; gameStateModule:gsm|register:vel_x_reg|Q[2,6]             ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0]    ;
+; gameStateModule:gsm|register:vel_y_reg|Q[2,4,6]           ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0]    ;
+; gameStateModule:gsm|register:vel_x_reg|Q[4,8]             ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0]    ;
+; gameStateModule:gsm|register:vel_y_reg|Q[1,3,5,7,9]       ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0]    ;
+; gameStateModule:gsm|register:vel_x_reg|Q[1,3,5,7,9]       ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0]    ;
+; gameStateModule:gsm|register:vel_y_reg|Q[8]               ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0]    ;
+; gameStateModule:gsm|register:vel_y_reg|Q[0]               ; Stuck at GND due to stuck port data_in                     ;
+; gameStateModule:gsm|register:row_register|Q[0,1,3,4,7..9] ; Stuck at GND due to stuck port data_in                     ;
+; gameStateModule:gsm|register:row_register|Q[5,6]          ; Merged with gameStateModule:gsm|register:row_register|Q[2] ;
+; gameStateModule:gsm|register:sign_y_reg|Q[0]              ; Lost fanout                                                ;
+; Total Number of Removed Registers = 59                    ;                                                            ;
++-----------------------------------------------------------+------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------+
@@ -409,21 +407,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------+---------------------------+-------------------------------------------------+
 ; gameStateModule:gsm|state[31] ; Stuck at GND              ; gameStateModule:gsm|register:vel_y_reg|Q[0],    ;
 ;                               ; due to stuck port data_in ; gameStateModule:gsm|register:row_register|Q[0], ;
-;                               ;                           ; gameStateModule:gsm|register:vel_y_reg|Q[1],    ;
 ;                               ;                           ; gameStateModule:gsm|register:row_register|Q[1], ;
-;                               ;                           ; gameStateModule:gsm|register:vel_y_reg|Q[2],    ;
-;                               ;                           ; gameStateModule:gsm|register:vel_y_reg|Q[3],    ;
 ;                               ;                           ; gameStateModule:gsm|register:row_register|Q[3], ;
-;                               ;                           ; gameStateModule:gsm|register:vel_y_reg|Q[4],    ;
 ;                               ;                           ; gameStateModule:gsm|register:row_register|Q[4], ;
-;                               ;                           ; gameStateModule:gsm|register:vel_y_reg|Q[5],    ;
-;                               ;                           ; gameStateModule:gsm|register:vel_y_reg|Q[6],    ;
-;                               ;                           ; gameStateModule:gsm|register:vel_y_reg|Q[7],    ;
 ;                               ;                           ; gameStateModule:gsm|register:row_register|Q[7], ;
-;                               ;                           ; gameStateModule:gsm|register:vel_y_reg|Q[8],    ;
 ;                               ;                           ; gameStateModule:gsm|register:row_register|Q[8], ;
-;                               ;                           ; gameStateModule:gsm|register:vel_y_reg|Q[9],    ;
-;                               ;                           ; gameStateModule:gsm|register:row_register|Q[9]  ;
+;                               ;                           ; gameStateModule:gsm|register:row_register|Q[9], ;
+;                               ;                           ; gameStateModule:gsm|register:sign_y_reg|Q[0]    ;
 +-------------------------------+---------------------------+-------------------------------------------------+
 
 
@@ -432,12 +422,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 526   ;
-; Number of registers using Synchronous Clear  ; 68    ;
+; Total registers                              ; 519   ;
+; Number of registers using Synchronous Clear  ; 59    ;
 ; Number of registers using Synchronous Load   ; 62    ;
 ; Number of registers using Asynchronous Clear ; 191   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 319   ;
+; Number of registers using Clock Enable       ; 311   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -466,10 +456,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChipInterface|gameStateModule:gsm|register:row_register|Q[2]                   ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |ChipInterface|displayModule:disM|vga:vgaModule|simple_counter:row_counter|Q[7] ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |ChipInterface|gameStateModule:gsm|register:col_register|Q[7]                   ;
-; 5:1                ; 9 bits    ; 27 LEs        ; 9 LEs                ; 18 LEs                 ; Yes        ; |ChipInterface|gameStateModule:gsm|register:vel_x_reg|Q[9]                      ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |ChipInterface|gameStateModule:gsm|register:row_register|Q[2]                   ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |ChipInterface|displayModule:disM|vga:vgaModule|simple_counter:row_counter|Q[9] ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |ChipInterface|gameStateModule:gsm|register:col_register|Q[3]                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
 
 
@@ -519,6 +508,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+------------------------------------------------------------+
 ; WIDTH          ; 10    ; Signed Integer                                             ;
 +----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: gameStateModule:gsm|register:sign_x_reg ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; WIDTH          ; 1     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: gameStateModule:gsm|register:sign_y_reg ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; WIDTH          ; 1     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -659,6 +668,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------+-------+----------+--------------+
 
 
++--------------------------------------------------------------------+
+; Port Connectivity Checks: "gameStateModule:gsm|register:vel_y_reg" ;
++------+-------+----------+------------------------------------------+
+; Port ; Type  ; Severity ; Details                                  ;
++------+-------+----------+------------------------------------------+
+; D    ; Input ; Info     ; Stuck at GND                             ;
++------+-------+----------+------------------------------------------+
+
+
++--------------------------------------------------------------------+
+; Port Connectivity Checks: "gameStateModule:gsm|register:vel_x_reg" ;
++---------+-------+----------+---------------------------------------+
+; Port    ; Type  ; Severity ; Details                               ;
++---------+-------+----------+---------------------------------------+
+; D[9..1] ; Input ; Info     ; Stuck at GND                          ;
++---------+-------+----------+---------------------------------------+
+
+
 +-----------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "displayModule:disM|vga:vgaModule|simple_counter:col_counter" ;
 +------+-------+----------+---------------------------------------------------------------+
@@ -683,26 +710,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 112                         ;
-; cycloneiii_ff         ; 45                          ;
+; cycloneiii_ff         ; 38                          ;
 ;     CLR               ; 9                           ;
 ;     CLR SCLR          ; 11                          ;
-;     ENA               ; 11                          ;
+;     ENA               ; 12                          ;
 ;     ENA CLR           ; 3                           ;
-;     ENA SCLR          ; 9                           ;
-;     plain             ; 2                           ;
-; cycloneiii_lcell_comb ; 127                         ;
-;     arith             ; 61                          ;
-;         2 data inputs ; 32                          ;
-;         3 data inputs ; 29                          ;
+;     plain             ; 3                           ;
+; cycloneiii_lcell_comb ; 120                         ;
+;     arith             ; 54                          ;
+;         2 data inputs ; 26                          ;
+;         3 data inputs ; 28                          ;
 ;     normal            ; 66                          ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 7                           ;
+;         1 data inputs ; 6                           ;
 ;         2 data inputs ; 10                          ;
-;         3 data inputs ; 19                          ;
+;         3 data inputs ; 20                          ;
 ;         4 data inputs ; 29                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 3.10                        ;
+; Average LUT depth     ; 3.41                        ;
 +-----------------------+-----------------------------+
 
 
@@ -711,7 +737,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -782,7 +808,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Tue Feb  1 22:01:54 2022
+    Info: Processing started: Wed Feb  2 16:38:21 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGAQuartusProject -c FPGAQuartusProject
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -850,11 +876,10 @@ Warning (10036): Verilog HDL or VHDL warning at chipinterface.sv(203): object "s
 Warning (10036): Verilog HDL or VHDL warning at chipinterface.sv(203): object "reset_L" assigned a value but never read File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 203
 Warning (10230): Verilog HDL assignment warning at chipinterface.sv(210): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 210
 Warning (10230): Verilog HDL assignment warning at chipinterface.sv(211): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 211
-Warning (10230): Verilog HDL assignment warning at chipinterface.sv(252): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 252
-Warning (10230): Verilog HDL assignment warning at chipinterface.sv(253): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 253
 Warning (10034): Output port "paddleX" at chipinterface.sv(199) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 199
 Warning (10034): Output port "paddleY" at chipinterface.sv(199) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 199
-Info (12128): Elaborating entity "register" for hierarchy "gameStateModule:gsm|register:vel_x_reg" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 278
+Info (12128): Elaborating entity "register" for hierarchy "gameStateModule:gsm|register:vel_x_reg" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 284
+Info (12128): Elaborating entity "register" for hierarchy "gameStateModule:gsm|register:sign_x_reg" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 292
 Info (12128): Elaborating entity "UserInterface" for hierarchy "UserInterface:ui" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 49
 Warning (10034): Output port "joystick_up" at chipinterface.sv(80) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 80
 Warning (10034): Output port "joystick_down" at chipinterface.sv(80) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 80
@@ -897,7 +922,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr
     Info (12023): Found entity 1: cmpr_ngc File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/db/cmpr_ngc.tdf Line: 23
 Info (12033): Analysis and Synthesis generated Signal Tap or debug node instance "auto_signaltap_0"
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2022.02.01.22:02:07 Progress: Loading sld267bc682/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2022.02.02.16:38:47 Progress: Loading sld267bc682/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -981,6 +1006,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "UART_TXD" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 16
     Warning (13410): Pin "UART_CTS" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 17
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
+Info (17049): 1 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/output_files/FPGAQuartusProject.map.smsg
 Critical Warning (35025): Partially connected in-system debug instance "auto_signaltap_0" to 33 of its 53 required data inputs, trigger inputs, acquisition clocks, and dynamic pins.  There were 0 illegal, 0 inaccessible, and 20 missing sources or connections.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
@@ -1009,16 +1035,16 @@ Warning (21074): Design contains 23 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[17]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
     Warning (15610): No output dependent on input pin "UART_RXD" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 15
     Warning (15610): No output dependent on input pin "UART_RTS" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 15
-Info (21057): Implemented 932 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 925 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 29 input pins
     Info (21059): Implemented 88 output pins
-    Info (21061): Implemented 804 logic cells
+    Info (21061): Implemented 797 logic cells
     Info (21064): Implemented 10 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 141 warnings
-    Info: Peak virtual memory: 4851 megabytes
-    Info: Processing ended: Tue Feb  1 22:02:15 2022
-    Info: Elapsed time: 00:00:21
-    Info: Total CPU time (on all processors): 00:00:43
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 139 warnings
+    Info: Peak virtual memory: 4863 megabytes
+    Info: Processing ended: Wed Feb  2 16:39:04 2022
+    Info: Elapsed time: 00:00:43
+    Info: Total CPU time (on all processors): 00:01:29
 
 
 +------------------------------------------+

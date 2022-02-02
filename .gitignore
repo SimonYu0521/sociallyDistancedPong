@@ -5,6 +5,8 @@
 # Quartus Project files
 *.qws
 *.qpf
+*.cdb
+*.hdb
 
 # Log files
 *.qarlog

@@ -231,27 +231,33 @@ module gameStateModule
 
   logic [9:0] vel_x, vel_y, vel_x_new, vel_y_new;
 
-  logic regClr, vel_reg_load, pos_reg_load;
+  logic sign_x_new, sign_y_new, sign_x, sign_y;
+
+  logic regClr, vel_reg_load, pos_reg_load, sign_reg_load;
 
   always_comb begin
     vel_x_new = 0; vel_y_new = 0;
     ball_top_new = 0; ball_left_new = 0;
+    sign_x_new = 0; sign_y_new = 0;
     regClr = 0; vel_reg_load = 0;
     pos_reg_load = 0;
+    sign_reg_load = 0;
     case (state)
       RESET: regClr = 1;
       PLAY_MODE_INIT: begin
         vel_x_new = 1; vel_y_new = 0;
         ball_top_new = 10'd100; ball_left_new = 10'd100;
+        sign_x_new = 1; sign_y_new = 1;
         vel_reg_load = 1;
         pos_reg_load = 1;
+        sign_reg_load = 1;
       end
       PLAY_MODE:begin
-        ball_top_new = ball_top + vel_y;
-        ball_left_new = ball_left + vel_x;
-        vel_x_new = ball_hit_left_right ? (- vel_x) : vel_x;
-        vel_y_new = ball_hit_top_bottom ? (- vel_y) : vel_y;
-        vel_reg_load = update_screen;
+        ball_top_new = sign_y ? (ball_top + vel_y) : (ball_top - vel_y);
+        ball_left_new = sign_x ? (ball_left + vel_x) : (ball_left - vel_x);
+        sign_x_new = ball_hit_left_right ? !sign_x : sign_x;
+        sign_y_new = ball_hit_top_bottom ? !sign_y : sign_y;
+        sign_reg_load = update_screen;
         pos_reg_load = update_screen;
       end
     endcase
@@ -280,6 +286,15 @@ module gameStateModule
   register #(10) vel_y_reg(.D(vel_y_new),
                           .clk(clock), .en(vel_reg_load), .clr(regClr),
                           .Q(vel_y));
+
+  register #(1) sign_x_reg(.D(sign_x_new),
+                          .clk(clock), .en(sign_reg_load), .clr(regClr),
+                          .Q(sign_x));
+  
+  register #(1) sign_y_reg(.D(sign_y_new),
+                          .clk(clock), .en(sign_reg_load), .clr(regClr),
+                          .Q(sign_y));
+  
 
   register #(10) row_register(.D(ball_top_new),
                               .clk(clock), .en(pos_reg_load), .clr(regClr),
