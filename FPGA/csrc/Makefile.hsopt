@@ -30,9 +30,9 @@ TMPSPECENV=$(VCSTMPSPECENV)
 CC=$(TMPSPECENV) $(VCS_CC) $(TMPSPECARG)
 
 # C flags for compilation
-CFLAGS=-w  -pipe -fPIC -O -I/usr/local/synopsys/vcs-mx_vK-2015.09/include    
+CFLAGS=-w  -pipe -fPIC -O -I/afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/include    
 
-CFLAGS_CG=-w  -pipe -fPIC -I/usr/local/synopsys/vcs-mx_vK-2015.09/include -O  
+CFLAGS_CG=-w  -pipe -fPIC -I/afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/include -O  
 
 ASFLAGS=
 LIBS=

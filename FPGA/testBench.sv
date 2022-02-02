@@ -1,4 +1,4 @@
-module gameStateModule_test
+module gameStateModule_test();
   logic joystick_up, joystick_down;
   logic arcade_button_pressed;
   logic [9:0] ball_top, ball_left;

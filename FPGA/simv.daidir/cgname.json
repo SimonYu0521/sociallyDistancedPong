@@ -1,4 +1,9 @@
 {
+    "mux2to1": [
+        "mux2to1",
+        "TDywx",
+        "module"
+    ],
     "std": [
         "std",
         "reYIK",
@@ -9,59 +14,19 @@
         "RZvU4",
         "module"
     ],
-    "mux2to1": [
-        "mux2to1",
-        "TDywx",
-        "module"
-    ],
-    "decoder": [
-        "decoder",
-        "zf0bY",
-        "module"
-    ],
-    "ball_test": [
-        "ball_test",
-        "d3s8N",
-        "module"
-    ],
-    "Ball": [
-        "Ball",
-        "jpYSR",
-        "module"
-    ],
-    "ChipInterface_ball": [
-        "ChipInterface_ball",
-        "rRSLc",
-        "module"
-    ],
-    "priority_encoder": [
-        "priority_encoder",
-        "UZ5LL",
-        "module"
-    ],
-    "game_clock_generator": [
-        "game_clock_generator",
-        "MmBEy",
-        "module"
-    ],
-    "register": [
-        "register",
-        "DAC4W",
-        "module"
-    ],
-    "comparator": [
-        "comparator",
-        "U57Qt",
-        "module"
-    ],
     "shift_register": [
         "shift_register",
         "JPGqC",
         "module"
     ],
-    "adder": [
-        "adder",
-        "Qq4Ev",
+    "ChipInterface": [
+        "ChipInterface",
+        "VHM6x",
+        "module"
+    ],
+    "gameStateModule": [
+        "gameStateModule",
+        "eqpSA",
         "module"
     ],
     "range_check2D": [
@@ -69,9 +34,49 @@
         "CBai6",
         "module"
     ],
+    "comparator": [
+        "comparator",
+        "U57Qt",
+        "module"
+    ],
+    "decoder": [
+        "decoder",
+        "zf0bY",
+        "module"
+    ],
+    "adder": [
+        "adder",
+        "Qq4Ev",
+        "module"
+    ],
+    "priority_encoder": [
+        "priority_encoder",
+        "UZ5LL",
+        "module"
+    ],
+    "gameStateModule_test": [
+        "gameStateModule_test",
+        "Ax9au",
+        "module"
+    ],
+    "counter": [
+        "counter",
+        "MQn6b",
+        "module"
+    ],
+    "count_by_2": [
+        "count_by_2",
+        "eyenR",
+        "module"
+    ],
     "offset_check2D": [
         "offset_check2D",
         "GMywV",
+        "module"
+    ],
+    "game_clock_generator": [
+        "game_clock_generator",
+        "MmBEy",
         "module"
     ],
     "...MASTER...": [

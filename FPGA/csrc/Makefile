@@ -18,10 +18,10 @@ PRODUCT_TIMESTAMP=product_timestamp
 
 # Path to runtime library
 DEPLIBS=
-VCSUCLI=/usr/local/synopsys/vcs-mx_vK-2015.09/linux64/lib/libvcsucli.so
-RUNTIME=/usr/local/synopsys/vcs-mx_vK-2015.09/linux64/lib/libvcsnew.so /usr/local/synopsys/vcs-mx_vK-2015.09/linux64/lib/libsimprofile.so /usr/local/synopsys/vcs-mx_vK-2015.09/linux64/lib/libuclinative.so $(DEPLIBS) 
+VCSUCLI=/afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/libvcsucli.so
+RUNTIME=/afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/libvcsnew.so /afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/libsimprofile.so /afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/libuclinative.so $(DEPLIBS) 
 
-VCS_SAVE_RESTORE_OBJ=/usr/local/synopsys/vcs-mx_vK-2015.09/linux64/lib/vcs_save_restore_new.o
+VCS_SAVE_RESTORE_OBJ=/afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/vcs_save_restore_new.o
 
 # Select your favorite compiler
 
@@ -63,14 +63,14 @@ TMPSPECENV=$(VCSTMPSPECENV)
 CC=$(TMPSPECENV) $(VCS_CC) $(TMPSPECARG)
 
 # C flags for compilation
-CFLAGS=-w  -pipe -fPIC -O -I/usr/local/synopsys/vcs-mx_vK-2015.09/include   
+CFLAGS=-w  -pipe -fPIC -O -I/afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/include   
 
-CFLAGS_CG=-w   -pipe -fPIC -I/usr/local/synopsys/vcs-mx_vK-2015.09/include -O  
+CFLAGS_CG=-w   -pipe -fPIC -I/afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/include -O  
 
 # Partial linking
 LD_PARTIAL=ld -r -o
 ASFLAGS=
-LIBS=/usr/local/synopsys/vcs-mx_vK-2015.09/linux64/lib/libzerosoft_rt_stubs.so /usr/local/synopsys/vcs-mx_vK-2015.09/linux64/lib/libvirsim.so /usr/local/synopsys/vcs-mx_vK-2015.09/linux64/lib/liberrorinf.so /usr/local/synopsys/vcs-mx_vK-2015.09/linux64/lib/libsnpsmalloc.so 
+LIBS=/afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/libzerosoft_rt_stubs.so /afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/libvirsim.so /afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/liberrorinf.so /afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/libsnpsmalloc.so 
 # Note: if make gives you errors about include, either get gmake, or
 # replace the following line with the contents of the file filelist,
 # EACH TIME IT CHANGES
@@ -91,11 +91,11 @@ clobber : clean
 	rm -f $(PRODUCT) $(PRODUCT_TIMESTAMP) 
 
 picclean :
-	@rm -f _csrc*.so linux64_scvhdl_*.so pre_vcsobj_*.so share_vcsobj_*.so
+	rm -f _csrc*.so linux64_scvhdl_*.so pre_vcsobj_*.so share_vcsobj_*.so
 
 $(PRODUCT_TIMESTAMP) : $(PRODUCT)
-	@-if [ -x $(PRODUCT) ]; then chmod -x $(PRODUCT); fi
-	@$(LD) $(CRT0) -o $(PRODUCT) $(STRIPFLAGS) $(PCLDFLAGS) $(PICLDFLAGS) $(LDFLAGS) $(OBJS)  $(LIBS)   $(RUNTIME) -Wl,-whole-archive $(VCSUCLI) -Wl,-no-whole-archive     $(LINK_TB) $(DPI_STUB_OBJS) $(PLI_STUB_OBJS)   $(VCS_SAVE_RESTORE_OBJ) $(SYSLIBS) $(CRTN)
+	-if [ -x $(PRODUCT) ]; then chmod -x $(PRODUCT); fi
+	$(LD) $(CRT0) -o $(PRODUCT) $(STRIPFLAGS) $(PCLDFLAGS) $(PICLDFLAGS) $(LDFLAGS) $(OBJS)  $(LIBS)   $(RUNTIME) -Wl,-whole-archive $(VCSUCLI) -Wl,-no-whole-archive     $(LINK_TB) $(DPI_STUB_OBJS) $(PLI_STUB_OBJS)   $(VCS_SAVE_RESTORE_OBJ) $(SYSLIBS) $(CRTN)
 	@rm -f csrc[0-9]*.o
 	@touch $(PRODUCT_TIMESTAMP)
 	@-if [ -d ./objs ]; then find ./objs -type d -empty -delete; fi
