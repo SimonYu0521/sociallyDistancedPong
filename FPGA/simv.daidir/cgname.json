@@ -4,64 +4,9 @@
         "TDywx",
         "module"
     ],
-    "std": [
-        "std",
-        "reYIK",
-        "module"
-    ],
     "mux": [
         "mux",
         "RZvU4",
-        "module"
-    ],
-    "shift_register": [
-        "shift_register",
-        "JPGqC",
-        "module"
-    ],
-    "ChipInterface": [
-        "ChipInterface",
-        "VHM6x",
-        "module"
-    ],
-    "gameStateModule": [
-        "gameStateModule",
-        "eqpSA",
-        "module"
-    ],
-    "range_check2D": [
-        "range_check2D",
-        "CBai6",
-        "module"
-    ],
-    "comparator": [
-        "comparator",
-        "U57Qt",
-        "module"
-    ],
-    "decoder": [
-        "decoder",
-        "zf0bY",
-        "module"
-    ],
-    "adder": [
-        "adder",
-        "Qq4Ev",
-        "module"
-    ],
-    "priority_encoder": [
-        "priority_encoder",
-        "UZ5LL",
-        "module"
-    ],
-    "gameStateModule_test": [
-        "gameStateModule_test",
-        "Ax9au",
-        "module"
-    ],
-    "counter": [
-        "counter",
-        "MQn6b",
         "module"
     ],
     "count_by_2": [
@@ -69,9 +14,29 @@
         "eyenR",
         "module"
     ],
-    "offset_check2D": [
-        "offset_check2D",
-        "GMywV",
+    "gameStateModule": [
+        "gameStateModule",
+        "eqpSA",
+        "module"
+    ],
+    "std": [
+        "std",
+        "reYIK",
+        "module"
+    ],
+    "decoder": [
+        "decoder",
+        "zf0bY",
+        "module"
+    ],
+    "ChipInterface": [
+        "ChipInterface",
+        "VHM6x",
+        "module"
+    ],
+    "comparator": [
+        "comparator",
+        "U57Qt",
         "module"
     ],
     "game_clock_generator": [
@@ -79,9 +44,44 @@
         "MmBEy",
         "module"
     ],
+    "adder": [
+        "adder",
+        "Qq4Ev",
+        "module"
+    ],
+    "offset_check2D": [
+        "offset_check2D",
+        "GMywV",
+        "module"
+    ],
     "...MASTER...": [
         "SIM",
         "amcQw",
+        "module"
+    ],
+    "range_check2D": [
+        "range_check2D",
+        "CBai6",
+        "module"
+    ],
+    "priority_encoder": [
+        "priority_encoder",
+        "UZ5LL",
+        "module"
+    ],
+    "counter": [
+        "counter",
+        "MQn6b",
+        "module"
+    ],
+    "shift_register": [
+        "shift_register",
+        "JPGqC",
+        "module"
+    ],
+    "gameStateModule_test": [
+        "gameStateModule_test",
+        "Ax9au",
         "module"
     ]
 }

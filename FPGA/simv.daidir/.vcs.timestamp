@@ -85,13 +85,13 @@ BASH_FUNC_module()=() {  eval `/usr/bin/modulecmd bash $*`_}
 AKLOG=/usr/bin/aklog
 0
 4
-1643838881 testBench.sv
+1643843003 testBench.sv
 1643838768 vga.sv
 1643838765 Library.sv
-1643838765 chipinterface.sv
+1643843030 chipinterface.sv
 4
 0 
 1440563255 /afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/libvirsim.so
 1440562843 /afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/liberrorinf.so
 1440562824 /afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/libsnpsmalloc.so
-1643838905 simv.daidir
+1643843031 simv.daidir

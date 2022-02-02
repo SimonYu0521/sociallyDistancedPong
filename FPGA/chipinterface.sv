@@ -231,9 +231,9 @@ module gameStateModule
 
   logic [9:0] vel_x, vel_y, vel_x_new, vel_y_new;
 
+  logic sign_x, sign_y, sign_x_new, sign_y_new;
 
-
-  logic regClr, vel_reg_load, pos_reg_load,
+  logic regClr, vel_reg_load, pos_reg_load, sign_reg_load;
 
   always_comb begin
     vel_x_new = 0; vel_y_new = 0;
@@ -244,22 +244,25 @@ module gameStateModule
     case (state)
       RESET: regClr = 1;
       PLAY_MODE_INIT: begin
-        vel_x_new = 1; vel_y_new = 0;
-        ball_top_new = 10'd100; ball_left_new = 10'd100;
+        vel_x_new = 3; vel_y_new = 2;
+        ball_top_new = 10'd100; ball_left_new = 10'd600;
         sign_x_new = 1; sign_y_new = 1;
         vel_reg_load = 1;
         pos_reg_load = 1;
         sign_reg_load = 1;
       end
       PLAY_MODE:begin
-        ball_top_new = ball_top + vel_y;
-        ball_left_new = ball_left + vel_x;
-        vel_x_new = vel_x;
-        vel_y_new = vel_y;
-        if (ball_right >= 640 - (vel_x << 2) || ball_left <= 0 + (vel_x << 2)) begin
-          vel_x_new = - vel_x;
+        ball_top_new = sign_y ? ball_top + vel_y : ball_top - vel_y;
+        ball_left_new = sign_x ? ball_left + vel_x : ball_left - vel_x;
+        sign_x_new = sign_x;
+        sign_y_new = sign_y;
+        if (ball_left_new + `BALL_SIZE >= 640 - vel_x || ball_left_new <= 0 + vel_x) begin
+          sign_x_new = !sign_x;
         end
-        vel_reg_load = update_screen;
+        if (ball_top_new + `BALL_SIZE >= 480 - vel_y || ball_top_new <= 0 + vel_y) begin
+          sign_y_new = !sign_y;
+        end
+        sign_reg_load = update_screen;
         pos_reg_load = update_screen;
       end
     endcase
