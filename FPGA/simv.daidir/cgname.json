@@ -1,24 +1,4 @@
 {
-    "mux2to1": [
-        "mux2to1",
-        "TDywx",
-        "module"
-    ],
-    "mux": [
-        "mux",
-        "RZvU4",
-        "module"
-    ],
-    "count_by_2": [
-        "count_by_2",
-        "eyenR",
-        "module"
-    ],
-    "gameStateModule": [
-        "gameStateModule",
-        "eqpSA",
-        "module"
-    ],
     "std": [
         "std",
         "reYIK",
@@ -29,34 +9,9 @@
         "zf0bY",
         "module"
     ],
-    "ChipInterface": [
-        "ChipInterface",
-        "VHM6x",
-        "module"
-    ],
     "comparator": [
         "comparator",
         "U57Qt",
-        "module"
-    ],
-    "game_clock_generator": [
-        "game_clock_generator",
-        "MmBEy",
-        "module"
-    ],
-    "adder": [
-        "adder",
-        "Qq4Ev",
-        "module"
-    ],
-    "offset_check2D": [
-        "offset_check2D",
-        "GMywV",
-        "module"
-    ],
-    "...MASTER...": [
-        "SIM",
-        "amcQw",
         "module"
     ],
     "range_check2D": [
@@ -64,14 +19,14 @@
         "CBai6",
         "module"
     ],
-    "priority_encoder": [
-        "priority_encoder",
-        "UZ5LL",
+    "ChipInterface": [
+        "ChipInterface",
+        "VHM6x",
         "module"
     ],
-    "counter": [
-        "counter",
-        "MQn6b",
+    "adder": [
+        "adder",
+        "Qq4Ev",
         "module"
     ],
     "shift_register": [
@@ -79,9 +34,59 @@
         "JPGqC",
         "module"
     ],
+    "offset_check2D": [
+        "offset_check2D",
+        "GMywV",
+        "module"
+    ],
+    "UserInterface": [
+        "UserInterface",
+        "TFQTc",
+        "module"
+    ],
+    "mux": [
+        "mux",
+        "RZvU4",
+        "module"
+    ],
+    "priority_encoder": [
+        "priority_encoder",
+        "UZ5LL",
+        "module"
+    ],
+    "gameStateModule": [
+        "gameStateModule",
+        "eqpSA",
+        "module"
+    ],
+    "mux2to1": [
+        "mux2to1",
+        "TDywx",
+        "module"
+    ],
+    "count_by_2": [
+        "count_by_2",
+        "eyenR",
+        "module"
+    ],
+    "counter": [
+        "counter",
+        "MQn6b",
+        "module"
+    ],
+    "game_clock_generator": [
+        "game_clock_generator",
+        "MmBEy",
+        "module"
+    ],
     "gameStateModule_test": [
         "gameStateModule_test",
         "Ax9au",
+        "module"
+    ],
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
         "module"
     ]
 }

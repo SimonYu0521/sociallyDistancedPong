@@ -263,7 +263,8 @@ module gameStateModule
 
   logic regClr, vel_reg_load, pos_reg_load, sign_reg_load;
 
-  logic paddleY_new, paddle_move;
+  logic [9:0] paddleY_new;
+  logic paddle_move;
 
   always_comb begin
     vel_x_new = 0; vel_y_new = 0;
@@ -284,7 +285,7 @@ module gameStateModule
         vel_reg_load = 1;
         pos_reg_load = 1;
         sign_reg_load = 1;
-        paddleY_new = 240;
+        paddleY_new = 10'd240;
         paddle_move = 1;
       end
       PLAY_MODE:begin
@@ -298,7 +299,7 @@ module gameStateModule
         if (ball_top_new + `BALL_SIZE >= 480 - vel_y || ball_top_new <= 0 + vel_y) begin
           sign_y_new = !sign_y;
         end
-        paddleY_new = joystick_up ? paddleY + `PADDLE_VEL : paddleY - `PADDLE_VEL;
+        paddleY_new = 100;//joystick_up ? paddleY + `PADDLE_VEL : paddleY - `PADDLE_VEL;
         sign_reg_load = update_screen;
         pos_reg_load = update_screen;
         paddle_move = (joystick_down || joystick_up) && update_screen;

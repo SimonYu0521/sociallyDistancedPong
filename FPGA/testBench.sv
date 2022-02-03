@@ -5,6 +5,10 @@ module gameStateModule_test();
   logic [9:0] paddleX, paddleY;
   logic update_screen, clock, reset;
 
+  logic is_left_player;
+
+  assign is_left_player = 1;
+
   gameStateModule dut(.*);
 
 
@@ -20,8 +24,7 @@ module gameStateModule_test();
     #5 reset = 1;
     #5 reset = 0;
     update_screen = 1;
-    $monitor($time, "%d, %d, %b, %d, %d", ball_top, ball_left, 
-    dut.ball_right >= 640 - (dut.vel_x), $signed(dut.vel_x), 0 + (dut.vel_x));
+    $monitor($time, "%d, %d, %s, reg_load=%b, newVal=%d", paddleX, paddleY, dut.state, dut.paddleY_reg.en, dut.paddleY_new);
     #10000;
     $finish;
   end

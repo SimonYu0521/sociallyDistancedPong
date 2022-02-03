@@ -1,207 +1,238 @@
 {
-    "PrevCompiledModules": {
-        "...MASTER...": {
-            "amcQw_d": {
-                "mode": 4,
-                "bytes": 16070,
-                "mod": "...MASTER...",
-                "out": "objs/amcQw_d.o",
-                "checksum": 4294967295
-            }
+    "MlibObjs": {},
+    "stat": {
+        "ru_self_cgstart": {
+            "ru_minflt": 13319,
+            "ru_utime_sec": 0.060789000000000003,
+            "ru_nivcsw": 5,
+            "ru_stime_sec": 0.036872000000000002,
+            "ru_nvcsw": 116,
+            "ru_maxrss_kb": 52724,
+            "ru_majflt": 0
         },
-        "range_check2D": {
-            "CBai6_d": {
+        "nMops": 1544,
+        "ru_childs_cgstart": {
+            "ru_minflt": 0,
+            "ru_utime_sec": 0.0,
+            "ru_nivcsw": 0,
+            "ru_stime_sec": 0.0,
+            "ru_nvcsw": 0,
+            "ru_maxrss_kb": 0,
+            "ru_majflt": 0
+        },
+        "nQuads": 858,
+        "totalObjSize": 108646,
+        "ru_self_end": {
+            "ru_minflt": 15535,
+            "ru_utime_sec": 0.079635999999999998,
+            "ru_nivcsw": 6,
+            "ru_stime_sec": 0.047986000000000001,
+            "ru_nvcsw": 169,
+            "ru_maxrss_kb": 60092,
+            "ru_majflt": 0
+        },
+        "ru_childs_end": {
+            "ru_minflt": 0,
+            "ru_utime_sec": 0.0,
+            "ru_nivcsw": 0,
+            "ru_stime_sec": 0.0,
+            "ru_nvcsw": 0,
+            "ru_maxrss_kb": 0,
+            "ru_majflt": 0
+        },
+        "mopSpeed": 81922.852443359705,
+        "quadSpeed": 45524.486655701185,
+        "mop/quad": 1.7995337995337994,
+        "outputSizePerQuad": 126.0,
+        "Frontend(%)": 76.333567733186001,
+        "CodeGen(%)": 23.666432266813999
+    },
+    "SIMBData": {
+        "out": "amcQwB.o",
+        "bytes": 60567
+    },
+    "PrevCompiledModules": {
+        "UserInterface": {
+            "TFQTc_d": {
+                "bytes": 6122,
+                "mod": "UserInterface",
+                "out": "TFQTc_d.o",
                 "mode": 4,
-                "bytes": 9453,
-                "mod": "range_check2D",
                 "checksum": 4294967295,
-                "archive": "archive.43/_prev_archive_1.a",
-                "out": "CBai6_d.o"
+                "archive": "archive.50/_prev_archive_1.a"
             }
         },
         "offset_check2D": {
             "GMywV_d": {
-                "mode": 4,
                 "bytes": 10246,
                 "mod": "offset_check2D",
+                "out": "GMywV_d.o",
+                "mode": 4,
                 "checksum": 4294967295,
-                "archive": "archive.43/_prev_archive_1.a",
-                "out": "GMywV_d.o"
+                "archive": "archive.50/_prev_archive_1.a"
             }
         },
         "adder": {
             "Qq4Ev_d": {
-                "mode": 4,
                 "bytes": 9187,
                 "mod": "adder",
-                "checksum": 4294967295,
-                "archive": "archive.43/_prev_archive_1.a",
-                "out": "Qq4Ev_d.o"
-            }
-        },
-        "count_by_2": {
-            "eyenR_d": {
+                "out": "Qq4Ev_d.o",
                 "mode": 4,
-                "bytes": 9067,
-                "mod": "count_by_2",
                 "checksum": 4294967295,
-                "archive": "archive.43/_prev_archive_1.a",
-                "out": "eyenR_d.o"
-            }
-        },
-        "mux": {
-            "RZvU4_d": {
-                "mode": 4,
-                "bytes": 6623,
-                "mod": "mux",
-                "checksum": 4294967295,
-                "archive": "archive.43/_prev_archive_1.a",
-                "out": "RZvU4_d.o"
-            }
-        },
-        "std": {
-            "reYIK_d": {
-                "mode": 4,
-                "bytes": 28470,
-                "mod": "std",
-                "checksum": 4294967295,
-                "archive": "archive.43/_prev_archive_1.a",
-                "out": "reYIK_d.o"
-            }
-        },
-        "gameStateModule": {
-            "eqpSA_d": {
-                "mode": 4,
-                "bytes": 17748,
-                "mod": "gameStateModule",
-                "out": "eqpSA_d.o",
-                "checksum": 4294967295,
-                "archive": "archive.43/_3674_archive_1.a"
-            }
-        },
-        "mux2to1": {
-            "TDywx_d": {
-                "mode": 4,
-                "bytes": 7427,
-                "mod": "mux2to1",
-                "checksum": 4294967295,
-                "archive": "archive.43/_prev_archive_1.a",
-                "out": "TDywx_d.o"
-            }
-        },
-        "ChipInterface": {
-            "VHM6x_d": {
-                "mode": 4,
-                "bytes": 19973,
-                "mod": "ChipInterface",
-                "checksum": 4294967295,
-                "archive": "archive.43/_prev_archive_1.a",
-                "out": "VHM6x_d.o"
-            }
-        },
-        "gameStateModule_test": {
-            "Ax9au_d": {
-                "mode": 4,
-                "bytes": 12710,
-                "mod": "gameStateModule_test",
-                "out": "Ax9au_d.o",
-                "checksum": 4294967295,
-                "archive": "archive.43/_prev_archive_1.a"
-            }
-        },
-        "game_clock_generator": {
-            "MmBEy_d": {
-                "mode": 4,
-                "bytes": 8324,
-                "mod": "game_clock_generator",
-                "checksum": 4294967295,
-                "archive": "archive.43/_prev_archive_1.a",
-                "out": "MmBEy_d.o"
-            }
-        },
-        "comparator": {
-            "U57Qt_d": {
-                "mode": 4,
-                "bytes": 7330,
-                "mod": "comparator",
-                "checksum": 4294967295,
-                "archive": "archive.43/_prev_archive_1.a",
-                "out": "U57Qt_d.o"
-            }
-        },
-        "counter": {
-            "MQn6b_d": {
-                "mode": 4,
-                "bytes": 9032,
-                "mod": "counter",
-                "checksum": 4294967295,
-                "archive": "archive.43/_prev_archive_1.a",
-                "out": "MQn6b_d.o"
+                "archive": "archive.50/_prev_archive_1.a"
             }
         },
         "shift_register": {
             "JPGqC_d": {
-                "mode": 4,
                 "bytes": 8311,
                 "mod": "shift_register",
+                "out": "JPGqC_d.o",
+                "mode": 4,
                 "checksum": 4294967295,
-                "archive": "archive.43/_prev_archive_1.a",
-                "out": "JPGqC_d.o"
+                "archive": "archive.50/_prev_archive_1.a"
+            }
+        },
+        "game_clock_generator": {
+            "MmBEy_d": {
+                "bytes": 8324,
+                "mod": "game_clock_generator",
+                "out": "MmBEy_d.o",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.50/_prev_archive_1.a"
+            }
+        },
+        "count_by_2": {
+            "eyenR_d": {
+                "bytes": 9067,
+                "mod": "count_by_2",
+                "out": "eyenR_d.o",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.50/_prev_archive_1.a"
+            }
+        },
+        "mux2to1": {
+            "TDywx_d": {
+                "bytes": 7427,
+                "mod": "mux2to1",
+                "out": "TDywx_d.o",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.50/_prev_archive_1.a"
+            }
+        },
+        "comparator": {
+            "U57Qt_d": {
+                "bytes": 7330,
+                "mod": "comparator",
+                "out": "U57Qt_d.o",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.50/_prev_archive_1.a"
+            }
+        },
+        "range_check2D": {
+            "CBai6_d": {
+                "bytes": 9453,
+                "mod": "range_check2D",
+                "out": "CBai6_d.o",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.50/_prev_archive_1.a"
+            }
+        },
+        "ChipInterface": {
+            "VHM6x_d": {
+                "bytes": 24227,
+                "mod": "ChipInterface",
+                "out": "VHM6x_d.o",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.50/_prev_archive_1.a"
             }
         },
         "priority_encoder": {
             "UZ5LL_d": {
-                "mode": 4,
                 "bytes": 8737,
                 "mod": "priority_encoder",
+                "out": "UZ5LL_d.o",
+                "mode": 4,
                 "checksum": 4294967295,
-                "archive": "archive.43/_prev_archive_1.a",
-                "out": "UZ5LL_d.o"
+                "archive": "archive.50/_prev_archive_1.a"
+            }
+        },
+        "gameStateModule": {
+            "eqpSA_d": {
+                "bytes": 18858,
+                "mod": "gameStateModule",
+                "mode": 4,
+                "out": "eqpSA_d.o",
+                "checksum": 4294967295,
+                "archive": "archive.50/_14715_archive_1.a"
+            }
+        },
+        "std": {
+            "reYIK_d": {
+                "bytes": 28470,
+                "mod": "std",
+                "out": "reYIK_d.o",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.50/_prev_archive_1.a"
             }
         },
         "decoder": {
             "zf0bY_d": {
-                "mode": 4,
                 "bytes": 8230,
                 "mod": "decoder",
+                "out": "zf0bY_d.o",
+                "mode": 4,
                 "checksum": 4294967295,
-                "archive": "archive.43/_prev_archive_1.a",
-                "out": "zf0bY_d.o"
+                "archive": "archive.50/_prev_archive_1.a"
+            }
+        },
+        "gameStateModule_test": {
+            "Ax9au_d": {
+                "bytes": 12485,
+                "mod": "gameStateModule_test",
+                "mode": 4,
+                "out": "Ax9au_d.o",
+                "checksum": 4294967295,
+                "archive": "archive.50/_14715_archive_1.a"
+            }
+        },
+        "counter": {
+            "MQn6b_d": {
+                "bytes": 9032,
+                "mod": "counter",
+                "out": "MQn6b_d.o",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.50/_prev_archive_1.a"
+            }
+        },
+        "...MASTER...": {
+            "amcQw_d": {
+                "bytes": 16503,
+                "mod": "...MASTER...",
+                "mode": 4,
+                "out": "objs/amcQw_d.o",
+                "checksum": 4294967295
+            }
+        },
+        "mux": {
+            "RZvU4_d": {
+                "bytes": 6623,
+                "mod": "mux",
+                "out": "RZvU4_d.o",
+                "mode": 4,
+                "checksum": 4294967295,
+                "archive": "archive.50/_prev_archive_1.a"
             }
         }
     },
-    "CurCompileUdps": {},
-    "Misc": {
-        "archive_dir": "archive.43",
-        "daidir_abs": "/afs/andrew.cmu.edu/usr15/bohanyu/private/build18/sociallyDistancedPong/FPGA/simv.daidir",
-        "csrc": "csrc",
-        "cwd": "/afs/andrew.cmu.edu/usr15/bohanyu/private/build18/sociallyDistancedPong/FPGA",
-        "csrc_abs": "/afs/andrew.cmu.edu/usr15/bohanyu/private/build18/sociallyDistancedPong/FPGA/csrc",
-        "daidir": "simv.daidir",
-        "default_output_dir": "csrc"
-    },
-    "MlibObjs": {},
     "NameTable": {
-        "mux2to1": [
-            "mux2to1",
-            "TDywx",
-            "module"
-        ],
-        "mux": [
-            "mux",
-            "RZvU4",
-            "module"
-        ],
-        "count_by_2": [
-            "count_by_2",
-            "eyenR",
-            "module"
-        ],
-        "gameStateModule": [
-            "gameStateModule",
-            "eqpSA",
-            "module"
-        ],
         "std": [
             "std",
             "reYIK",
@@ -212,34 +243,9 @@
             "zf0bY",
             "module"
         ],
-        "ChipInterface": [
-            "ChipInterface",
-            "VHM6x",
-            "module"
-        ],
         "comparator": [
             "comparator",
             "U57Qt",
-            "module"
-        ],
-        "game_clock_generator": [
-            "game_clock_generator",
-            "MmBEy",
-            "module"
-        ],
-        "adder": [
-            "adder",
-            "Qq4Ev",
-            "module"
-        ],
-        "offset_check2D": [
-            "offset_check2D",
-            "GMywV",
-            "module"
-        ],
-        "...MASTER...": [
-            "SIM",
-            "amcQw",
             "module"
         ],
         "range_check2D": [
@@ -247,14 +253,14 @@
             "CBai6",
             "module"
         ],
-        "priority_encoder": [
-            "priority_encoder",
-            "UZ5LL",
+        "ChipInterface": [
+            "ChipInterface",
+            "VHM6x",
             "module"
         ],
-        "counter": [
-            "counter",
-            "MQn6b",
+        "adder": [
+            "adder",
+            "Qq4Ev",
             "module"
         ],
         "shift_register": [
@@ -262,71 +268,84 @@
             "JPGqC",
             "module"
         ],
+        "offset_check2D": [
+            "offset_check2D",
+            "GMywV",
+            "module"
+        ],
+        "UserInterface": [
+            "UserInterface",
+            "TFQTc",
+            "module"
+        ],
+        "mux": [
+            "mux",
+            "RZvU4",
+            "module"
+        ],
+        "priority_encoder": [
+            "priority_encoder",
+            "UZ5LL",
+            "module"
+        ],
+        "gameStateModule": [
+            "gameStateModule",
+            "eqpSA",
+            "module"
+        ],
+        "mux2to1": [
+            "mux2to1",
+            "TDywx",
+            "module"
+        ],
+        "count_by_2": [
+            "count_by_2",
+            "eyenR",
+            "module"
+        ],
+        "counter": [
+            "counter",
+            "MQn6b",
+            "module"
+        ],
+        "game_clock_generator": [
+            "game_clock_generator",
+            "MmBEy",
+            "module"
+        ],
         "gameStateModule_test": [
             "gameStateModule_test",
             "Ax9au",
             "module"
+        ],
+        "...MASTER...": [
+            "SIM",
+            "amcQw",
+            "module"
         ]
     },
-    "SIMBData": {
-        "out": "amcQwB.o",
-        "bytes": 59922
-    },
-    "CompileStatus": "Successful",
-    "CompileProcesses": [
-        "cgproc.3674.json"
-    ],
     "CompileStrategy": "fullobj",
-    "PEModules": [],
-    "stat": {
-        "ru_self_cgstart": {
-            "ru_minflt": 12850,
-            "ru_utime_sec": 0.062898999999999997,
-            "ru_nvcsw": 117,
-            "ru_stime_sec": 0.020622000000000001,
-            "ru_maxrss_kb": 54836,
-            "ru_majflt": 0,
-            "ru_nivcsw": 5
-        },
-        "ru_childs_cgstart": {
-            "ru_minflt": 0,
-            "ru_utime_sec": 0.0,
-            "ru_nvcsw": 0,
-            "ru_stime_sec": 0.0,
-            "ru_maxrss_kb": 0,
-            "ru_majflt": 0,
-            "ru_nivcsw": 0
-        },
-        "nMops": 1195,
-        "ru_childs_end": {
-            "ru_minflt": 0,
-            "ru_utime_sec": 0.0,
-            "ru_nvcsw": 0,
-            "ru_stime_sec": 0.0,
-            "ru_maxrss_kb": 0,
-            "ru_majflt": 0,
-            "ru_nivcsw": 0
-        },
-        "nQuads": 653,
-        "ru_self_end": {
-            "ru_minflt": 14947,
-            "ru_utime_sec": 0.072189000000000003,
-            "ru_nvcsw": 171,
-            "ru_stime_sec": 0.035091999999999998,
-            "ru_maxrss_kb": 62048,
-            "ru_majflt": 0,
-            "ru_nivcsw": 5
-        },
-        "totalObjSize": 93752,
-        "outputSizePerQuad": 143.0,
-        "Frontend(%)": 87.131003338458754,
-        "CodeGen(%)": 12.868996661541241
+    "CurCompileUdps": {},
+    "Misc": {
+        "cwd": "/afs/andrew.cmu.edu/usr15/bohanyu/private/build18/sociallyDistancedPong/FPGA",
+        "archive_dir": "archive.50",
+        "daidir_abs": "/afs/andrew.cmu.edu/usr15/bohanyu/private/build18/sociallyDistancedPong/FPGA/simv.daidir",
+        "csrc": "csrc",
+        "csrc_abs": "/afs/andrew.cmu.edu/usr15/bohanyu/private/build18/sociallyDistancedPong/FPGA/csrc",
+        "daidir": "simv.daidir",
+        "default_output_dir": "csrc"
     },
     "CurCompileModules": [
         "...MASTER...",
-        "gameStateModule"
+        "gameStateModule",
+        "gameStateModule_test"
     ],
     "LVLData": [
         "SIM"
-    ]
+    ],
+    "PEModules": [],
+    "CompileProcesses": [
+        "cgproc.14715.json"
+    ],
+    "CompileStatus": "Successful"
 }
