@@ -299,7 +299,14 @@ module gameStateModule
         if (ball_top_new + `BALL_SIZE >= 480 - vel_y || ball_top_new <= 0 + vel_y) begin
           sign_y_new = !sign_y;
         end
-        paddleY_new = 100;//joystick_up ? paddleY + `PADDLE_VEL : paddleY - `PADDLE_VEL;
+        paddleY_new = paddleY;
+        if (joystick_up && (paddleY > (`PADDLE_HEIGHT + `PADDLE_VEL))) begin
+          paddleY_new = paddleY - `PADDLE_VEL;
+        end
+        else if (joystick_down && (paddleY < (480 - `PADDLE_HEIGHT - `PADDLE_VEL))) begin
+          paddleY_new = paddleY + `PADDLE_VEL;
+        end
+        //f**k readable code, this is a hackathon
         sign_reg_load = update_screen;
         pos_reg_load = update_screen;
         paddle_move = (joystick_down || joystick_up) && update_screen;
