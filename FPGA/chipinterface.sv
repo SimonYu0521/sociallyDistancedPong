@@ -1,6 +1,9 @@
 `default_nettype none
 
 `define BALL_SIZE 10 // sidelength of the ball
+`define PADDLE_VEL 2
+`define PADDLE_HEIGHT 50// half of the real height
+`define PADDLE_WIDTH 10// width of the paddle
 
 module ChipInterface
     (input logic CLOCK_50,
@@ -20,19 +23,26 @@ module ChipInterface
 
     logic clock, clock_n, reset;
 
+    logic is_left_player;
+
     assign clock = CLOCK_50;
     assign clock_n = ~CLOCK_50;
 
     logic [3:0] KEY_synced, KEY_inter;
 
+    logic [17:0] SW_synced, SW_inter;
+
     always_ff @( posedge CLOCK_50 ) begin 
         KEY_inter <= KEY;
         KEY_synced <= KEY_inter;
+        SW_inter <= SW;
+        SW_synced <= SW_inter;
     end
 
     assign reset = !KEY_synced[0];
 
-    
+    assign is_left_player = SW_synced[0];
+
 
     logic [9:0] ball_left, ball_right, ball_top, ball_bottom;
     logic [9:0] paddleX, paddleY;
@@ -46,9 +56,10 @@ module ChipInterface
     
     gameStateModule gsm(.*);
 
-    UserInterface ui(.*);
-
-    
+    //UserInterface ui(.*);
+    //bypass for now
+    assign joystick_up = !KEY_synced[2];
+    assign joystick_down = !KEY_synced[3];
     
     /* Communications */
     logic send_new_message, message_sent, new_message_received, message_acked; // Handshaking
@@ -143,7 +154,7 @@ endmodule : CommunicationReceiver
 module displayModule
     (input logic [9:0] ball_left, ball_top,
     input logic [9:0] paddleX, paddleY,
-    input logic reset, clock,
+    input logic reset, clock, is_left_player,
     output logic [7:0] VGA_R, VGA_G, VGA_B,
     output logic VGA_BLANK_N, VGA_CLK, VGA_SYNC_N,
     output logic VGA_VS, VGA_HS,
@@ -153,7 +164,9 @@ module displayModule
     assign VGA_CLK = ~clock;
     assign VGA_SYNC_N = 1'b0;
 
-    logic disp_ball;
+
+
+    logic disp_ball, disp_paddle;
 
     logic blank;
     assign VGA_BLANK_N = !blank;
@@ -163,7 +176,13 @@ module displayModule
     assign update_screen = (vgaRow == 10'd480 && vgaCol == 10'd640); // move to CI
 	 
     logic [9:0] ball_bottom, ball_right; 
- 
+
+    logic [9:0] paddle_top, paddle_bot, paddle_left, paddle_right;
+
+    assign paddle_top = paddleY - `PADDLE_HEIGHT;
+    assign paddle_bot = paddleY + `PADDLE_HEIGHT;
+    assign paddle_left = is_left_player ? paddleX - `PADDLE_WIDTH : paddleX;
+    assign paddle_right = paddle_left + `PADDLE_WIDTH;
     assign ball_bottom = ball_top + `BALL_SIZE;
     assign ball_right = ball_left + `BALL_SIZE;
 
@@ -178,11 +197,18 @@ module displayModule
     assign disp_ball = (vgaRow >= ball_top && vgaRow <= ball_bottom) && 
                      (vgaCol >= ball_left && vgaCol <= ball_right);
 
+    assign disp_paddle = (vgaRow >= paddle_top && vgaRow <= paddle_bot) && 
+                     (vgaCol >= paddle_left && vgaCol <= paddle_right);
+
     always_comb begin
       VGA_R = 0;
       VGA_G = 0;
       VGA_B = 0;
-      if (disp_ball) begin
+      if (disp_paddle) begin
+        VGA_R = 'd255;
+        VGA_G = 'd0;
+        VGA_B = 'd0;
+      end else if (disp_ball) begin
         VGA_R = 'd255;
         VGA_G = 'd255;
         VGA_B = 'd255;
@@ -197,7 +223,8 @@ module gameStateModule
   input logic arcade_button_pressed,
   output logic [9:0] ball_top, ball_left,
   output logic [9:0] paddleX, paddleY,
-  input logic update_screen, clock, reset);
+  input logic update_screen, clock, reset,
+  input logic is_left_player);
 
   
 	logic score, reset_L;
@@ -226,6 +253,7 @@ module gameStateModule
 
   logic rst_row, rst_col;
 
+  assign paddleX = is_left_player ? 50 : 590;//Magic numbers YAY!
   
   logic [9:0] ball_top_new, ball_left_new;
 
@@ -235,12 +263,18 @@ module gameStateModule
 
   logic regClr, vel_reg_load, pos_reg_load, sign_reg_load;
 
+  logic paddleY_new, paddle_move;
+
   always_comb begin
     vel_x_new = 0; vel_y_new = 0;
     ball_top_new = 0; ball_left_new = 0;
     regClr = 0; vel_reg_load = 0;
     pos_reg_load = 0;
     sign_reg_load = 0;
+    sign_x_new = 0;
+    sign_y_new = 0;
+    paddle_move = 0;
+    paddleY_new = 0;
     case (state)
       RESET: regClr = 1;
       PLAY_MODE_INIT: begin
@@ -250,6 +284,8 @@ module gameStateModule
         vel_reg_load = 1;
         pos_reg_load = 1;
         sign_reg_load = 1;
+        paddleY_new = 240;
+        paddle_move = 1;
       end
       PLAY_MODE:begin
         ball_top_new = sign_y ? ball_top + vel_y : ball_top - vel_y;
@@ -262,11 +298,13 @@ module gameStateModule
         if (ball_top_new + `BALL_SIZE >= 480 - vel_y || ball_top_new <= 0 + vel_y) begin
           sign_y_new = !sign_y;
         end
+        paddleY_new = joystick_up ? paddleY + `PADDLE_VEL : paddleY - `PADDLE_VEL;
         sign_reg_load = update_screen;
         pos_reg_load = update_screen;
+        paddle_move = (joystick_down || joystick_up) && update_screen;
       end
     endcase
-  end  
+  end
 
   always_comb begin
     case(state)
@@ -300,6 +338,10 @@ module gameStateModule
                           .clk(clock), .en(sign_reg_load), .clr(regClr),
                           .Q(sign_y));
   
+  register #(10) paddleY_reg(.D(paddleY_new),
+                             .clk(clock), .en(paddle_move), .clr(regClr),
+                             .Q(paddleY));
+
 
   register #(10) row_register(.D(ball_top_new),
                               .clk(clock), .en(pos_reg_load), .clr(regClr),
