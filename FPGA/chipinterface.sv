@@ -60,6 +60,7 @@ module ChipInterface
     //bypass for now
     assign joystick_up = !KEY_synced[2];
     assign joystick_down = !KEY_synced[3];
+    assign arcade_button_pressed = !KEY_synced[1];
     
     /* Communications */
     logic send_new_message, message_sent, new_message_received, message_acked; // Handshaking
@@ -69,6 +70,7 @@ module ChipInterface
     // Ball message values
     logic [8:0] ball_y_tx, ball_y_rx;
     logic [3:0] velocity_x_tx, velocity_y_tx, velocity_x_rx, velocity_y_rx;
+    logic sign_y_tx, sign_y_rx;
 
     // Miss message values
     logic [4:0] my_score_tx, your_score_tx, my_score_rx, your_score_rx;
@@ -104,7 +106,8 @@ module CommunicationSender
    // Ball message values
    input  logic [8:0] ball_y_tx,
    input  logic [3:0] velocity_x_tx,  // always positive (i.e. into the other side)
-   input  logic [3:0] velocity_y_tx,  // signed.  Positive is down.
+   input  logic [3:0] velocity_y_tx,  // unsigned magnitude
+   input  logic sign_y_tx,               // sign of vel_y
    input  logic       ball_message_tx, // if active, then this message is about the ball
    
    // Miss message values: Sent when ball was missed on "my" side
@@ -132,7 +135,8 @@ module CommunicationReceiver
    // Ball message values: Received when ball is incoming
    output logic [8:0] ball_y_rx,
    output logic [3:0] velocity_x_rx,
-   output logic [3:0] velocity_y_rx,  // signed.  Positive is down.
+   input  logic [3:0] velocity_y_rx,  // unsigned magnitude
+   input  logic sign_y_rx,               // sign of vel_y
    output logic       ball_message_rx, // if active, then this message is about the ball
    
    // Miss message values: Received when ball was missed on opponent's side
@@ -246,7 +250,7 @@ module gameStateModule
   logic ball_hit_paddle;
   assign ball_hit_paddle = 1;
 
-  enum {RESET, PLAY_MODE_INIT, PLAY_MODE} state, nextState;
+  enum {RESET, SERVE_MODE_INIT, SERVE_MODE, PLAY_MODE_INIT, PLAY_MODE} state, nextState;
 
 
   assign score = ball_hit_left_right && ~ball_hit_paddle;
@@ -278,8 +282,36 @@ module gameStateModule
     paddleY_new = 0;
     case (state)
       RESET: regClr = 1;
+      SERVE_MODE_INIT: begin
+        paddleY_new = 10'd240;
+        paddle_move = 1;
+        ball_left_new = paddleX;
+        ball_top_new = 10'd240;
+        pos_reg_load = 1;
+      end
+      SERVE_MODE:begin
+        if (arcade_button_pressed)begin
+          vel_y_new = 2;
+          vel_x_new = 3;
+          sign_x_new = is_left_player;
+          sign_y_new = 1;
+          vel_reg_load = 1;
+          sign_reg_load = 1;
+        end else
+          paddleY_new = paddleY;
+          if (joystick_up && (paddleY > (`PADDLE_HEIGHT + `PADDLE_VEL))) begin
+            paddleY_new = paddleY - `PADDLE_VEL;
+          end
+          else if (joystick_down && (paddleY < (480 - `PADDLE_HEIGHT - `PADDLE_VEL))) begin
+            paddleY_new = paddleY + `PADDLE_VEL;
+          end
+          ball_left_new = is_left_player ? paddleX : paddleX - `BALL_SIZE;
+          ball_top_new = paddleY_new;
+          pos_reg_load = update_screen;
+          paddle_move = (joystick_down || joystick_up) && update_screen;
+      end
       PLAY_MODE_INIT: begin
-        vel_x_new = 3; vel_y_new = 2;
+        vel_x_new = 3; vel_y_new = 0;
         ball_top_new = 10'd100; ball_left_new = 10'd600;
         sign_x_new = 1; sign_y_new = 1;
         vel_reg_load = 1;
@@ -293,7 +325,9 @@ module gameStateModule
         ball_left_new = sign_x ? ball_left + vel_x : ball_left - vel_x;
         sign_x_new = sign_x;
         sign_y_new = sign_y;
-        if (ball_left_new + `BALL_SIZE >= 640 - vel_x || ball_left_new <= 0 + vel_x) begin
+        if (ball_left_new + `BALL_SIZE >= 640 - vel_x || ball_left_new <= 0 + vel_x 
+          || (is_left_player && (ball_left_new <= paddleX) && (ball_top_new <= paddleY + `PADDLE_HEIGHT) && (ball_top_new + `BALL_SIZE >= paddleY - `PADDLE_HEIGHT))
+          || (!is_left_player && ball_left_new + `BALL_SIZE >= paddleX && ball_top_new <= paddleY + `PADDLE_HEIGHT && ball_top_new + `BALL_SIZE >= paddleY - `PADDLE_HEIGHT)) begin
           sign_x_new = !sign_x;
         end
         if (ball_top_new + `BALL_SIZE >= 480 - vel_y || ball_top_new <= 0 + vel_y) begin
@@ -316,7 +350,9 @@ module gameStateModule
 
   always_comb begin
     case(state)
-      RESET: nextState = PLAY_MODE_INIT;
+      RESET: nextState = SERVE_MODE_INIT;
+      SERVE_MODE_INIT: nextState = SERVE_MODE;
+      SERVE_MODE: nextState = arcade_button_pressed ? PLAY_MODE : SERVE_MODE;
       PLAY_MODE_INIT: nextState = PLAY_MODE;
       PLAY_MODE: nextState = PLAY_MODE;
     endcase
