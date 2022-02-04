@@ -1,2 +1,2 @@
 Info (10281): Verilog HDL Declaration information at Library.sv(193): object "WIDTH" differs only in case from object "width" in the same scope File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 193
-Info (10281): Verilog HDL Declaration information at chipinterface.sv(200): object "reset" differs only in case from object "RESET" in the same scope File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 200
+Info (10281): Verilog HDL Declaration information at chipinterface.sv(226): object "reset" differs only in case from object "RESET" in the same scope File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 226

@@ -1,14 +1,14 @@
-Fitter Status : Successful - Wed Feb  2 16:39:27 2022
+Fitter Status : Successful - Wed Feb  2 21:44:22 2022
 Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 Revision Name : FPGAQuartusProject
 Top-level Entity Name : ChipInterface
 Family : Cyclone IV E
 Device : EP4CE115F29C7
 Timing Models : Final
-Total logic elements : 761 / 114,480 ( < 1 % )
-    Total combinational functions : 568 / 114,480 ( < 1 % )
-    Dedicated logic registers : 518 / 114,480 ( < 1 % )
-Total registers : 519
+Total logic elements : 912 / 114,480 ( < 1 % )
+    Total combinational functions : 717 / 114,480 ( < 1 % )
+    Dedicated logic registers : 539 / 114,480 ( < 1 % )
+Total registers : 543
 Total pins : 113 / 529 ( 21 % )
 Total virtual pins : 0
 Total memory bits : 1,280 / 3,981,312 ( < 1 % )
