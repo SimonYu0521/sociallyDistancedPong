@@ -17,6 +17,9 @@ module ChipInterface
     
     input  logic UART_RXD, UART_RTS,
     output logic UART_TXD, UART_CTS
+    // User Interface GPIO
+    input  logic JOY_UP, JOY_DOWN, ARCADE_BUTTON, NEO_IN,
+    output logic ARCADE_LED, NEO_OUT
     );
 
     logic [9:0] row, col;
@@ -52,15 +55,11 @@ module ChipInterface
     
     /* USER INTERFACE: JOYSTICK, BUTTON */
     logic joystick_up,joystick_down, arcade_button_pressed;
-    logic [2:0] GPIO_INPUTS;  // Needs to be changed when those pins are defined
+    logic arcade_led;
+    logic clear_inputs;
+    UserInterface ui(.*);
     
     gameStateModule gsm(.*);
-
-    //UserInterface ui(.*);
-    //bypass for now
-    assign joystick_up = !KEY_synced[2];
-    assign joystick_down = !KEY_synced[3];
-    assign arcade_button_pressed = !KEY_synced[1];
     
     /* Communications */
     logic send_new_message, message_sent, new_message_received, message_acked; // Handshaking
@@ -87,14 +86,6 @@ module ChipInterface
  
 
 endmodule: ChipInterface
-
-/* Dummy modules until they get defined somewhere else */
-module UserInterface
-  (output logic joystick_up, joystick_down,
-   output logic arcade_button_pressed,
-   input  logic [2:0] GPIO_INPUTS);
-   
-endmodule : UserInterface
 
 /* Communications modules use a producer-consumer interface to control synchronization */
 module CommunicationSender
