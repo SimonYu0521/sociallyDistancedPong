@@ -11,7 +11,7 @@ module ChipInterface(input logic CLOCK_50,
 		     output logic [17:0] LEDR);
 
 	logic add_red, add_green, add_blue, reset, load, go, ready; 
-	logic [2:0] pixel;
+	logic [4:0] pixel;
 	
 
 	Synchronizer SyncR (.asynchronous(SW[17]), .local_clock(CLOCK_50), .synchronized(add_red));
@@ -21,6 +21,9 @@ module ChipInterface(input logic CLOCK_50,
 	Synchronizer SyncP0 (.asynchronous(SW[0]), .local_clock(CLOCK_50), .synchronized(pixel[0]));
 	Synchronizer SyncP1 (.asynchronous(SW[1]), .local_clock(CLOCK_50), .synchronized(pixel[1]));
 	Synchronizer SyncP2 (.asynchronous(SW[2]), .local_clock(CLOCK_50), .synchronized(pixel[2]));
+  Synchronizer SyncP3 (.asynchronous(SW[0]), .local_clock(CLOCK_50), .synchronized(pixel[3]));
+	Synchronizer SyncP4 (.asynchronous(SW[1]), .local_clock(CLOCK_50), .synchronized(pixel[4]));
+
 
 	Synchronizer SyncK0 (.asynchronous(~KEY[0]), .local_clock(CLOCK_50), .synchronized(reset));
 	Synchronizer SyncK1 (.asynchronous(~KEY[1]), .local_clock(CLOCK_50), .synchronized(load));
@@ -38,7 +41,7 @@ endmodule: ChipInterface
 	
 
 module SetNeopix (input logic add_red, add_green, add_blue, reset, CLOCK_50, 
-		  input logic [2:0] pixel,
+		  input logic [4:0] pixel,
 	          input logic load, go,
 		  output logic neopixel_data, ready);
 

@@ -183,7 +183,7 @@ module NeopixelController_low_level
                                   .Q(sr_q)
                                 );
 
-  CountDownToZero #(8) c192(.D(8'd408),
+  CountDownToZero #(9) c192(.D(9'd408),
                             .clock,
                             .en(c192_en),
                             .load(c192_go),
