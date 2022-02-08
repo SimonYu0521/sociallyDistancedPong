@@ -16,6 +16,9 @@ module NeopixelController
    logic clock, clear, dec_en, go_ll, done_ll;
    logic [NUM_NPX-1:0] en;
    logic [(NUM_NPX*24)-1:0] lldata;
+
+   logic [NUM_NPX-1:0][23:0] lldata_array;
+   assign lldata_array = lldata;
    
    assign clock = CLOCK_50;
 
@@ -173,7 +176,7 @@ module NeopixelController_low_level
   timer_sel_t timer_sel;
   logic timer_go, timer_done;
   
-  assign next_bit = sr_q[191];
+  assign next_bit = sr_q[NUM_NPX*24-1];
   
   ShiftRegister #(NUM_NPX*24) sr( .D(data),
                                   .en(sr_en),
@@ -182,6 +185,9 @@ module NeopixelController_low_level
                                   .clock,
                                   .Q(sr_q)
                                 );
+
+  logic [NUM_NPX-1:0][23:0] sr_q_array;
+  assign sr_q_array = sr_q;
 
   CountDownToZero #(9) c192(.D(9'd408),
                             .clock,
@@ -235,11 +241,21 @@ module fsm_ll
   enum {INIT, SENDING, SEND0_HIGH, SEND0_LOW, SEND1_HIGH, SEND1_LOW, INTRA_WAIT} 
        state, next_state;
   
-  always_ff @(posedge clock, posedge reset)
+  
+  always_ff @(posedge clock, posedge reset) begin
     if (reset)
       state <= INIT;
     else
       state <= next_state;
+
+    if (state == SENDING && next_state == SEND1_HIGH)
+      $write("1");
+    else if (state == SENDING && next_state == SEND0_HIGH)
+      $write("0");
+    else if (state == INIT)
+      $display(" ");
+
+  end
       
   // Output Generator
   always_comb begin

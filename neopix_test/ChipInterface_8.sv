@@ -46,8 +46,8 @@ module SetNeopix (input logic add_red, add_green, add_blue, reset, CLOCK_50,
 		  
 	NeopixelController NC (.*);
 	
-	assign red = add_red ? 8'd250 : 8'd0;
-	assign green = add_green ? 8'd250 : 8'd0;
-	assign blue = add_blue ? 8'd250 : 8'd0;
+	assign red = add_red ? {5'b0, pixel} : 8'd0;
+	assign green = add_green ? {5'b0, pixel} : 8'd0;
+	assign blue = add_blue ? {5'b0, pixel} : 8'd0;
 
 endmodule: SetNeopix

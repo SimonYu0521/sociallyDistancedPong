@@ -205,11 +205,19 @@ module fsm_ll
   enum {INIT, SENDING, SEND0_HIGH, SEND0_LOW, SEND1_HIGH, SEND1_LOW, INTRA_WAIT} 
        state, next_state;
   
-  always_ff @(posedge clock, posedge reset)
+  always_ff @(posedge clock, posedge reset) begin
     if (reset)
       state <= INIT;
     else
       state <= next_state;
+
+     if (state == SENDING && next_state == SEND1_HIGH)
+      $write("1");
+    else if (state == SENDING && next_state == SEND0_HIGH)
+      $write("0");
+    else if (state == INIT)
+      $display(" ");
+  end
       
   // Output Generator
   always_comb begin
