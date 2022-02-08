@@ -1,21 +1,16 @@
 |ChipInterface
+CLOCK_50 => displayModule:disM.clock
+CLOCK_50 => UserInterface:ui.clock
+CLOCK_50 => gameStateModule:gsm.clock
+CLOCK_50 => CommunicationSender:cs.clock
 CLOCK_50 => SW_synced[0].CLK
 CLOCK_50 => SW_inter[0].CLK
 CLOCK_50 => KEY_synced[0].CLK
-CLOCK_50 => KEY_synced[1].CLK
-CLOCK_50 => KEY_synced[2].CLK
-CLOCK_50 => KEY_synced[3].CLK
 CLOCK_50 => KEY_inter[0].CLK
-CLOCK_50 => KEY_inter[1].CLK
-CLOCK_50 => KEY_inter[2].CLK
-CLOCK_50 => KEY_inter[3].CLK
-CLOCK_50 => displayModule:disM.clock
-CLOCK_50 => gameStateModule:gsm.clock
-CLOCK_50 => CommunicationSender:cs.clock
 KEY[0] => KEY_inter[0].DATAIN
-KEY[1] => KEY_inter[1].DATAIN
-KEY[2] => KEY_inter[2].DATAIN
-KEY[3] => KEY_inter[3].DATAIN
+KEY[1] => ~NO_FANOUT~
+KEY[2] => ~NO_FANOUT~
+KEY[3] => ~NO_FANOUT~
 SW[0] => SW_inter[0].DATAIN
 SW[1] => ~NO_FANOUT~
 SW[2] => ~NO_FANOUT~
@@ -123,6 +118,12 @@ UART_RXD => ~NO_FANOUT~
 UART_RTS => ~NO_FANOUT~
 UART_TXD <= <GND>
 UART_CTS <= <GND>
+JOY_UP => UserInterface:ui.JOY_UP
+JOY_DOWN => UserInterface:ui.JOY_DOWN
+ARCADE_BUTTON => UserInterface:ui.ARCADE_BUTTON
+NEO_IN => ~NO_FANOUT~
+ARCADE_LED <= UserInterface:ui.ARCADE_LED
+NEO_OUT <= <GND>
 
 
 |ChipInterface|displayModule:disM
@@ -387,6 +388,22 @@ Q[7] <= Q[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 Q[8] <= Q[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 Q[9] <= Q[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 Q[10] <= Q[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ChipInterface|UserInterface:ui
+joystick_up <= <GND>
+joystick_down <= <GND>
+arcade_button_pressed <= ARCADE_BUTTON_synced.DB_MAX_OUTPUT_PORT_TYPE
+arcade_led => ~NO_FANOUT~
+JOY_UP => ~NO_FANOUT~
+JOY_DOWN => ~NO_FANOUT~
+ARCADE_BUTTON => ARCADE_BUTTON_inter.DATAIN
+ARCADE_LED <= <GND>
+clear_inputs => ~NO_FANOUT~
+clock => ARCADE_BUTTON_synced.CLK
+clock => ARCADE_BUTTON_inter.CLK
+reset => ARCADE_BUTTON_synced.ACLR
+reset => ARCADE_BUTTON_inter.ACLR
 
 
 |ChipInterface|gameStateModule:gsm
