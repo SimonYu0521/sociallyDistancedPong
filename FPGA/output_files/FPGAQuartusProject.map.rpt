@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FPGAQuartusProject
-Fri Feb  4 16:14:32 2022
+Mon Feb  7 20:16:15 2022
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -35,13 +35,14 @@ Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
  27. Port Connectivity Checks: "CommunicationSender:cs"
  28. Port Connectivity Checks: "gameStateModule:gsm|register:vel_y_reg"
  29. Port Connectivity Checks: "gameStateModule:gsm|register:vel_x_reg"
- 30. Port Connectivity Checks: "displayModule:disM|vga:vgaModule|simple_counter:col_counter"
- 31. Signal Tap Logic Analyzer Settings
- 32. Post-Synthesis Netlist Statistics for Top Partition
- 33. Elapsed Time Per Partition
- 34. Connections to In-System Debugging Instance "auto_signaltap_0"
- 35. Analysis & Synthesis Messages
- 36. Analysis & Synthesis Suppressed Messages
+ 30. Port Connectivity Checks: "UserInterface:ui"
+ 31. Port Connectivity Checks: "displayModule:disM|vga:vgaModule|simple_counter:col_counter"
+ 32. Signal Tap Logic Analyzer Settings
+ 33. Post-Synthesis Netlist Statistics for Top Partition
+ 34. Elapsed Time Per Partition
+ 35. Connections to In-System Debugging Instance "auto_signaltap_0"
+ 36. Analysis & Synthesis Messages
+ 37. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -68,16 +69,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Feb  4 16:14:32 2022       ;
+; Analysis & Synthesis Status        ; Successful - Mon Feb  7 20:16:15 2022       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; FPGAQuartusProject                          ;
 ; Top-level Entity Name              ; ChipInterface                               ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 1,077                                       ;
-;     Total combinational functions  ; 853                                         ;
-;     Dedicated logic registers      ; 549                                         ;
-; Total registers                    ; 549                                         ;
-; Total pins                         ; 113                                         ;
+; Total logic elements               ; 921                                         ;
+;     Total combinational functions  ; 701                                         ;
+;     Dedicated logic registers      ; 535                                         ;
+; Total registers                    ; 535                                         ;
+; Total pins                         ; 119                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 1,280                                       ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -193,6 +194,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------------------------+-----------------+----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+-------------+
 ; File Name with User-Entered Path                                   ; Used in Netlist ; File Type                                    ; File Name with Absolute Path                                                                                                         ; Library     ;
 +--------------------------------------------------------------------+-----------------+----------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+-------------+
+; UserInterface.sv                                                   ; yes             ; User SystemVerilog HDL File                  ; C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/UserInterface.sv                                                   ;             ;
 ; vga.sv                                                             ; yes             ; User SystemVerilog HDL File                  ; C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/vga.sv                                                             ;             ;
 ; Library.sv                                                         ; yes             ; User SystemVerilog HDL File                  ; C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv                                                         ;             ;
 ; chipinterface.sv                                                   ; yes             ; User SystemVerilog HDL File                  ; C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv                                                   ;             ;
@@ -259,30 +261,30 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+--------------------------+
 ; Resource                                    ; Usage                    ;
 +---------------------------------------------+--------------------------+
-; Estimated Total logic elements              ; 1,077                    ;
+; Estimated Total logic elements              ; 921                      ;
 ;                                             ;                          ;
-; Total combinational functions               ; 853                      ;
+; Total combinational functions               ; 701                      ;
 ; Logic element usage by number of LUT inputs ;                          ;
-;     -- 4 input functions                    ; 292                      ;
-;     -- 3 input functions                    ; 281                      ;
-;     -- <=2 input functions                  ; 280                      ;
+;     -- 4 input functions                    ; 281                      ;
+;     -- 3 input functions                    ; 206                      ;
+;     -- <=2 input functions                  ; 214                      ;
 ;                                             ;                          ;
 ; Logic elements by mode                      ;                          ;
-;     -- normal mode                          ; 576                      ;
-;     -- arithmetic mode                      ; 277                      ;
+;     -- normal mode                          ; 535                      ;
+;     -- arithmetic mode                      ; 166                      ;
 ;                                             ;                          ;
-; Total registers                             ; 549                      ;
-;     -- Dedicated logic registers            ; 549                      ;
+; Total registers                             ; 535                      ;
+;     -- Dedicated logic registers            ; 535                      ;
 ;     -- I/O registers                        ; 0                        ;
 ;                                             ;                          ;
-; I/O pins                                    ; 113                      ;
+; I/O pins                                    ; 119                      ;
 ; Total memory bits                           ; 1280                     ;
 ;                                             ;                          ;
 ; Embedded Multiplier 9-bit elements          ; 0                        ;
 ;                                             ;                          ;
 ; Maximum fan-out node                        ; altera_internal_jtag~TDO ;
 ; Maximum fan-out                             ; 335                      ;
-; Total fan-out                               ; 4639                     ;
+; Total fan-out                               ; 4215                     ;
 ; Average fan-out                             ; 2.82                     ;
 +---------------------------------------------+--------------------------+
 
@@ -292,15 +294,16 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                       ; Entity Name                       ; Library Name ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
-; |ChipInterface                                                                                                                          ; 853 (1)             ; 549 (10)                  ; 1280        ; 0            ; 0       ; 0         ; 113  ; 0            ; |ChipInterface                                                                                                                                                                                                                                                                                                                                            ; ChipInterface                     ; work         ;
-;    |displayModule:disM|                                                                                                                 ; 156 (111)           ; 21 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|displayModule:disM                                                                                                                                                                                                                                                                                                                         ; displayModule                     ; work         ;
-;       |vga:vgaModule|                                                                                                                   ; 45 (12)             ; 21 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|displayModule:disM|vga:vgaModule                                                                                                                                                                                                                                                                                                           ; vga                               ; work         ;
+; |ChipInterface                                                                                                                          ; 701 (1)             ; 535 (4)                   ; 1280        ; 0            ; 0       ; 0         ; 119  ; 0            ; |ChipInterface                                                                                                                                                                                                                                                                                                                                            ; ChipInterface                     ; work         ;
+;    |UserInterface:ui|                                                                                                                   ; 0 (0)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|UserInterface:ui                                                                                                                                                                                                                                                                                                                           ; UserInterface                     ; work         ;
+;    |displayModule:disM|                                                                                                                 ; 121 (75)            ; 21 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|displayModule:disM                                                                                                                                                                                                                                                                                                                         ; displayModule                     ; work         ;
+;       |vga:vgaModule|                                                                                                                   ; 46 (13)             ; 21 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|displayModule:disM|vga:vgaModule                                                                                                                                                                                                                                                                                                           ; vga                               ; work         ;
 ;          |simple_counter:col_counter|                                                                                                   ; 11 (11)             ; 11 (11)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|displayModule:disM|vga:vgaModule|simple_counter:col_counter                                                                                                                                                                                                                                                                                ; simple_counter                    ; work         ;
 ;          |simple_counter:row_counter|                                                                                                   ; 22 (22)             ; 10 (10)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|displayModule:disM|vga:vgaModule|simple_counter:row_counter                                                                                                                                                                                                                                                                                ; simple_counter                    ; work         ;
-;    |gameStateModule:gsm|                                                                                                                ; 248 (199)           ; 37 (3)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|gameStateModule:gsm                                                                                                                                                                                                                                                                                                                        ; gameStateModule                   ; work         ;
-;       |register:col_register|                                                                                                           ; 14 (14)             ; 10 (10)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|gameStateModule:gsm|register:col_register                                                                                                                                                                                                                                                                                                  ; register                          ; work         ;
-;       |register:paddleY_reg|                                                                                                            ; 17 (17)             ; 10 (10)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|gameStateModule:gsm|register:paddleY_reg                                                                                                                                                                                                                                                                                                   ; register                          ; work         ;
-;       |register:row_register|                                                                                                           ; 11 (11)             ; 10 (10)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|gameStateModule:gsm|register:row_register                                                                                                                                                                                                                                                                                                  ; register                          ; work         ;
+;    |gameStateModule:gsm|                                                                                                                ; 131 (101)           ; 27 (3)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|gameStateModule:gsm                                                                                                                                                                                                                                                                                                                        ; gameStateModule                   ; work         ;
+;       |register:col_register|                                                                                                           ; 13 (13)             ; 10 (10)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|gameStateModule:gsm|register:col_register                                                                                                                                                                                                                                                                                                  ; register                          ; work         ;
+;       |register:paddleY_reg|                                                                                                            ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|gameStateModule:gsm|register:paddleY_reg                                                                                                                                                                                                                                                                                                   ; register                          ; work         ;
+;       |register:row_register|                                                                                                           ; 9 (9)               ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|gameStateModule:gsm|register:row_register                                                                                                                                                                                                                                                                                                  ; register                          ; work         ;
 ;       |register:sign_x_reg|                                                                                                             ; 3 (3)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|gameStateModule:gsm|register:sign_x_reg                                                                                                                                                                                                                                                                                                    ; register                          ; work         ;
 ;       |register:sign_y_reg|                                                                                                             ; 2 (2)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|gameStateModule:gsm|register:sign_y_reg                                                                                                                                                                                                                                                                                                    ; register                          ; work         ;
 ;       |register:vel_x_reg|                                                                                                              ; 2 (2)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|gameStateModule:gsm|register:vel_x_reg                                                                                                                                                                                                                                                                                                     ; register                          ; work         ;
@@ -383,34 +386,40 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
 
 
-+-------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                          ;
-+---------------------------------------------------+---------------------------------------------------------+
-; Register name                                     ; Reason for Removal                                      ;
-+---------------------------------------------------+---------------------------------------------------------+
-; gameStateModule:gsm|state[3..31]                  ; Stuck at GND due to stuck port data_in                  ;
-; gameStateModule:gsm|register:vel_y_reg|Q[6]       ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0] ;
-; gameStateModule:gsm|register:vel_x_reg|Q[4]       ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0] ;
-; gameStateModule:gsm|register:vel_y_reg|Q[2]       ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0] ;
-; gameStateModule:gsm|register:vel_x_reg|Q[8]       ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0] ;
-; gameStateModule:gsm|register:vel_y_reg|Q[4,8]     ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0] ;
-; gameStateModule:gsm|register:vel_x_reg|Q[2,6]     ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0] ;
-; gameStateModule:gsm|register:vel_y_reg|Q[3,5,7,9] ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0] ;
-; gameStateModule:gsm|register:vel_x_reg|Q[3,5,7,9] ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0] ;
-; gameStateModule:gsm|register:vel_x_reg|Q[1]       ; Merged with gameStateModule:gsm|register:vel_x_reg|Q[0] ;
-; gameStateModule:gsm|register:vel_y_reg|Q[0]       ; Stuck at GND due to stuck port data_in                  ;
-; Total Number of Removed Registers = 47            ;                                                         ;
-+---------------------------------------------------+---------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                              ;
++-----------------------------------------------------+-----------------------------------------------------------+
+; Register name                                       ; Reason for Removal                                        ;
++-----------------------------------------------------+-----------------------------------------------------------+
+; gameStateModule:gsm|state[3..31]                    ; Stuck at GND due to stuck port data_in                    ;
+; gameStateModule:gsm|register:vel_y_reg|Q[6]         ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0]   ;
+; gameStateModule:gsm|register:vel_x_reg|Q[4]         ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0]   ;
+; gameStateModule:gsm|register:vel_y_reg|Q[2]         ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0]   ;
+; gameStateModule:gsm|register:vel_x_reg|Q[8]         ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0]   ;
+; gameStateModule:gsm|register:vel_y_reg|Q[4,8]       ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0]   ;
+; gameStateModule:gsm|register:vel_x_reg|Q[2,6]       ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0]   ;
+; gameStateModule:gsm|register:vel_y_reg|Q[3,5,7,9]   ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0]   ;
+; gameStateModule:gsm|register:vel_x_reg|Q[3,5,7,9]   ; Merged with gameStateModule:gsm|register:vel_y_reg|Q[0]   ;
+; gameStateModule:gsm|register:paddleY_reg|Q[2,3,8,9] ; Merged with gameStateModule:gsm|register:paddleY_reg|Q[1] ;
+; gameStateModule:gsm|register:paddleY_reg|Q[5..7]    ; Merged with gameStateModule:gsm|register:paddleY_reg|Q[4] ;
+; gameStateModule:gsm|register:vel_x_reg|Q[1]         ; Merged with gameStateModule:gsm|register:vel_x_reg|Q[0]   ;
+; gameStateModule:gsm|register:vel_y_reg|Q[0]         ; Stuck at GND due to stuck port data_in                    ;
+; gameStateModule:gsm|register:paddleY_reg|Q[1]       ; Merged with gameStateModule:gsm|register:paddleY_reg|Q[0] ;
+; gameStateModule:gsm|register:paddleY_reg|Q[0]       ; Stuck at GND due to stuck port data_in                    ;
+; gameStateModule:gsm|register:row_register|Q[0]      ; Stuck at GND due to stuck port data_in                    ;
+; Total Number of Removed Registers = 57              ;                                                           ;
++-----------------------------------------------------+-----------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                             ;
-+-------------------------------+---------------------------+---------------------------------------------+
-; Register name                 ; Reason for Removal        ; Registers Removed due to This Register      ;
-+-------------------------------+---------------------------+---------------------------------------------+
-; gameStateModule:gsm|state[31] ; Stuck at GND              ; gameStateModule:gsm|register:vel_y_reg|Q[0] ;
-;                               ; due to stuck port data_in ;                                             ;
-+-------------------------------+---------------------------+---------------------------------------------+
++------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                ;
++-------------------------------+---------------------------+------------------------------------------------+
+; Register name                 ; Reason for Removal        ; Registers Removed due to This Register         ;
++-------------------------------+---------------------------+------------------------------------------------+
+; gameStateModule:gsm|state[31] ; Stuck at GND              ; gameStateModule:gsm|register:vel_y_reg|Q[0],   ;
+;                               ; due to stuck port data_in ; gameStateModule:gsm|register:paddleY_reg|Q[0], ;
+;                               ;                           ; gameStateModule:gsm|register:row_register|Q[0] ;
++-------------------------------+---------------------------+------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -418,12 +427,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 549   ;
+; Total registers                              ; 535   ;
 ; Number of registers using Synchronous Clear  ; 59    ;
 ; Number of registers using Synchronous Load   ; 62    ;
-; Number of registers using Asynchronous Clear ; 192   ;
+; Number of registers using Asynchronous Clear ; 194   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 333   ;
+; Number of registers using Clock Enable       ; 322   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -454,14 +463,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
 ; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |ChipInterface|gameStateModule:gsm|register:row_register|Q[9]                   ;
 ; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |ChipInterface|displayModule:disM|vga:vgaModule|simple_counter:row_counter|Q[8] ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |ChipInterface|gameStateModule:gsm|register:paddleY_reg|Q[3]                    ;
 ; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; Yes        ; |ChipInterface|gameStateModule:gsm|register:row_register|Q[5]                   ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; Yes        ; |ChipInterface|gameStateModule:gsm|register:row_register|Q[4]                   ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChipInterface|gameStateModule:gsm|register:col_register|Q[5]                   ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; Yes        ; |ChipInterface|gameStateModule:gsm|register:col_register|Q[9]                   ;
-; 9:1                ; 4 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |ChipInterface|gameStateModule:gsm|register:paddleY_reg|Q[4]                    ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |ChipInterface|gameStateModule:gsm|paddleY_new                                  ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |ChipInterface|gameStateModule:gsm|paddleY_new                                  ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; Yes        ; |ChipInterface|gameStateModule:gsm|register:col_register|Q[1]                   ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChipInterface|gameStateModule:gsm|register:col_register|Q[2]                   ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; Yes        ; |ChipInterface|gameStateModule:gsm|register:col_register|Q[6]                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
 
 
@@ -693,6 +698,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------+-------+----------+---------------------------------------+
 
 
++------------------------------------------------+
+; Port Connectivity Checks: "UserInterface:ui"   ;
++--------------+-------+----------+--------------+
+; Port         ; Type  ; Severity ; Details      ;
++--------------+-------+----------+--------------+
+; arcade_led   ; Input ; Info     ; Stuck at GND ;
+; clear_inputs ; Input ; Info     ; Stuck at GND ;
++--------------+-------+----------+--------------+
+
+
 +-----------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "displayModule:disM|vga:vgaModule|simple_counter:col_counter" ;
 +------+-------+----------+---------------------------------------------------------------+
@@ -716,26 +731,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 112                         ;
-; cycloneiii_ff         ; 68                          ;
-;     CLR               ; 10                          ;
+; boundary_port         ; 118                         ;
+; cycloneiii_ff         ; 54                          ;
+;     CLR               ; 12                          ;
 ;     CLR SCLR          ; 11                          ;
-;     ENA               ; 34                          ;
+;     ENA               ; 23                          ;
 ;     ENA CLR           ; 3                           ;
-;     plain             ; 10                          ;
-; cycloneiii_lcell_comb ; 407                         ;
-;     arith             ; 204                         ;
-;         2 data inputs ; 107                         ;
-;         3 data inputs ; 97                          ;
-;     normal            ; 203                         ;
-;         0 data inputs ; 5                           ;
-;         1 data inputs ; 13                          ;
-;         2 data inputs ; 24                          ;
-;         3 data inputs ; 56                          ;
-;         4 data inputs ; 105                         ;
+;     plain             ; 5                           ;
+; cycloneiii_lcell_comb ; 255                         ;
+;     arith             ; 93                          ;
+;         2 data inputs ; 60                          ;
+;         3 data inputs ; 33                          ;
+;     normal            ; 162                         ;
+;         0 data inputs ; 3                           ;
+;         1 data inputs ; 9                           ;
+;         2 data inputs ; 11                          ;
+;         3 data inputs ; 45                          ;
+;         4 data inputs ; 94                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 9.30                        ;
-; Average LUT depth     ; 5.44                        ;
+; Max LUT depth         ; 9.40                        ;
+; Average LUT depth     ; 5.77                        ;
 +-----------------------+-----------------------------+
 
 
@@ -744,7 +759,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -815,10 +830,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Fri Feb  4 16:13:44 2022
+    Info: Processing started: Mon Feb  7 20:15:52 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGAQuartusProject -c FPGAQuartusProject
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file userinterface.sv
+    Info (12023): Found entity 1: UserInterface File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/UserInterface.sv Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file vga.sv
     Info (12023): Found entity 1: vga File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/vga.sv Line: 2
 Warning (12090): Entity "mux" obtained from "Library.sv" instead of from Quartus Prime megafunction library File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 24
@@ -839,31 +856,32 @@ Info (12021): Found 16 design units, including 16 entities, in source file libra
     Info (12023): Found entity 14: offset_check File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 183
     Info (12023): Found entity 15: offset_check2D File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 192
     Info (12023): Found entity 16: game_clock_generator File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 207
-Info (12021): Found 6 design units, including 6 entities, in source file chipinterface.sv
+Info (12021): Found 5 design units, including 5 entities, in source file chipinterface.sv
     Info (12023): Found entity 1: ChipInterface File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 8
-    Info (12023): Found entity 2: UserInterface File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 92
-    Info (12023): Found entity 3: CommunicationSender File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 100
-    Info (12023): Found entity 4: CommunicationReceiver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 131
-    Info (12023): Found entity 5: displayModule File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 158
-    Info (12023): Found entity 6: gameStateModule File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 225
+    Info (12023): Found entity 2: CommunicationSender File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 90
+    Info (12023): Found entity 3: CommunicationReceiver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 121
+    Info (12023): Found entity 4: displayModule File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 148
+    Info (12023): Found entity 5: gameStateModule File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 215
 Info (12127): Elaborating entity "ChipInterface" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at chipinterface.sv(24): object "clock_n" assigned a value but never read File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 24
-Warning (10030): Net "ball_y_tx" at chipinterface.sv(71) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 71
-Warning (10030): Net "velocity_x_tx" at chipinterface.sv(72) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 72
-Warning (10030): Net "velocity_y_tx" at chipinterface.sv(72) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 72
-Warning (10030): Net "velocity_y_rx" at chipinterface.sv(72) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 72
-Warning (10030): Net "my_score_tx" at chipinterface.sv(76) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 76
-Warning (10030): Net "your_score_tx" at chipinterface.sv(76) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 76
-Warning (10030): Net "send_new_message" at chipinterface.sv(66) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 66
-Warning (10030): Net "message_acked" at chipinterface.sv(66) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 66
-Warning (10030): Net "ball_message_tx" at chipinterface.sv(68) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 68
-Warning (10030): Net "miss_message_tx" at chipinterface.sv(68) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 68
-Warning (10030): Net "new_game_message_tx" at chipinterface.sv(68) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 68
-Warning (10030): Net "new_game_ack_message_tx" at chipinterface.sv(68) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 68
-Warning (10030): Net "sign_y_tx" at chipinterface.sv(73) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 73
-Warning (10030): Net "sign_y_rx" at chipinterface.sv(73) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 73
-Warning (10030): Net "you_should_serve_tx" at chipinterface.sv(77) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 77
-Warning (10030): Net "you_serve_first_tx" at chipinterface.sv(80) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 80
+Warning (10036): Verilog HDL or VHDL warning at chipinterface.sv(26): object "clock_n" assigned a value but never read File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 26
+Warning (10030): Net "ball_y_tx" at chipinterface.sv(69) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 69
+Warning (10030): Net "velocity_x_tx" at chipinterface.sv(70) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 70
+Warning (10030): Net "velocity_y_tx" at chipinterface.sv(70) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 70
+Warning (10030): Net "velocity_y_rx" at chipinterface.sv(70) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 70
+Warning (10030): Net "my_score_tx" at chipinterface.sv(74) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 74
+Warning (10030): Net "your_score_tx" at chipinterface.sv(74) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 74
+Warning (10030): Net "arcade_led" at chipinterface.sv(57) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 57
+Warning (10030): Net "clear_inputs" at chipinterface.sv(58) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 58
+Warning (10030): Net "send_new_message" at chipinterface.sv(64) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 64
+Warning (10030): Net "message_acked" at chipinterface.sv(64) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 64
+Warning (10030): Net "ball_message_tx" at chipinterface.sv(66) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 66
+Warning (10030): Net "miss_message_tx" at chipinterface.sv(66) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 66
+Warning (10030): Net "new_game_message_tx" at chipinterface.sv(66) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 66
+Warning (10030): Net "new_game_ack_message_tx" at chipinterface.sv(66) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 66
+Warning (10030): Net "sign_y_tx" at chipinterface.sv(71) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 71
+Warning (10030): Net "sign_y_rx" at chipinterface.sv(71) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 71
+Warning (10030): Net "you_should_serve_tx" at chipinterface.sv(75) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 75
+Warning (10030): Net "you_serve_first_tx" at chipinterface.sv(78) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 78
 Warning (10034): Output port "HEX0" at chipinterface.sv(12) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 12
 Warning (10034): Output port "HEX1" at chipinterface.sv(12) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 12
 Warning (10034): Output port "HEX2" at chipinterface.sv(12) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 12
@@ -873,49 +891,58 @@ Warning (10034): Output port "HEX5" at chipinterface.sv(13) has no driver File: 
 Warning (10034): Output port "HEX6" at chipinterface.sv(13) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 13
 Warning (10034): Output port "HEX7" at chipinterface.sv(13) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 13
 Warning (10034): Output port "UART_TXD" at chipinterface.sv(19) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 19
-Warning (10034): Output port "UART_CTS" at chipinterface.sv(20) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 20
-Info (12128): Elaborating entity "displayModule" for hierarchy "displayModule:disM" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 51
-Warning (10230): Verilog HDL assignment warning at chipinterface.sv(186): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 186
-Warning (10230): Verilog HDL assignment warning at chipinterface.sv(187): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 187
-Warning (10230): Verilog HDL assignment warning at chipinterface.sv(188): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 188
-Warning (10230): Verilog HDL assignment warning at chipinterface.sv(189): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 189
-Warning (10230): Verilog HDL assignment warning at chipinterface.sv(190): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 190
-Warning (10230): Verilog HDL assignment warning at chipinterface.sv(191): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 191
-Info (12128): Elaborating entity "vga" for hierarchy "displayModule:disM|vga:vgaModule" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 198
+Warning (10034): Output port "UART_CTS" at chipinterface.sv(19) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 19
+Warning (10034): Output port "NEO_OUT" at chipinterface.sv(22) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 22
+Info (12128): Elaborating entity "displayModule" for hierarchy "displayModule:disM" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 53
+Warning (10230): Verilog HDL assignment warning at chipinterface.sv(176): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 176
+Warning (10230): Verilog HDL assignment warning at chipinterface.sv(177): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 177
+Warning (10230): Verilog HDL assignment warning at chipinterface.sv(178): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 178
+Warning (10230): Verilog HDL assignment warning at chipinterface.sv(179): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 179
+Warning (10230): Verilog HDL assignment warning at chipinterface.sv(180): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 180
+Warning (10230): Verilog HDL assignment warning at chipinterface.sv(181): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 181
+Info (12128): Elaborating entity "vga" for hierarchy "displayModule:disM|vga:vgaModule" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 188
 Info (12128): Elaborating entity "simple_counter" for hierarchy "displayModule:disM|vga:vgaModule|simple_counter:row_counter" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/vga.sv Line: 22
 Info (12128): Elaborating entity "simple_counter" for hierarchy "displayModule:disM|vga:vgaModule|simple_counter:col_counter" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/vga.sv Line: 37
-Info (12128): Elaborating entity "gameStateModule" for hierarchy "gameStateModule:gsm" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 57
-Warning (10036): Verilog HDL or VHDL warning at chipinterface.sv(234): object "score" assigned a value but never read File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 234
-Warning (10036): Verilog HDL or VHDL warning at chipinterface.sv(234): object "reset_L" assigned a value but never read File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 234
-Warning (10036): Verilog HDL or VHDL warning at chipinterface.sv(238): object "ball_bottom" assigned a value but never read File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 238
-Warning (10036): Verilog HDL or VHDL warning at chipinterface.sv(238): object "ball_right" assigned a value but never read File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 238
-Warning (10858): Verilog HDL warning at chipinterface.sv(239): object ball_hit_left_right used but never assigned File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 239
-Warning (10230): Verilog HDL assignment warning at chipinterface.sv(241): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 241
-Warning (10230): Verilog HDL assignment warning at chipinterface.sv(242): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 242
-Warning (10230): Verilog HDL assignment warning at chipinterface.sv(260): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 260
-Warning (10230): Verilog HDL assignment warning at chipinterface.sv(303): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 303
-Warning (10230): Verilog HDL assignment warning at chipinterface.sv(306): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 306
-Warning (10230): Verilog HDL assignment warning at chipinterface.sv(308): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 308
-Warning (10230): Verilog HDL assignment warning at chipinterface.sv(338): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 338
-Warning (10230): Verilog HDL assignment warning at chipinterface.sv(341): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 341
-Info (12128): Elaborating entity "register" for hierarchy "gameStateModule:gsm|register:vel_x_reg" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 371
-Info (12128): Elaborating entity "register" for hierarchy "gameStateModule:gsm|register:sign_x_reg" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 379
-Info (12128): Elaborating entity "CommunicationSender" for hierarchy "CommunicationSender:cs" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 82
-Warning (10034): Output port "message_sent" at chipinterface.sv(102) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 102
-Warning (12158): Entity "CommunicationSender" contains only dangling pins File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 82
-Info (12128): Elaborating entity "CommunicationReceiver" for hierarchy "CommunicationReceiver:cr" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 83
-Warning (10034): Output port "ball_y_rx" at chipinterface.sv(136) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 136
-Warning (10034): Output port "velocity_x_rx" at chipinterface.sv(137) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 137
-Warning (10034): Output port "my_score_rx" at chipinterface.sv(143) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 143
-Warning (10034): Output port "your_score_rx" at chipinterface.sv(144) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 144
-Warning (10034): Output port "new_message_received" at chipinterface.sv(132) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 132
-Warning (10034): Output port "ball_message_rx" at chipinterface.sv(140) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 140
-Warning (10034): Output port "you_should_serve_rx" at chipinterface.sv(145) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 145
-Warning (10034): Output port "miss_message_rx" at chipinterface.sv(146) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 146
-Warning (10034): Output port "you_serve_first_rx" at chipinterface.sv(149) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 149
-Warning (10034): Output port "new_game_message_rx" at chipinterface.sv(150) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 150
-Warning (10034): Output port "new_game_ack_message_rx" at chipinterface.sv(154) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 154
-Warning (12158): Entity "CommunicationReceiver" contains only dangling pins File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 83
+Info (12128): Elaborating entity "UserInterface" for hierarchy "UserInterface:ui" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 59
+Warning (10036): Verilog HDL or VHDL warning at UserInterface.sv(16): object "JOY_UP_inter" assigned a value but never read File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/UserInterface.sv Line: 16
+Warning (10036): Verilog HDL or VHDL warning at UserInterface.sv(16): object "JOY_UP_synced" assigned a value but never read File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/UserInterface.sv Line: 16
+Warning (10036): Verilog HDL or VHDL warning at UserInterface.sv(17): object "JOY_DOWN_inter" assigned a value but never read File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/UserInterface.sv Line: 17
+Warning (10036): Verilog HDL or VHDL warning at UserInterface.sv(17): object "JOY_DOWN_synced" assigned a value but never read File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/UserInterface.sv Line: 17
+Warning (10034): Output port "joystick_up" at UserInterface.sv(9) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/UserInterface.sv Line: 9
+Warning (10034): Output port "joystick_down" at UserInterface.sv(9) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/UserInterface.sv Line: 9
+Warning (10034): Output port "ARCADE_LED" at UserInterface.sv(13) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/UserInterface.sv Line: 13
+Info (12128): Elaborating entity "gameStateModule" for hierarchy "gameStateModule:gsm" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 61
+Warning (10036): Verilog HDL or VHDL warning at chipinterface.sv(224): object "score" assigned a value but never read File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 224
+Warning (10036): Verilog HDL or VHDL warning at chipinterface.sv(224): object "reset_L" assigned a value but never read File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 224
+Warning (10036): Verilog HDL or VHDL warning at chipinterface.sv(228): object "ball_bottom" assigned a value but never read File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 228
+Warning (10036): Verilog HDL or VHDL warning at chipinterface.sv(228): object "ball_right" assigned a value but never read File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 228
+Warning (10858): Verilog HDL warning at chipinterface.sv(229): object ball_hit_left_right used but never assigned File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 229
+Warning (10230): Verilog HDL assignment warning at chipinterface.sv(231): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 231
+Warning (10230): Verilog HDL assignment warning at chipinterface.sv(232): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 232
+Warning (10230): Verilog HDL assignment warning at chipinterface.sv(250): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 250
+Warning (10230): Verilog HDL assignment warning at chipinterface.sv(293): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 293
+Warning (10230): Verilog HDL assignment warning at chipinterface.sv(296): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 296
+Warning (10230): Verilog HDL assignment warning at chipinterface.sv(298): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 298
+Warning (10230): Verilog HDL assignment warning at chipinterface.sv(328): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 328
+Warning (10230): Verilog HDL assignment warning at chipinterface.sv(331): truncated value with size 32 to match size of target (10) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 331
+Info (12128): Elaborating entity "register" for hierarchy "gameStateModule:gsm|register:vel_x_reg" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 361
+Info (12128): Elaborating entity "register" for hierarchy "gameStateModule:gsm|register:sign_x_reg" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 369
+Info (12128): Elaborating entity "CommunicationSender" for hierarchy "CommunicationSender:cs" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 80
+Warning (10034): Output port "message_sent" at chipinterface.sv(92) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 92
+Warning (12158): Entity "CommunicationSender" contains only dangling pins File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 80
+Info (12128): Elaborating entity "CommunicationReceiver" for hierarchy "CommunicationReceiver:cr" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 81
+Warning (10034): Output port "ball_y_rx" at chipinterface.sv(126) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 126
+Warning (10034): Output port "velocity_x_rx" at chipinterface.sv(127) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 127
+Warning (10034): Output port "my_score_rx" at chipinterface.sv(133) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 133
+Warning (10034): Output port "your_score_rx" at chipinterface.sv(134) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 134
+Warning (10034): Output port "new_message_received" at chipinterface.sv(122) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 122
+Warning (10034): Output port "ball_message_rx" at chipinterface.sv(130) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 130
+Warning (10034): Output port "you_should_serve_rx" at chipinterface.sv(135) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 135
+Warning (10034): Output port "miss_message_rx" at chipinterface.sv(136) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 136
+Warning (10034): Output port "you_serve_first_rx" at chipinterface.sv(139) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 139
+Warning (10034): Output port "new_game_message_rx" at chipinterface.sv(140) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 140
+Warning (10034): Output port "new_game_ack_message_rx" at chipinterface.sv(144) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 144
+Warning (12158): Entity "CommunicationReceiver" contains only dangling pins File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 81
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_o424.tdf
     Info (12023): Found entity 1: altsyncram_o424 File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/db/altsyncram_o424.tdf Line: 28
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_ssc.tdf
@@ -936,7 +963,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr
     Info (12023): Found entity 1: cmpr_ngc File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/db/cmpr_ngc.tdf Line: 23
 Info (12033): Analysis and Synthesis generated Signal Tap or debug node instance "auto_signaltap_0"
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2022.02.04.16:14:12 Progress: Loading sld267bc682/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2022.02.07.20:16:06 Progress: Loading sld267bc682/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -1018,13 +1045,18 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX7[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 13
     Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 15
     Warning (13410): Pin "UART_TXD" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 19
-    Warning (13410): Pin "UART_CTS" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 20
+    Warning (13410): Pin "UART_CTS" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 19
+    Warning (13410): Pin "ARCADE_LED" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 22
+    Warning (13410): Pin "NEO_OUT" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 22
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
 Info (144001): Generated suppressed messages file C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/output_files/FPGAQuartusProject.map.smsg
 Critical Warning (35025): Partially connected in-system debug instance "auto_signaltap_0" to 33 of its 53 required data inputs, trigger inputs, acquisition clocks, and dynamic pins.  There were 0 illegal, 0 inaccessible, and 20 missing sources or connections.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 19 input pin(s) that do not drive logic
+Warning (21074): Design contains 25 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 10
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 10
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 10
     Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 11
     Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 11
     Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 11
@@ -1044,16 +1076,19 @@ Warning (21074): Design contains 19 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[17]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 11
     Warning (15610): No output dependent on input pin "UART_RXD" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 18
     Warning (15610): No output dependent on input pin "UART_RTS" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 18
-Info (21057): Implemented 1220 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 29 input pins
-    Info (21059): Implemented 88 output pins
-    Info (21061): Implemented 1092 logic cells
+    Warning (15610): No output dependent on input pin "JOY_UP" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 21
+    Warning (15610): No output dependent on input pin "JOY_DOWN" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 21
+    Warning (15610): No output dependent on input pin "NEO_IN" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipinterface.sv Line: 21
+Info (21057): Implemented 1071 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 33 input pins
+    Info (21059): Implemented 90 output pins
+    Info (21061): Implemented 937 logic cells
     Info (21064): Implemented 10 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 143 warnings
-    Info: Peak virtual memory: 4862 megabytes
-    Info: Processing ended: Fri Feb  4 16:14:33 2022
-    Info: Elapsed time: 00:00:49
-    Info: Total CPU time (on all processors): 00:01:33
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 161 warnings
+    Info: Peak virtual memory: 4847 megabytes
+    Info: Processing ended: Mon Feb  7 20:16:15 2022
+    Info: Elapsed time: 00:00:23
+    Info: Total CPU time (on all processors): 00:00:48
 
 
 +------------------------------------------+

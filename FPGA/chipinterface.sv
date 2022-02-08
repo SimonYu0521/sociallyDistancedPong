@@ -16,11 +16,10 @@ module ChipInterface
     output logic VGA_VS, VGA_HS,
     
     input  logic UART_RXD, UART_RTS,
-    output logic UART_TXD, UART_CTS
+    output logic UART_TXD, UART_CTS,
     // User Interface GPIO
     input  logic JOY_UP, JOY_DOWN, ARCADE_BUTTON, NEO_IN,
-    output logic ARCADE_LED, NEO_OUT
-    );
+    output logic ARCADE_LED, NEO_OUT);
 
     logic [9:0] row, col;
 

@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Fri Feb  4 16:14:32 2022
+Analysis & Synthesis Status : Successful - Mon Feb  7 20:16:15 2022
 Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 Revision Name : FPGAQuartusProject
 Top-level Entity Name : ChipInterface
 Family : Cyclone IV E
-Total logic elements : 1,077
-    Total combinational functions : 853
-    Dedicated logic registers : 549
-Total registers : 549
-Total pins : 113
+Total logic elements : 921
+    Total combinational functions : 701
+    Dedicated logic registers : 535
+Total registers : 535
+Total pins : 119
 Total virtual pins : 0
 Total memory bits : 1,280
 Embedded Multiplier 9-bit elements : 0
