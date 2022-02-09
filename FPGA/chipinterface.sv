@@ -112,17 +112,17 @@ module CommunicationSender
    input  logic       ball_message_tx, // if active, then this message is about the ball
    
    // Miss message values: Sent when ball was missed on "my" side
-   input  logic [4:0] my_score_tx,
-   input  logic [4:0] your_score_tx,
+  //  input  logic [4:0] my_score_tx,
+  //  input  logic [4:0] your_score_tx,
    input  logic       you_should_serve_tx,
    input  logic       miss_message_tx,
    
    // New game message values: Sent when reset.  Needs ack
-   input  logic       you_serve_first_tx,
+  //  input  logic       you_serve_first_tx,
    input  logic       new_game_message_tx,
    
    // New game acknowledgement
-   input  logic       new_game_ack_message_tx,
+  //  input  logic       new_game_ack_message_tx,
    
    input  logic       clock, reset
    );
@@ -141,17 +141,17 @@ module CommunicationReceiver
    output logic       ball_message_rx, // if active, then this message is about the ball
    
    // Miss message values: Received when ball was missed on opponent's side
-   output logic [4:0] my_score_rx,
-   output logic [4:0] your_score_rx,
-   output logic       you_should_serve_rx,
+  //  output logic [4:0] my_score_rx,
+  //  output logic [4:0] your_score_rx,
+  //  output logic       you_should_serve_rx,
    output logic       miss_message_rx,
    
    // New game message values: Received when reset.  Needs ack
-   output logic       you_serve_first_rx,
+  //  output logic       you_serve_first_rx,
    output logic       new_game_message_rx,
    
    // New game acknowledgement
-   output logic       new_game_ack_message_rx
+  //  output logic       new_game_ack_message_rx
    );
    
 endmodule : CommunicationReceiver
@@ -357,7 +357,7 @@ module gameStateModule
     velocity_x_tx = 0;  // always positive (i.e. into the other side)
     velocity_y_tx = 0;  // unsigned magnitude
     sign_y_tx = 0;               // sign of vel_y
-    ball_message_tx = 0, // if active, then this message is about the ball
+    ball_message_tx = 0; // if active, then this message is about the ball
    
 
     my_score_tx = 0;
