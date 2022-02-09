@@ -34,6 +34,9 @@ module ChipInterface
 
     logic [17:0] SW_synced, SW_inter;
 
+    logic disp_new_screen;
+
+
     always_ff @( posedge CLOCK_50 ) begin 
         KEY_inter <= KEY;
         KEY_synced <= KEY_inter;
@@ -57,6 +60,14 @@ module ChipInterface
     logic arcade_led;
     logic clear_inputs;
     UserInterface ui(.*);
+
+    assign HEX7[0] = JOY_UP;
+    assign HEX7[1] = JOY_DOWN;
+    assign HEX7[2] = ARCADE_BUTTON;
+
+    assign HEX6[0] = joystick_up;
+    assign HEX6[1] = joystick_down;
+    assign HEX6[2] = arcade_button_pressed;
     
     gameStateModule gsm(.*);
     
@@ -149,6 +160,7 @@ module displayModule
     (input logic [9:0] ball_left, ball_top,
     input logic [9:0] paddleX, paddleY,
     input logic reset, clock, is_left_player,
+    input logic disp_new_screen,
     output logic [7:0] VGA_R, VGA_G, VGA_B,
     output logic VGA_BLANK_N, VGA_CLK, VGA_SYNC_N,
     output logic VGA_VS, VGA_HS,
@@ -194,11 +206,22 @@ module displayModule
     assign disp_paddle = (vgaRow >= paddle_top && vgaRow <= paddle_bot) && 
                      (vgaCol >= paddle_left && vgaCol <= paddle_right);
 
+    logic [5:0][3:0] start_screen = {{1'b1, 1'b1, 1'b1},
+                                     {1'b1, 1'b0, 1'b0},
+                                     {1'b1, 1'b1, 1'b1},
+                                     {1'b0, 1'b0, 1'b1},
+                                     {1'b1, 1'b1, 1'b1}};
+
     always_comb begin
       VGA_R = 0;
       VGA_G = 0;
       VGA_B = 0;
-      if (disp_paddle) begin
+      if (disp_new_screen)begin
+        if (vgaRow < 5 && vgaCol < 3)begin
+          VGA_R = start_screen[vgaRow][vgaCol] ? 255 :0;
+        end
+      end
+      else if (disp_paddle) begin
         VGA_R = 'd255;
         VGA_G = 'd0;
         VGA_B = 'd0;
@@ -217,8 +240,60 @@ module gameStateModule
   input logic arcade_button_pressed,
   output logic [9:0] ball_top, ball_left,
   output logic [9:0] paddleX, paddleY,
+  output logic disp_new_screen,
   input logic update_screen, clock, reset,
-  input logic is_left_player);
+  input logic is_left_player,
+  
+  //outward
+  output  logic send_new_message,       // Tell CS to send a new message, which is on the inputs
+  input logic message_sent,    // Tell producer that CS is ready for new inputs
+   
+   // This is data for any specific message.  Only one of the "xx_message" signals
+   // can be asserted on any clock edge, and only on the edge when go is asserted.
+   // Ball message values
+   output  logic [8:0] ball_y_tx,
+   output  logic [3:0] velocity_x_tx,  // always positive (i.e. into the other side)
+   output  logic [3:0] velocity_y_tx,  // unsigned magnitude
+   output  logic sign_y_tx,               // sign of vel_y
+   output  logic       ball_message_tx, // if active, then this message is about the ball
+   
+   // Miss message values: Sent when ball was missed on "my" side
+   output  logic [4:0] my_score_tx,
+   output  logic [4:0] your_score_tx,
+   output  logic       you_should_serve_tx,
+   output  logic       miss_message_tx,
+   
+   // New game message values: Sent when reset.  Needs ack
+   output  logic       you_serve_first_tx,
+   output  logic       new_game_message_tx,
+   
+   // New game acknowledgement
+   output  logic       new_game_ack_message_tx,
+
+   //inward
+   input logic new_message_received,  // Tell "this side" of a new message.  Asserted until acked
+   output  logic message_acked, 
+   
+   // Ball message values: Received when ball is incoming
+   input logic [8:0] ball_y_rx,
+   input logic [3:0] velocity_x_rx,
+   input  logic [3:0] velocity_y_rx,  // unsigned magnitude
+   input  logic sign_y_rx,               // sign of vel_y
+   input logic       ball_message_rx, // if active, then this message is about the ball
+   
+   // Miss message values: Received when ball was missed on opponent's side
+   input logic [4:0] my_score_rx,
+   input logic [4:0] your_score_rx,
+   input logic       you_should_serve_rx,
+   input logic       miss_message_rx,
+   
+   // New game message values: Received when reset.  Needs ack
+   input logic       you_serve_first_rx,
+   input logic       new_game_message_rx,
+   
+   // New game acknowledgement
+   input logic       new_game_ack_message_rx
+  );
 
   
 	logic score, reset_L;
@@ -240,7 +315,9 @@ module gameStateModule
   logic ball_hit_paddle;
   assign ball_hit_paddle = 1;
 
-  enum {RESET, SERVE_MODE_INIT, SERVE_MODE, PLAY_MODE_INIT, PLAY_MODE} state, nextState;
+  enum {RESET, WAIT1, WAIT2, WAIT3, NEW_GAME_STATE, SEND_NEW_GAME_MSG,
+   NEW_GAME_STATE_WAIT_FOR_OPPO, SERVE_MODE_INIT, SERVE_MODE, 
+   PLAY_MODE_INIT, PLAY_MODE, SEND_BALL} state, nextState;
 
 
   assign score = ball_hit_left_right && ~ball_hit_paddle;
@@ -260,6 +337,8 @@ module gameStateModule
   logic [9:0] paddleY_new;
   logic paddle_move;
 
+  logic ball_crossed;
+
   always_comb begin
     vel_x_new = 0; vel_y_new = 0;
     ball_top_new = 0; ball_left_new = 0;
@@ -270,8 +349,33 @@ module gameStateModule
     sign_y_new = 0;
     paddle_move = 0;
     paddleY_new = 0;
+    disp_new_screen = 0;
+    ball_crossed = 0;
+
+    send_new_message = 0;       // Tell CS to send a new message, which is on the inputs
+    ball_y_tx = 0;
+    velocity_x_tx = 0;  // always positive (i.e. into the other side)
+    velocity_y_tx = 0;  // unsigned magnitude
+    sign_y_tx = 0;               // sign of vel_y
+    ball_message_tx = 0, // if active, then this message is about the ball
+   
+
+    my_score_tx = 0;
+    your_score_tx = 0;
+    you_should_serve_tx = 0;
+    miss_message_tx = 0;
+   
+   // New game message values: Sent when reset.  Needs ack
+    you_serve_first_tx = 0;
+    new_game_message_tx = 0;
+   
+   // New game acknowledgement
+    new_game_ack_message_tx = 0,
     case (state)
       RESET: regClr = 1;
+      NEW_GAME_STATE: begin
+        disp_new_screen = 1;
+      end
       SERVE_MODE_INIT: begin
         paddleY_new = 10'd240;
         paddle_move = 1;
@@ -315,11 +419,14 @@ module gameStateModule
         ball_left_new = sign_x ? ball_left + vel_x : ball_left - vel_x;
         sign_x_new = sign_x;
         sign_y_new = sign_y;
-        if (ball_left_new + `BALL_SIZE >= 640 - vel_x || ball_left_new <= 0 + vel_x 
-          || (is_left_player && (ball_left_new <= paddleX) && (ball_top_new <= paddleY + `PADDLE_HEIGHT) && (ball_top_new + `BALL_SIZE >= paddleY - `PADDLE_HEIGHT))
+        if ((is_left_player && (ball_left_new <= paddleX) && (ball_top_new <= paddleY + `PADDLE_HEIGHT) && (ball_top_new + `BALL_SIZE >= paddleY - `PADDLE_HEIGHT))
           || (!is_left_player && ball_left_new + `BALL_SIZE >= paddleX && ball_top_new <= paddleY + `PADDLE_HEIGHT && ball_top_new + `BALL_SIZE >= paddleY - `PADDLE_HEIGHT)) begin
           sign_x_new = !sign_x;
         end
+        if ((is_left_player && (ball_left_new + `BALL_SIZE >= 640 - vel_x)) 
+          || (!is_left_player && (ball_left_new <= 0 + vel_x))) begin
+          ball_crossed = 1; 
+          end
         if (ball_top_new + `BALL_SIZE >= 480 - vel_y || ball_top_new <= 0 + vel_y) begin
           sign_y_new = !sign_y;
         end
@@ -335,16 +442,30 @@ module gameStateModule
         pos_reg_load = update_screen;
         paddle_move = (joystick_down || joystick_up) && update_screen;
       end
+      SEND_BALL: begin 
+        disp_new_screen = 1;
+        ball_message_tx = 1;
+        velocity_x_tx = vel_x[3:0];
+        velocity_y_tx = vel_y[3:0];
+        sign_y_tx = sign_y; //edge case maybe?
+      end
     endcase
   end
 
   always_comb begin
     case(state)
-      RESET: nextState = SERVE_MODE_INIT;
+      RESET: nextState = WAIT1;
+      WAIT1: nextState = WAIT2;
+      WAIT2: nextState = WAIT3;
+      WAIT3: nextState = is_left_player ? NEW_GAME_STATE : NEW_GAME_STATE_WAIT_FOR_OPPO;
+      NEW_GAME_STATE_WAIT_FOR_OPPO: nextState = (new_game_message_rx && new_message_received) ? PLAY_MODE : NEW_GAME_STATE;
+      NEW_GAME_STATE: nextState = arcade_button_pressed ? SEND_NEW_GAME_MSG : NEW_GAME_STATE;
+      SEND_NEW_GAME_MSG: nextState = SERVE_MODE_INIT;
       SERVE_MODE_INIT: nextState = SERVE_MODE;
       SERVE_MODE: nextState = arcade_button_pressed ? PLAY_MODE : SERVE_MODE;
       PLAY_MODE_INIT: nextState = PLAY_MODE;
-      PLAY_MODE: nextState = PLAY_MODE;
+      PLAY_MODE: nextState = ball_crossed ? SEND_BALL : PLAY_MODE;
+      SEND_BALL: nextState = SEND_BALL;
     endcase
   end
 
@@ -376,7 +497,6 @@ module gameStateModule
                              .clk(clock), .en(paddle_move), .clr(regClr),
                              .Q(paddleY));
 
-
   register #(10) row_register(.D(ball_top_new),
                               .clk(clock), .en(pos_reg_load), .clr(regClr),
                               .Q(ball_top));
@@ -384,10 +504,6 @@ module gameStateModule
   register #(10) col_register(.D(ball_left_new),
                               .clk(clock), .en(pos_reg_load), .clr(regClr),
                               .Q(ball_left));
-
-                              
-  
-  
 
 
 
