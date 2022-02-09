@@ -114,15 +114,14 @@ module CommunicationSender
    // Miss message values: Sent when ball was missed on "my" side
   //  input  logic [4:0] my_score_tx,
   //  input  logic [4:0] your_score_tx,
-   input  logic       you_should_serve_tx,
+   input  logic       are_you_there_tx,
+   input  logic       I_am_here_tx,
    input  logic       miss_message_tx,
-   
+   input  logic       I_lost_tx,
+    
    // New game message values: Sent when reset.  Needs ack
-  //  input  logic       you_serve_first_tx,
    input  logic       new_game_message_tx,
    
-   // New game acknowledgement
-  //  input  logic       new_game_ack_message_tx,
    
    input  logic       clock, reset
    );
@@ -136,22 +135,18 @@ module CommunicationReceiver
    // Ball message values: Received when ball is incoming
    output logic [8:0] ball_y_rx,
    output logic [3:0] velocity_x_rx,
-   input  logic [3:0] velocity_y_rx,  // unsigned magnitude
-   input  logic sign_y_rx,               // sign of vel_y
+   output  logic [3:0] velocity_y_rx,  // unsigned magnitude
+   output  logic sign_y_rx,               // sign of vel_y
    output logic       ball_message_rx, // if active, then this message is about the ball
    
    // Miss message values: Received when ball was missed on opponent's side
-  //  output logic [4:0] my_score_rx,
-  //  output logic [4:0] your_score_rx,
-  //  output logic       you_should_serve_rx,
+   output logic       are_you_there_rx,
+   output logic       I_am_here_rx,
    output logic       miss_message_rx,
-   
-   // New game message values: Received when reset.  Needs ack
-  //  output logic       you_serve_first_rx,
+   output logic       I_lost_rx,
+
    output logic       new_game_message_rx,
    
-   // New game acknowledgement
-  //  output logic       new_game_ack_message_rx
    );
    
 endmodule : CommunicationReceiver
@@ -258,17 +253,12 @@ module gameStateModule
    output  logic       ball_message_tx, // if active, then this message is about the ball
    
    // Miss message values: Sent when ball was missed on "my" side
-   output  logic [4:0] my_score_tx,
-   output  logic [4:0] your_score_tx,
-   output  logic       you_should_serve_tx,
+   output  logic       I_am_here_tx,
+   output  logic       are_you_there_tx,
+   output  logic       I_lost_tx,
    output  logic       miss_message_tx,
    
-   // New game message values: Sent when reset.  Needs ack
-   output  logic       you_serve_first_tx,
    output  logic       new_game_message_tx,
-   
-   // New game acknowledgement
-   output  logic       new_game_ack_message_tx,
 
    //inward
    input logic new_message_received,  // Tell "this side" of a new message.  Asserted until acked
@@ -280,19 +270,14 @@ module gameStateModule
    input  logic [3:0] velocity_y_rx,  // unsigned magnitude
    input  logic sign_y_rx,               // sign of vel_y
    input logic       ball_message_rx, // if active, then this message is about the ball
-   
-   // Miss message values: Received when ball was missed on opponent's side
-   input logic [4:0] my_score_rx,
-   input logic [4:0] your_score_rx,
-   input logic       you_should_serve_rx,
+
+   input logic       I_lost_rx,
    input logic       miss_message_rx,
-   
-   // New game message values: Received when reset.  Needs ack
-   input logic       you_serve_first_rx,
+   input logic       are_you_there_rx,
+   input logic       I_am_here_rx,
+
    input logic       new_game_message_rx,
-   
-   // New game acknowledgement
-   input logic       new_game_ack_message_rx
+
   );
 
   
@@ -315,7 +300,9 @@ module gameStateModule
   logic ball_hit_paddle;
   assign ball_hit_paddle = 1;
 
-  enum {RESET, WAIT1, WAIT2, WAIT3, NEW_GAME_STATE, SEND_NEW_GAME_MSG,
+  enum {RESET, SYNC_LEFT, SYNC_RIGHT, SEND_I_AM_HERE, //SYNCING
+  
+   NEW_GAME_STATE, SEND_NEW_GAME_MSG,
    NEW_GAME_STATE_WAIT_FOR_OPPO, SERVE_MODE_INIT, SERVE_MODE, 
    PLAY_MODE_INIT, PLAY_MODE, SEND_BALL} state, nextState;
 
@@ -352,29 +339,40 @@ module gameStateModule
     disp_new_screen = 0;
     ball_crossed = 0;
 
-    send_new_message = 0;       // Tell CS to send a new message, which is on the inputs
+    send_new_message = 0;
     ball_y_tx = 0;
-    velocity_x_tx = 0;  // always positive (i.e. into the other side)
-    velocity_y_tx = 0;  // unsigned magnitude
-    sign_y_tx = 0;               // sign of vel_y
-    ball_message_tx = 0; // if active, then this message is about the ball
+    velocity_x_tx = 0; 
+    velocity_y_tx = 0; 
+    sign_y_tx = 0;
+    ball_message_tx = 0; 
    
+    I_am_here_tx = 0;
+    are_you_there_tx = 0;
+    I_lost_tx=0;
+    miss_message_tx=0;
+   
+    new_game_message_tx =0;
 
-    my_score_tx = 0;
-    your_score_tx = 0;
-    you_should_serve_tx = 0;
-    miss_message_tx = 0;
-   
-   // New game message values: Sent when reset.  Needs ack
-    you_serve_first_tx = 0;
-    new_game_message_tx = 0;
-   
-   // New game acknowledgement
-    new_game_ack_message_tx = 0,
+    message_acked = 0;
+
+
     case (state)
       RESET: regClr = 1;
       NEW_GAME_STATE: begin
         disp_new_screen = 1;
+      end
+      SYNC_LEFT: begin
+        regClr = 1;
+        are_you_there_tx = 1;
+        send_new_message = 1;
+      end
+      SYNC_RIGHT: begin
+        regClr = 1;
+        message_acked = (new_message_received && are_you_there_rx) ? 1 : 0;
+      end
+      SEND_I_AM_HERE: begin
+        I_am_here_tx = 1;
+        send_new_message = 1;
       end
       SERVE_MODE_INIT: begin
         paddleY_new = 10'd240;
@@ -454,13 +452,23 @@ module gameStateModule
 
   always_comb begin
     case(state)
-      RESET: nextState = WAIT1;
-      WAIT1: nextState = WAIT2;
-      WAIT2: nextState = WAIT3;
-      WAIT3: nextState = is_left_player ? NEW_GAME_STATE : NEW_GAME_STATE_WAIT_FOR_OPPO;
-      NEW_GAME_STATE_WAIT_FOR_OPPO: nextState = (new_game_message_rx && new_message_received) ? PLAY_MODE : NEW_GAME_STATE;
+      RESET: nextState = SYNC_LEFT;
+      SYNC_LEFT: begin
+        if(!is_left_player) nextState = SYNC_RIGHT;
+        if(I_am_here_rx && new_message_received) nextState = NEW_GAME_STATE;
+        else nextState = SYNC_LEFT;
+      end
+      SYNC_RIGHT: begin
+        if(is_left_player) nextState = SYNC_LEFT;
+        if(are_you_there_rx && new_message_received) nextState = SEND_I_AM_HERE;
+        else nextState = SYNC_RIGHT;
+      end
+      SEND_I_AM_HERE:begin
+        nextState = message_sent ? NEW_GAME_STATE_WAIT_FOR_OPPO : SEND_I_AM_HERE;
+      end
+      NEW_GAME_STATE_WAIT_FOR_OPPO: nextState = (new_game_message_rx && new_message_received) ? SERVE_MODE_INIT : NEW_GAME_STATE_WAIT_FOR_OPPO;
       NEW_GAME_STATE: nextState = arcade_button_pressed ? SEND_NEW_GAME_MSG : NEW_GAME_STATE;
-      SEND_NEW_GAME_MSG: nextState = SERVE_MODE_INIT;
+      SEND_NEW_GAME_MSG: nextState = (message_sent) ? WAIT_BALL : SEND_NEW_GAME_MSG;
       SERVE_MODE_INIT: nextState = SERVE_MODE;
       SERVE_MODE: nextState = arcade_button_pressed ? PLAY_MODE : SERVE_MODE;
       PLAY_MODE_INIT: nextState = PLAY_MODE;
