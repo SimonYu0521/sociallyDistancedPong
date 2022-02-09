@@ -211,12 +211,7 @@ module fsm_ll
     else
       state <= next_state;
 
-     if (state == SENDING && next_state == SEND1_HIGH)
-      $write("1");
-    else if (state == SENDING && next_state == SEND0_HIGH)
-      $write("0");
-    else if (state == INIT)
-      $display(" ");
+   
   end
       
   // Output Generator
