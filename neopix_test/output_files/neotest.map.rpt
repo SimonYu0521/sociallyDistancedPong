@@ -1,5 +1,5 @@
 Analysis & Synthesis report for neotest
-Wed Feb  9 23:12:22 2022
+Thu Feb 10 15:14:13 2022
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -77,15 +77,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Feb  9 23:12:22 2022       ;
+; Analysis & Synthesis Status        ; Successful - Thu Feb 10 15:14:13 2022       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; neotest                                     ;
 ; Top-level Entity Name              ; ChipInterface                               ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 267                                         ;
-;     Total combinational functions  ; 265                                         ;
-;     Dedicated logic registers      ; 214                                         ;
-; Total registers                    ; 214                                         ;
+; Total logic elements               ; 264                                         ;
+;     Total combinational functions  ; 262                                         ;
+;     Dedicated logic registers      ; 215                                         ;
+; Total registers                    ; 215                                         ;
 ; Total pins                         ; 42                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -213,20 +213,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 267            ;
+; Estimated Total logic elements              ; 264            ;
 ;                                             ;                ;
-; Total combinational functions               ; 265            ;
+; Total combinational functions               ; 262            ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 43             ;
-;     -- 3 input functions                    ; 198            ;
-;     -- <=2 input functions                  ; 24             ;
+;     -- 4 input functions                    ; 225            ;
+;     -- 3 input functions                    ; 15             ;
+;     -- <=2 input functions                  ; 22             ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 247            ;
-;     -- arithmetic mode                      ; 18             ;
+;     -- normal mode                          ; 243            ;
+;     -- arithmetic mode                      ; 19             ;
 ;                                             ;                ;
-; Total registers                             ; 214            ;
-;     -- Dedicated logic registers            ; 214            ;
+; Total registers                             ; 215            ;
+;     -- Dedicated logic registers            ; 215            ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
 ; I/O pins                                    ; 42             ;
@@ -234,9 +234,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 214            ;
-; Total fan-out                               ; 1496           ;
-; Average fan-out                             ; 2.66           ;
+; Maximum fan-out                             ; 215            ;
+; Total fan-out                               ; 1677           ;
+; Average fan-out                             ; 2.99           ;
 +---------------------------------------------+----------------+
 
 
@@ -245,18 +245,18 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------+------------------------------+--------------+
 ; Compilation Hierarchy Node                  ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                            ; Entity Name                  ; Library Name ;
 +---------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------+------------------------------+--------------+
-; |ChipInterface                              ; 265 (3)             ; 214 (2)                   ; 0           ; 0            ; 0       ; 0         ; 42   ; 0            ; |ChipInterface                                                                                                 ; ChipInterface                ; work         ;
-;    |NeopixelController:neo|                 ; 262 (0)             ; 210 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|NeopixelController:neo                                                                          ; NeopixelController           ; work         ;
-;       |NeopixelController_low_level:npc_ll| ; 256 (0)             ; 208 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll                                      ; NeopixelController_low_level ; work         ;
-;          |CountDownToZero:c192|             ; 13 (1)              ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:c192                 ; CountDownToZero              ; work         ;
+; |ChipInterface                              ; 262 (3)             ; 215 (2)                   ; 0           ; 0            ; 0       ; 0         ; 42   ; 0            ; |ChipInterface                                                                                                 ; ChipInterface                ; work         ;
+;    |NeopixelController:neo|                 ; 259 (0)             ; 211 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|NeopixelController:neo                                                                          ; NeopixelController           ; work         ;
+;       |NeopixelController_low_level:npc_ll| ; 255 (0)             ; 209 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll                                      ; NeopixelController_low_level ; work         ;
+;          |CountDownToZero:c192|             ; 14 (1)              ; 9 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:c192                 ; CountDownToZero              ; work         ;
 ;             |Comparator:cmp|                ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Comparator:cmp  ; Comparator                   ; work         ;
-;             |Counter:c|                     ; 9 (9)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Counter:c       ; Counter                      ; work         ;
-;          |CountDownToZero:timer|            ; 41 (0)              ; 12 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:timer                ; CountDownToZero              ; work         ;
+;             |Counter:c|                     ; 10 (10)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Counter:c       ; Counter                      ; work         ;
+;          |CountDownToZero:timer|            ; 38 (0)              ; 12 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:timer                ; CountDownToZero              ; work         ;
 ;             |Comparator:cmp|                ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Comparator:cmp ; Comparator                   ; work         ;
-;             |Counter:c|                     ; 37 (37)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c      ; Counter                      ; work         ;
+;             |Counter:c|                     ; 34 (34)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c      ; Counter                      ; work         ;
 ;          |ShiftRegister:sr|                 ; 186 (186)           ; 185 (185)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr                     ; ShiftRegister                ; work         ;
-;          |fsm_ll:f|                         ; 16 (16)             ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll|fsm_ll:f                             ; fsm_ll                       ; work         ;
-;       |fsm_hl:fsm|                          ; 6 (6)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|NeopixelController:neo|fsm_hl:fsm                                                               ; fsm_hl                       ; work         ;
+;          |fsm_ll:f|                         ; 17 (17)             ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll|fsm_ll:f                             ; fsm_ll                       ; work         ;
+;       |fsm_hl:fsm|                          ; 4 (4)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|NeopixelController:neo|fsm_hl:fsm                                                               ; fsm_hl                       ; work         ;
 ;    |Synchronizer:SyncK0|                    ; 0 (0)               ; 2 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|Synchronizer:SyncK0                                                                             ; Synchronizer                 ; work         ;
 ;       |DFlipFlop:ff1|                       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|Synchronizer:SyncK0|DFlipFlop:ff1                                                               ; DFlipFlop                    ; work         ;
 ;       |DFlipFlop:ff2|                       ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ChipInterface|Synchronizer:SyncK0|DFlipFlop:ff2                                                               ; DFlipFlop                    ; work         ;
@@ -264,31 +264,223 @@ https://fpgasoftware.intel.com/eula.
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                           ;
-+-------------------------------------------------------------------------------------+----------------------------------------+
-; Register name                                                                       ; Reason for Removal                     ;
-+-------------------------------------------------------------------------------------+----------------------------------------+
-; state[2..31]                                                                        ; Stuck at GND due to stuck port data_in ;
-; NeopixelController:neo|fsm_hl:fsm|state[2..31]                                      ; Stuck at GND due to stuck port data_in ;
-; NeopixelController:neo|NeopixelController_low_level:npc_ll|fsm_ll:f|state[3..31]    ; Stuck at GND due to stuck port data_in ;
-; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[0..6] ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 96                                              ;                                        ;
-+-------------------------------------------------------------------------------------+----------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                               ;
++-----------------------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                                           ; Reason for Removal                     ;
++-----------------------------------------------------------------------------------------+----------------------------------------+
+; state[2..31]                                                                            ; Stuck at GND due to stuck port data_in ;
+; NeopixelController:neo|fsm_hl:fsm|state[2..31]                                          ; Stuck at GND due to stuck port data_in ;
+; NeopixelController:neo|NeopixelController_low_level:npc_ll|fsm_ll:f|state[3..31]        ; Stuck at GND due to stuck port data_in ;
+; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[192..383] ; Lost fanout                            ;
+; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[0..6]     ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 288                                                 ;                                        ;
++-----------------------------------------------------------------------------------------+----------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                                                      ;
-+----------------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------+
-; Register name                                                                    ; Reason for Removal        ; Registers Removed due to This Register                                            ;
-+----------------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------+
-; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[0] ; Stuck at GND              ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[1], ;
-;                                                                                  ; due to stuck port data_in ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[2], ;
-;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[3], ;
-;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[4], ;
-;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[5], ;
-;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[6]  ;
-+----------------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                        ;
++----------------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; Register name                                                                    ; Reason for Removal        ; Registers Removed due to This Register                                              ;
++----------------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; NeopixelController:neo|NeopixelController_low_level:npc_ll|fsm_ll:f|state[31]    ; Stuck at GND              ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[192], ;
+;                                                                                  ; due to stuck port data_in ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[193], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[194], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[195], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[196], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[197], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[198], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[199], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[200], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[201], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[202], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[203], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[204], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[205], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[206], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[207], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[208], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[209], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[210], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[211], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[212], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[213], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[214], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[215], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[216], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[217], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[218], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[219], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[220], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[221], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[222], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[223], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[224], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[225], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[226], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[227], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[228], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[229], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[230], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[231], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[232], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[233], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[234], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[235], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[236], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[237], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[238], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[239], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[240], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[241], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[242], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[243], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[244], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[245], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[246], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[247], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[248], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[249], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[250], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[251], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[252], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[253], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[254], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[255], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[256], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[257], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[258], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[259], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[260], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[261], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[262], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[263], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[264], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[265], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[266], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[267], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[268], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[269], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[270], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[271], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[272], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[273], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[274], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[275], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[276], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[277], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[278], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[279], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[280], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[281], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[282], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[283], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[284], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[285], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[286], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[287], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[288], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[289], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[290], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[291], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[292], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[293], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[294], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[295], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[296], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[297], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[298], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[299], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[300], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[301], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[302], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[303], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[304], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[305], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[306], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[307], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[308], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[309], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[310], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[311], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[312], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[313], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[314], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[315], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[316], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[317], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[318], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[319], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[320], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[321], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[322], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[323], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[324], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[325], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[326], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[327], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[328], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[329], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[330], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[331], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[332], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[333], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[334], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[335], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[336], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[337], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[338], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[339], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[340], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[341], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[342], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[343], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[344], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[345], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[346], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[347], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[348], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[349], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[350], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[351], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[352], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[353], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[354], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[355], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[356], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[357], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[358], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[359], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[360], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[361], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[362], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[363], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[364], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[365], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[366], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[367], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[368], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[369], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[370], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[371], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[372], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[373], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[374], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[375], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[376], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[377], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[378], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[379], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[380], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[381], ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[382]  ;
+; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[0] ; Stuck at GND              ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[1],   ;
+;                                                                                  ; due to stuck port data_in ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[2],   ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[3],   ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[4],   ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[5],   ;
+;                                                                                  ;                           ; NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[6]    ;
++----------------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -296,12 +488,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 214   ;
+; Total registers                              ; 215   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 9     ;
+; Number of registers using Synchronous Load   ; 10    ;
 ; Number of registers using Asynchronous Clear ; 7     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 192   ;
+; Number of registers using Clock Enable       ; 193   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -311,7 +503,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; Synchronizer:SyncK0|DFlipFlop:ff2|q    ; 7       ;
+; Synchronizer:SyncK0|DFlipFlop:ff2|q    ; 8       ;
 ; Synchronizer:SyncK0|DFlipFlop:ff1|q    ; 1       ;
 ; Total number of inverted registers = 2 ;         ;
 +----------------------------------------+---------+
@@ -322,8 +514,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                     ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 184 bits  ; 368 LEs       ; 184 LEs              ; 184 LEs                ; Yes        ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[190]              ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Counter:c|Q[0]  ;
+; 3:1                ; 184 bits  ; 368 LEs       ; 184 LEs              ; 184 LEs                ; Yes        ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[165]              ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Counter:c|Q[0]  ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c|Q[9] ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c|Q[6] ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |ChipInterface|NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c|Q[0] ;
@@ -336,7 +528,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+-------+-------------------------------------------------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                                                            ;
 +----------------+-------+-------------------------------------------------------------------------------------------------+
-; WIDTH          ; 192   ; Signed Integer                                                                                  ;
+; WIDTH          ; 384   ; Signed Integer                                                                                  ;
 +----------------+-------+-------------------------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -346,7 +538,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+-----------------------------------------------------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                                                                ;
 +----------------+-------+-----------------------------------------------------------------------------------------------------+
-; WIDTH          ; 8     ; Signed Integer                                                                                      ;
+; WIDTH          ; 9     ; Signed Integer                                                                                      ;
 +----------------+-------+-----------------------------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -356,7 +548,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+---------------------------------------------------------------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                                                                          ;
 +----------------+-------+---------------------------------------------------------------------------------------------------------------+
-; WIDTH          ; 8     ; Signed Integer                                                                                                ;
+; WIDTH          ; 9     ; Signed Integer                                                                                                ;
 +----------------+-------+---------------------------------------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -366,7 +558,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+--------------------------------------------------------------------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                                                                               ;
 +----------------+-------+--------------------------------------------------------------------------------------------------------------------+
-; WIDTH          ; 8     ; Signed Integer                                                                                                     ;
+; WIDTH          ; 9     ; Signed Integer                                                                                                     ;
 +----------------+-------+--------------------------------------------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -596,19 +788,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------+-------+----------+--------------------------------------------------------------------------------+
 ; Port    ; Type  ; Severity ; Details                                                                        ;
 +---------+-------+----------+--------------------------------------------------------------------------------+
-; D[7..6] ; Input ; Info     ; Stuck at VCC                                                                   ;
-; D[5..0] ; Input ; Info     ; Stuck at GND                                                                   ;
+; D[8..7] ; Input ; Info     ; Stuck at VCC                                                                   ;
+; D[6..0] ; Input ; Info     ; Stuck at GND                                                                   ;
 +---------+-------+----------+--------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr"             ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                             ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; left      ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; Q[190..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr"               ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; left        ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; Q[383..192] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Q[190..0]   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -651,24 +844,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 42                          ;
-; cycloneiii_ff         ; 214                         ;
+; cycloneiii_ff         ; 215                         ;
 ;     CLR               ; 7                           ;
 ;     ENA               ; 184                         ;
-;     ENA SLD           ; 8                           ;
+;     ENA SLD           ; 9                           ;
 ;     SLD               ; 1                           ;
 ;     plain             ; 14                          ;
-; cycloneiii_lcell_comb ; 265                         ;
-;     arith             ; 18                          ;
-;         2 data inputs ; 18                          ;
-;     normal            ; 247                         ;
+; cycloneiii_lcell_comb ; 263                         ;
+;     arith             ; 19                          ;
+;         2 data inputs ; 19                          ;
+;     normal            ; 244                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 2                           ;
-;         2 data inputs ; 3                           ;
-;         3 data inputs ; 198                         ;
-;         4 data inputs ; 43                          ;
+;         1 data inputs ; 3                           ;
+;         3 data inputs ; 15                          ;
+;         4 data inputs ; 225                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 2.06                        ;
+; Average LUT depth     ; 2.05                        ;
 +-----------------------+-----------------------------+
 
 
@@ -687,16 +879,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Wed Feb  9 23:12:07 2022
+    Info: Processing started: Thu Feb 10 15:14:04 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off neotest -c neotest
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 5 design units, including 4 entities, in source file neopixelcontrollermod.sv
-    Info (12022): Found design unit 1: timer_pkg (SystemVerilog) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/NeopixelControllerMod.sv Line: 86
+    Info (12022): Found design unit 1: timer_pkg (SystemVerilog) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/NeopixelControllerMod.sv Line: 88
     Info (12023): Found entity 1: NeopixelController File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/NeopixelControllerMod.sv Line: 8
     Info (12023): Found entity 2: fsm_hl File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/NeopixelControllerMod.sv Line: 50
-    Info (12023): Found entity 3: NeopixelController_low_level File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/NeopixelControllerMod.sv Line: 98
-    Info (12023): Found entity 4: fsm_ll File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/NeopixelControllerMod.sv Line: 165
+    Info (12023): Found entity 3: NeopixelController_low_level File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/NeopixelControllerMod.sv Line: 100
+    Info (12023): Found entity 4: fsm_ll File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/NeopixelControllerMod.sv Line: 167
 Info (12021): Found 1 design units, including 1 entities, in source file chipinterfacemod.sv
     Info (12023): Found entity 1: ChipInterface File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/chipinterfaceMod.sv Line: 7
 Info (12021): Found 19 design units, including 19 entities, in source file library.sv
@@ -720,25 +912,24 @@ Info (12021): Found 19 design units, including 19 entities, in source file libra
     Info (12023): Found entity 18: Synchronizer File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/library.sv Line: 295
     Info (12023): Found entity 19: Debouncer File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/library.sv Line: 318
 Info (12127): Elaborating entity "ChipInterface" for the top level hierarchy
-Warning (10034): Output port "LEDR[17..1]" at chipinterfaceMod.sv(11) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/chipinterfaceMod.sv Line: 11
+Warning (10034): Output port "LEDR[17..2]" at chipinterfaceMod.sv(11) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/chipinterfaceMod.sv Line: 11
 Info (12128): Elaborating entity "Synchronizer" for hierarchy "Synchronizer:SyncK0" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/chipinterfaceMod.sv Line: 23
 Info (12128): Elaborating entity "DFlipFlop" for hierarchy "Synchronizer:SyncK0|DFlipFlop:ff1" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/library.sv Line: 307
-Info (12128): Elaborating entity "NeopixelController" for hierarchy "NeopixelController:neo" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/chipinterfaceMod.sv Line: 52
+Info (12128): Elaborating entity "NeopixelController" for hierarchy "NeopixelController:neo" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/chipinterfaceMod.sv Line: 53
 Info (12128): Elaborating entity "NeopixelController_low_level" for hierarchy "NeopixelController:neo|NeopixelController_low_level:npc_ll" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/NeopixelControllerMod.sv Line: 28
-Info (12128): Elaborating entity "ShiftRegister" for hierarchy "NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/NeopixelControllerMod.sv Line: 121
-Info (12128): Elaborating entity "CountDownToZero" for hierarchy "NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:c192" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/NeopixelControllerMod.sv Line: 128
+Info (12128): Elaborating entity "ShiftRegister" for hierarchy "NeopixelController:neo|NeopixelController_low_level:npc_ll|ShiftRegister:sr" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/NeopixelControllerMod.sv Line: 123
+Info (12128): Elaborating entity "CountDownToZero" for hierarchy "NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:c192" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/NeopixelControllerMod.sv Line: 130
 Info (12128): Elaborating entity "Counter" for hierarchy "NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Counter:c" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/library.sv Line: 272
 Info (12128): Elaborating entity "Comparator" for hierarchy "NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Comparator:cmp" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/library.sv Line: 277
-Info (12128): Elaborating entity "CountDownToZero" for hierarchy "NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:timer" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/NeopixelControllerMod.sv Line: 135
+Info (12128): Elaborating entity "CountDownToZero" for hierarchy "NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:timer" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/NeopixelControllerMod.sv Line: 137
 Info (12128): Elaborating entity "Counter" for hierarchy "NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/library.sv Line: 272
 Info (12128): Elaborating entity "Comparator" for hierarchy "NeopixelController:neo|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Comparator:cmp" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/library.sv Line: 277
-Info (12128): Elaborating entity "Mux8to1" for hierarchy "NeopixelController:neo|NeopixelController_low_level:npc_ll|Mux8to1:m8" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/NeopixelControllerMod.sv Line: 145
+Info (12128): Elaborating entity "Mux8to1" for hierarchy "NeopixelController:neo|NeopixelController_low_level:npc_ll|Mux8to1:m8" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/NeopixelControllerMod.sv Line: 147
 Info (12128): Elaborating entity "Mux4to1" for hierarchy "NeopixelController:neo|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux4to1:m0" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/library.sv Line: 95
 Info (12128): Elaborating entity "Mux2to1" for hierarchy "NeopixelController:neo|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux4to1:m0|Mux2to1:m0" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/library.sv Line: 65
-Info (12128): Elaborating entity "fsm_ll" for hierarchy "NeopixelController:neo|NeopixelController_low_level:npc_ll|fsm_ll:f" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/NeopixelControllerMod.sv Line: 161
+Info (12128): Elaborating entity "fsm_ll" for hierarchy "NeopixelController:neo|NeopixelController_low_level:npc_ll|fsm_ll:f" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/NeopixelControllerMod.sv Line: 163
 Info (12128): Elaborating entity "fsm_hl" for hierarchy "NeopixelController:neo|fsm_hl:fsm" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/NeopixelControllerMod.sv Line: 39
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/chipinterfaceMod.sv Line: 11
     Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/chipinterfaceMod.sv Line: 11
     Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/chipinterfaceMod.sv Line: 11
     Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/chipinterfaceMod.sv Line: 11
@@ -756,6 +947,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[16]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/chipinterfaceMod.sv Line: 11
     Warning (13410): Pin "LEDR[17]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/chipinterfaceMod.sv Line: 11
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 192 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/output_files/neotest.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -781,15 +973,15 @@ Warning (21074): Design contains 21 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[15]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/chipinterfaceMod.sv Line: 9
     Warning (15610): No output dependent on input pin "SW[16]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/chipinterfaceMod.sv Line: 9
     Warning (15610): No output dependent on input pin "SW[17]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/neopix_test/chipinterfaceMod.sv Line: 9
-Info (21057): Implemented 309 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 307 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
     Info (21059): Implemented 19 output pins
-    Info (21061): Implemented 267 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 42 warnings
-    Info: Peak virtual memory: 4784 megabytes
-    Info: Processing ended: Wed Feb  9 23:12:22 2022
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:40
+    Info (21061): Implemented 265 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 41 warnings
+    Info: Peak virtual memory: 4780 megabytes
+    Info: Processing ended: Thu Feb 10 15:14:13 2022
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:21
 
 
 +------------------------------------------+

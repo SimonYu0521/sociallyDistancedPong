@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Thu Feb 10 16:25:05 2022
+Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+Revision Name : senderProj
+Top-level Entity Name : ChipInterface
+Family : Cyclone IV E
+Total logic elements : 2
+    Total combinational functions : 0
+    Dedicated logic registers : 2
+Total registers : 2
+Total pins : 144
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

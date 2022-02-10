@@ -48,6 +48,7 @@ module ChipInterface(input logic CLOCK_50,
     end
 	
 	assign LEDR[0] = ready;
+	assign LEDR[1] = reset;
 
     NeopixelController neo(.*);
 

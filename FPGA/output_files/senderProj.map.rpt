@@ -1,0 +1,1190 @@
+Analysis & Synthesis report for senderProj
+Thu Feb 10 16:25:05 2022
+Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr
+ 12. Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192
+ 13. Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Counter:c
+ 14. Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Comparator:cmp
+ 15. Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer
+ 16. Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c
+ 17. Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Comparator:cmp
+ 18. Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8
+ 19. Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux4to1:m0
+ 20. Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux4to1:m0|Mux2to1:m0
+ 21. Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux4to1:m0|Mux2to1:m1
+ 22. Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux4to1:m0|Mux2to1:m2
+ 23. Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux4to1:m1
+ 24. Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux4to1:m1|Mux2to1:m0
+ 25. Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux4to1:m1|Mux2to1:m1
+ 26. Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux4to1:m1|Mux2to1:m2
+ 27. Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux2to1:m2
+ 28. Parameter Settings for User Entity Instance: CommunicationReceiver:cr|counter:CountTime
+ 29. Parameter Settings for User Entity Instance: CommunicationReceiver:cr|comparator:CmpTime
+ 30. Parameter Settings for User Entity Instance: CommunicationReceiver:cr|counter:CountBits
+ 31. Parameter Settings for User Entity Instance: CommunicationReceiver:cr|comparator:CmpBits
+ 32. Parameter Settings for User Entity Instance: CommunicationReceiver:cr|shift_register:SftMsg
+ 33. Parameter Settings for User Entity Instance: CommunicationReceiver:cr|register:RegMsg
+ 34. Port Connectivity Checks: "CommunicationReceiver:cr|register:RegMsg"
+ 35. Port Connectivity Checks: "CommunicationReceiver:cr|shift_register:SftMsg"
+ 36. Port Connectivity Checks: "CommunicationReceiver:cr|comparator:CmpBits"
+ 37. Port Connectivity Checks: "CommunicationReceiver:cr|counter:CountBits"
+ 38. Port Connectivity Checks: "CommunicationReceiver:cr|comparator:CmpTime"
+ 39. Port Connectivity Checks: "CommunicationReceiver:cr|counter:CountTime"
+ 40. Port Connectivity Checks: "CommunicationReceiver:cr"
+ 41. Port Connectivity Checks: "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|fsm_hl:fsm"
+ 42. Port Connectivity Checks: "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8"
+ 43. Port Connectivity Checks: "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Comparator:cmp"
+ 44. Port Connectivity Checks: "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c"
+ 45. Port Connectivity Checks: "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer"
+ 46. Port Connectivity Checks: "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Comparator:cmp"
+ 47. Port Connectivity Checks: "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Counter:c"
+ 48. Port Connectivity Checks: "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192"
+ 49. Port Connectivity Checks: "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr"
+ 50. Port Connectivity Checks: "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot"
+ 51. Port Connectivity Checks: "CommunicationSender:cs"
+ 52. Post-Synthesis Netlist Statistics for Top Partition
+ 53. Elapsed Time Per Partition
+ 54. Analysis & Synthesis Messages
+ 55. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2021  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Feb 10 16:25:05 2022       ;
+; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
+; Revision Name                      ; senderProj                                  ;
+; Top-level Entity Name              ; ChipInterface                               ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 2                                           ;
+;     Total combinational functions  ; 0                                           ;
+;     Dedicated logic registers      ; 2                                           ;
+; Total registers                    ; 2                                           ;
+; Total pins                         ; 144                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; ChipInterface      ; senderProj         ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                       ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                   ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------+---------+
+; CommunicationReceiver.sv         ; yes             ; User SystemVerilog HDL File  ; C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/CommunicationReceiver.sv     ;         ;
+; NeopixelControllerOneShot.sv     ; yes             ; User SystemVerilog HDL File  ; C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/NeopixelControllerOneShot.sv ;         ;
+; Library.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv                   ;         ;
+; CommunicationSender.sv           ; yes             ; User SystemVerilog HDL File  ; C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/CommunicationSender.sv       ;         ;
+; chipInterfaceSenderTest.sv       ; yes             ; User SystemVerilog HDL File  ; C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv   ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 2              ;
+;                                             ;                ;
+; Total combinational functions               ; 0              ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 0              ;
+;     -- 3 input functions                    ; 0              ;
+;     -- <=2 input functions                  ; 0              ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 0              ;
+;     -- arithmetic mode                      ; 0              ;
+;                                             ;                ;
+; Total registers                             ; 2              ;
+;     -- Dedicated logic registers            ; 2              ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 144            ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 2              ;
+; Total fan-out                               ; 149            ;
+; Average fan-out                             ; 0.51           ;
++---------------------------------------------+----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                        ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+---------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name   ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+---------------+--------------+
+; |ChipInterface             ; 0 (0)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 144  ; 0            ; |ChipInterface      ; ChipInterface ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+---------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                              ;
++----------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                                                                                          ; Reason for Removal                     ;
++----------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------+
+; state[2..31]                                                                                                                           ; Stuck at GND due to stuck port data_in ;
+; CommunicationReceiver:cr|cr_fsm:FSM|state[0..31]                                                                                       ; Stuck at GND due to stuck port clock   ;
+; CommunicationReceiver:cr|register:RegMsg|Q[0..23]                                                                                      ; Stuck at GND due to stuck port clock   ;
+; CommunicationReceiver:cr|shift_register:SftMsg|Q[0]                                                                                    ; Stuck at GND due to stuck port clock   ;
+; CommunicationReceiver:cr|shift_register:SftMsg|Q[1..23]                                                                                ; Lost fanout                            ;
+; CommunicationReceiver:cr|counter:CountBits|Q[0..4]                                                                                     ; Stuck at GND due to stuck port clock   ;
+; CommunicationReceiver:cr|counter:CountTime|Q[0..5]                                                                                     ; Stuck at GND due to stuck port clock   ;
+; CommunicationSender:cs|state[0..31]                                                                                                    ; Stuck at GND due to stuck port clock   ;
+; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|fsm_hl:fsm|state[0..31]                                                      ; Stuck at GND due to stuck port clock   ;
+; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|fsm_ll:f|state[0..31]                    ; Stuck at GND due to stuck port clock   ;
+; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c|Q[0..11] ; Stuck at GND due to stuck port clock   ;
+; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Counter:c|Q[0..7]   ; Stuck at GND due to stuck port clock   ;
+; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[0..23]                ; Stuck at GND due to stuck port clock   ;
+; state[0,1]                                                                                                                             ; Lost fanout                            ;
+; Total Number of Removed Registers = 263                                                                                                ;                                        ;
++----------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                                                                                                          ;
++---------------------------------------------------------------------------------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
+; Register name                                                                                                       ; Reason for Removal      ; Registers Removed due to This Register                                                                                               ;
++---------------------------------------------------------------------------------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
+; CommunicationReceiver:cr|cr_fsm:FSM|state[31]                                                                       ; Stuck at GND            ; CommunicationReceiver:cr|cr_fsm:FSM|state[2],                                                                                        ;
+;                                                                                                                     ; due to stuck port clock ; CommunicationReceiver:cr|cr_fsm:FSM|state[1],                                                                                        ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|cr_fsm:FSM|state[0],                                                                                        ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[0],                                                                                       ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[1],                                                                                       ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[2],                                                                                       ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[3],                                                                                       ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[4],                                                                                       ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[5],                                                                                       ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[6],                                                                                       ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[7],                                                                                       ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[8],                                                                                       ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[9],                                                                                       ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[10],                                                                                      ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[11],                                                                                      ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[12],                                                                                      ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[13],                                                                                      ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[14],                                                                                      ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[15],                                                                                      ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[16],                                                                                      ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[17],                                                                                      ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[18],                                                                                      ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[19],                                                                                      ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[20],                                                                                      ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[21],                                                                                      ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[22],                                                                                      ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|register:RegMsg|Q[23],                                                                                      ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[23],                                                                                ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[22],                                                                                ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[21],                                                                                ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[20],                                                                                ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[19],                                                                                ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[18],                                                                                ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[17],                                                                                ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[16],                                                                                ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[15],                                                                                ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[14],                                                                                ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[13],                                                                                ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[12],                                                                                ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[11],                                                                                ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[10],                                                                                ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[9],                                                                                 ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[8],                                                                                 ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[7],                                                                                 ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[6],                                                                                 ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[5],                                                                                 ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[4],                                                                                 ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[3],                                                                                 ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[2],                                                                                 ;
+;                                                                                                                     ;                         ; CommunicationReceiver:cr|shift_register:SftMsg|Q[1]                                                                                  ;
+; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|fsm_ll:f|state[31]    ; Stuck at GND            ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|fsm_ll:f|state[2],                     ;
+;                                                                                                                     ; due to stuck port clock ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|fsm_ll:f|state[1],                     ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|fsm_ll:f|state[0],                     ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c|Q[0],  ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c|Q[1],  ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c|Q[2],  ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c|Q[3],  ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c|Q[4],  ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c|Q[5],  ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c|Q[6],  ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c|Q[7],  ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c|Q[8],  ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c|Q[9],  ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c|Q[10], ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c|Q[11], ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Counter:c|Q[0],   ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Counter:c|Q[1],   ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Counter:c|Q[2],   ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Counter:c|Q[3],   ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Counter:c|Q[4],   ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Counter:c|Q[5],   ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Counter:c|Q[7],   ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[23]                 ;
+; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[0] ; Stuck at GND            ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[1],                 ;
+;                                                                                                                     ; due to stuck port clock ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[2],                 ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[3],                 ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[4],                 ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[5],                 ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[6],                 ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[7],                 ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[8],                 ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[9],                 ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[10],                ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[11],                ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[12],                ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[13],                ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[14],                ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[15],                ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[16],                ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[17],                ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[18],                ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[19],                ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[20],                ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[21],                ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr|Q[22]                 ;
+; CommunicationSender:cs|state[0]                                                                                     ; Stuck at GND            ; CommunicationSender:cs|state[1],                                                                                                     ;
+;                                                                                                                     ; due to stuck port clock ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|fsm_hl:fsm|state[1],                                                       ;
+;                                                                                                                     ;                         ; CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|fsm_hl:fsm|state[0]                                                        ;
++---------------------------------------------------------------------------------------------------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 2     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr ;
++----------------+-------+------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                               ;
++----------------+-------+------------------------------------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 24    ; Signed Integer                                                                                                                     ;
++----------------+-------+------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192 ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                                                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Counter:c ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                             ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                                                                                                                   ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Comparator:cmp ;
++----------------+-------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                                  ;
++----------------+-------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 8     ; Signed Integer                                                                                                                                        ;
++----------------+-------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 12    ; Signed Integer                                                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c ;
++----------------+-------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                              ;
++----------------+-------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 12    ; Signed Integer                                                                                                                                    ;
++----------------+-------+---------------------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Comparator:cmp ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                                   ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 12    ; Signed Integer                                                                                                                                         ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8 ;
++----------------+-------+------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                         ;
++----------------+-------+------------------------------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 12    ; Signed Integer                                                                                                               ;
++----------------+-------+------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux4to1:m0 ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 12    ; Signed Integer                                                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux4to1:m0|Mux2to1:m0 ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                               ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 12    ; Signed Integer                                                                                                                                     ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux4to1:m0|Mux2to1:m1 ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                               ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 12    ; Signed Integer                                                                                                                                     ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux4to1:m0|Mux2to1:m2 ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                               ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 12    ; Signed Integer                                                                                                                                     ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux4to1:m1 ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 12    ; Signed Integer                                                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux4to1:m1|Mux2to1:m0 ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                               ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 12    ; Signed Integer                                                                                                                                     ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux4to1:m1|Mux2to1:m1 ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                               ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 12    ; Signed Integer                                                                                                                                     ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux4to1:m1|Mux2to1:m2 ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                               ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 12    ; Signed Integer                                                                                                                                     ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux2to1:m2 ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 12    ; Signed Integer                                                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationReceiver:cr|counter:CountTime ;
++----------------+-------+----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                           ;
++----------------+-------+----------------------------------------------------------------+
+; WIDTH          ; 6     ; Signed Integer                                                 ;
++----------------+-------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationReceiver:cr|comparator:CmpTime ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; WIDTH          ; 6     ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationReceiver:cr|counter:CountBits ;
++----------------+-------+----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                           ;
++----------------+-------+----------------------------------------------------------------+
+; WIDTH          ; 5     ; Signed Integer                                                 ;
++----------------+-------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationReceiver:cr|comparator:CmpBits ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; WIDTH          ; 5     ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationReceiver:cr|shift_register:SftMsg ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; WIDTH          ; 24    ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CommunicationReceiver:cr|register:RegMsg ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; WIDTH          ; 24    ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "CommunicationReceiver:cr|register:RegMsg" ;
++------+-------+----------+--------------------------------------------+
+; Port ; Type  ; Severity ; Details                                    ;
++------+-------+----------+--------------------------------------------+
+; clr  ; Input ; Info     ; Stuck at GND                               ;
++------+-------+----------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------+
+; Port Connectivity Checks: "CommunicationReceiver:cr|shift_register:SftMsg" ;
++------+-------+----------+--------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                          ;
++------+-------+----------+--------------------------------------------------+
+; left ; Input ; Info     ; Stuck at VCC                                     ;
++------+-------+----------+--------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CommunicationReceiver:cr|comparator:CmpBits"                                                                                                                                        ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                                                          ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; B       ; Input  ; Warning  ; Input port expression (6 bits) is wider than the input port (5 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; B[4..3] ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                     ;
+; B[2..0] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                     ;
+; AltB    ; Output ; Info     ; Explicitly unconnected                                                                                                                                                           ;
+; AgtB    ; Output ; Info     ; Explicitly unconnected                                                                                                                                                           ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------+
+; Port Connectivity Checks: "CommunicationReceiver:cr|counter:CountBits" ;
++-------+-------+----------+---------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                     ;
++-------+-------+----------+---------------------------------------------+
+; D     ; Input ; Info     ; Explicitly unconnected                      ;
+; up    ; Input ; Info     ; Stuck at VCC                                ;
+; load  ; Input ; Info     ; Stuck at GND                                ;
+; reset ; Input ; Info     ; Stuck at GND                                ;
++-------+-------+----------+---------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Port Connectivity Checks: "CommunicationReceiver:cr|comparator:CmpTime" ;
++---------+--------+----------+-------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                   ;
++---------+--------+----------+-------------------------------------------+
+; B[4..3] ; Input  ; Info     ; Stuck at VCC                              ;
+; B[5]    ; Input  ; Info     ; Stuck at GND                              ;
+; B[2]    ; Input  ; Info     ; Stuck at GND                              ;
+; B[1]    ; Input  ; Info     ; Stuck at VCC                              ;
+; B[0]    ; Input  ; Info     ; Stuck at GND                              ;
+; AltB    ; Output ; Info     ; Explicitly unconnected                    ;
+; AeqB    ; Output ; Info     ; Explicitly unconnected                    ;
++---------+--------+----------+-------------------------------------------+
+
+
++------------------------------------------------------------------------+
+; Port Connectivity Checks: "CommunicationReceiver:cr|counter:CountTime" ;
++-------+-------+----------+---------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                     ;
++-------+-------+----------+---------------------------------------------+
+; D     ; Input ; Info     ; Explicitly unconnected                      ;
+; up    ; Input ; Info     ; Stuck at VCC                                ;
+; load  ; Input ; Info     ; Stuck at GND                                ;
+; reset ; Input ; Info     ; Stuck at GND                                ;
++-------+-------+----------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CommunicationReceiver:cr"                                                                           ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                 ; Type   ; Severity ; Details                                                                             ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+; new_message_received ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; message_acked        ; Input  ; Info     ; Stuck at GND                                                                        ;
+; ball_y_rx            ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; velocity_x_rx        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; velocity_y_rx        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; sign_y_rx            ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ball_message_rx      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; are_you_there_rx     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; I_am_here_rx         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; miss_message_rx      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; I_lost_rx            ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; new_game_message_rx  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; clock                ; Input  ; Info     ; Stuck at GND                                                                        ;
++----------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|fsm_hl:fsm"                ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; clear ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8" ;
++-----------+-------+----------+-------------------------------------------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                                                               ;
++-----------+-------+----------+-------------------------------------------------------------------------------------------------------+
+; I0[1..0]  ; Input ; Info     ; Stuck at VCC                                                                                          ;
+; I0[11..6] ; Input ; Info     ; Stuck at GND                                                                                          ;
+; I0[4..2]  ; Input ; Info     ; Stuck at GND                                                                                          ;
+; I0[5]     ; Input ; Info     ; Stuck at VCC                                                                                          ;
+; I1[4..1]  ; Input ; Info     ; Stuck at VCC                                                                                          ;
+; I1[11..5] ; Input ; Info     ; Stuck at GND                                                                                          ;
+; I1[0]     ; Input ; Info     ; Stuck at GND                                                                                          ;
+; I2[11..5] ; Input ; Info     ; Stuck at GND                                                                                          ;
+; I2[3..2]  ; Input ; Info     ; Stuck at GND                                                                                          ;
+; I2[4]     ; Input ; Info     ; Stuck at VCC                                                                                          ;
+; I2[1]     ; Input ; Info     ; Stuck at VCC                                                                                          ;
+; I2[0]     ; Input ; Info     ; Stuck at GND                                                                                          ;
+; I3[11..6] ; Input ; Info     ; Stuck at GND                                                                                          ;
+; I3[2..0]  ; Input ; Info     ; Stuck at GND                                                                                          ;
+; I3[5]     ; Input ; Info     ; Stuck at VCC                                                                                          ;
+; I3[4]     ; Input ; Info     ; Stuck at GND                                                                                          ;
+; I3[3]     ; Input ; Info     ; Stuck at VCC                                                                                          ;
+; I4[8..6]  ; Input ; Info     ; Stuck at VCC                                                                                          ;
+; I4[10..9] ; Input ; Info     ; Stuck at GND                                                                                          ;
+; I4[5..3]  ; Input ; Info     ; Stuck at GND                                                                                          ;
+; I4[1..0]  ; Input ; Info     ; Stuck at GND                                                                                          ;
+; I4[11]    ; Input ; Info     ; Stuck at VCC                                                                                          ;
+; I4[2]     ; Input ; Info     ; Stuck at VCC                                                                                          ;
+; I5        ; Input ; Info     ; Explicitly unconnected                                                                                ;
+; I6        ; Input ; Info     ; Explicitly unconnected                                                                                ;
+; I7        ; Input ; Info     ; Explicitly unconnected                                                                                ;
++-----------+-------+----------+-------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Comparator:cmp" ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                              ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                                                                                                                         ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c" ;
++-------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                        ;
++-------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------+
+; clear ; Input ; Info     ; Stuck at GND                                                                                                                   ;
+; up    ; Input ; Info     ; Stuck at GND                                                                                                                   ;
++-------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer" ;
++------+-------+----------+-----------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                               ;
++------+-------+----------+-----------------------------------------------------------------------------------------------------------------------+
+; en   ; Input ; Info     ; Stuck at VCC                                                                                                          ;
++------+-------+----------+-----------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Comparator:cmp" ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                             ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------+
+; B    ; Input ; Info     ; Stuck at GND                                                                                                                        ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Counter:c" ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                       ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+; clear ; Input ; Info     ; Stuck at GND                                                                                                                  ;
+; up    ; Input ; Info     ; Stuck at GND                                                                                                                  ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192" ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                           ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------+
+; D[4..3] ; Input ; Info     ; Stuck at VCC                                                                                                      ;
+; D[7..5] ; Input ; Info     ; Stuck at GND                                                                                                      ;
+; D[2..0] ; Input ; Info     ; Stuck at GND                                                                                                      ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr" ;
++----------+--------+----------+-------------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                     ;
++----------+--------+----------+-------------------------------------------------------------------------------------------------------------+
+; left     ; Input  ; Info     ; Stuck at VCC                                                                                                ;
+; Q[22..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                         ;
++----------+--------+----------+-------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot"                                   ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; data[22..16]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; data[14..8]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; data[6..0]    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; data[23]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; data[15]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; data[7]       ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; neopixel_data ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "CommunicationSender:cs"    ;
++---------------------+-------+----------+--------------+
+; Port                ; Type  ; Severity ; Details      ;
++---------------------+-------+----------+--------------+
+; ball_y_tx           ; Input ; Info     ; Stuck at GND ;
+; velocity_x_tx       ; Input ; Info     ; Stuck at GND ;
+; velocity_y_tx       ; Input ; Info     ; Stuck at GND ;
+; sign_y_tx           ; Input ; Info     ; Stuck at GND ;
+; ball_message_tx     ; Input ; Info     ; Stuck at GND ;
+; are_you_there_tx    ; Input ; Info     ; Stuck at GND ;
+; I_am_here_tx        ; Input ; Info     ; Stuck at GND ;
+; miss_message_tx     ; Input ; Info     ; Stuck at GND ;
+; I_lost_tx           ; Input ; Info     ; Stuck at GND ;
+; new_game_message_tx ; Input ; Info     ; Stuck at GND ;
+; clock               ; Input ; Info     ; Stuck at GND ;
++---------------------+-------+----------+--------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 144                         ;
+; cycloneiii_ff         ; 2                           ;
+;     plain             ; 2                           ;
+; cycloneiii_lcell_comb ; 2                           ;
+;     normal            ; 2                           ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 1                           ;
+;                       ;                             ;
+; Max LUT depth         ; 1.00                        ;
+; Average LUT depth     ; 0.33                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+    Info: Processing started: Thu Feb 10 16:24:57 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off senderProj -c senderProj
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 3 design units, including 3 entities, in source file communicationreceiver.sv
+    Info (12023): Found entity 1: CommunicationReceiver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/CommunicationReceiver.sv Line: 3
+    Info (12023): Found entity 2: DataSorter File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/CommunicationReceiver.sv Line: 103
+    Info (12023): Found entity 3: cr_fsm File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/CommunicationReceiver.sv Line: 125
+Info (12021): Found 5 design units, including 4 entities, in source file neopixelcontrolleroneshot.sv
+    Info (12022): Found design unit 1: timer_pkg (SystemVerilog) File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/NeopixelControllerOneShot.sv Line: 86
+    Info (12023): Found entity 1: NeopixelControllerOneShot File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/NeopixelControllerOneShot.sv Line: 8
+    Info (12023): Found entity 2: fsm_hl File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/NeopixelControllerOneShot.sv Line: 50
+    Info (12023): Found entity 3: NeopixelController_low_level File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/NeopixelControllerOneShot.sv Line: 98
+    Info (12023): Found entity 4: fsm_ll File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/NeopixelControllerOneShot.sv Line: 165
+Warning (12090): Entity "mux" obtained from "Library.sv" instead of from Quartus Prime megafunction library File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 24
+Info (12021): Found 36 design units, including 36 entities, in source file library.sv
+    Info (12023): Found entity 1: comparator File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 2
+    Info (12023): Found entity 2: adder File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 13
+    Info (12023): Found entity 3: mux File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 24
+    Info (12023): Found entity 4: mux2to1 File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 34
+    Info (12023): Found entity 5: decoder File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 44
+    Info (12023): Found entity 6: priority_encoder File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 58
+    Info (12023): Found entity 7: register File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 83
+    Info (12023): Found entity 8: counter File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 97
+    Info (12023): Found entity 9: count_by_2 File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 115
+    Info (12023): Found entity 10: simple_counter File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 134
+    Info (12023): Found entity 11: shift_register File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 149
+    Info (12023): Found entity 12: range_check File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 160
+    Info (12023): Found entity 13: range_check2D File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 169
+    Info (12023): Found entity 14: offset_check File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 183
+    Info (12023): Found entity 15: offset_check2D File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 192
+    Info (12023): Found entity 16: game_clock_generator File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 207
+    Info (12023): Found entity 17: shift_register_pipo File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 228
+    Info (12023): Found entity 18: Comparator File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 248
+    Info (12023): Found entity 19: MagComp File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 257
+    Info (12023): Found entity 20: Adder File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 268
+    Info (12023): Found entity 21: Multiplexer File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 279
+    Info (12023): Found entity 22: Mux2to1 File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 289
+    Info (12023): Found entity 23: Mux4to1 File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 299
+    Info (12023): Found entity 24: Mux8to1 File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 327
+    Info (12023): Found entity 25: Decoder File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 359
+    Info (12023): Found entity 26: Register File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 373
+    Info (12023): Found entity 27: Counter File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 387
+    Info (12023): Found entity 28: ShiftRegister File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 406
+    Info (12023): Found entity 29: ShiftRegister_PI File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 423
+    Info (12023): Found entity 30: ShiftRegister_SI File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 436
+    Info (12023): Found entity 31: BarrelShiftRegister File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 455
+    Info (12023): Found entity 32: Memory File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 479
+    Info (12023): Found entity 33: CountDownToZero File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 501
+    Info (12023): Found entity 34: DFlipFlop File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 527
+    Info (12023): Found entity 35: Synchronizer File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 541
+    Info (12023): Found entity 36: Debouncer File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 564
+Info (12021): Found 1 design units, including 1 entities, in source file communicationsender.sv
+    Info (12023): Found entity 1: CommunicationSender File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/CommunicationSender.sv Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file chipinterfacesendertest.sv
+    Info (12023): Found entity 1: ChipInterface File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 1
+Info (12127): Elaborating entity "ChipInterface" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at chipInterfaceSenderTest.sv(44): object "SW_synced" assigned a value but never read File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 44
+Warning (10030): Net "ball_y_tx" at chipInterfaceSenderTest.sv(25) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 25
+Warning (10030): Net "velocity_x_tx" at chipInterfaceSenderTest.sv(26) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 26
+Warning (10030): Net "velocity_y_tx" at chipInterfaceSenderTest.sv(26) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 26
+Warning (10030): Net "message_acked" at chipInterfaceSenderTest.sv(20) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 20
+Warning (10030): Net "ball_message_tx" at chipInterfaceSenderTest.sv(22) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 22
+Warning (10030): Net "miss_message_tx" at chipInterfaceSenderTest.sv(22) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 22
+Warning (10030): Net "new_game_message_tx" at chipInterfaceSenderTest.sv(22) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 22
+Warning (10030): Net "sign_y_tx" at chipInterfaceSenderTest.sv(27) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 27
+Warning (10030): Net "I_am_here_tx" at chipInterfaceSenderTest.sv(33) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 33
+Warning (10030): Net "I_lost_tx" at chipInterfaceSenderTest.sv(34) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 34
+Warning (10030): Net "are_you_there_tx" at chipInterfaceSenderTest.sv(35) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 35
+Warning (10030): Net "clock" at chipInterfaceSenderTest.sv(40) has no driver or initial value, using a default initial value '0' File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 40
+Warning (10034): Output port "HEX0" at chipInterfaceSenderTest.sv(5) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+Warning (10034): Output port "HEX1" at chipInterfaceSenderTest.sv(5) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+Warning (10034): Output port "HEX2" at chipInterfaceSenderTest.sv(5) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+Warning (10034): Output port "HEX3" at chipInterfaceSenderTest.sv(5) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+Warning (10034): Output port "HEX4" at chipInterfaceSenderTest.sv(6) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+Warning (10034): Output port "HEX5" at chipInterfaceSenderTest.sv(6) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+Warning (10034): Output port "HEX6" at chipInterfaceSenderTest.sv(6) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+Warning (10034): Output port "HEX7" at chipInterfaceSenderTest.sv(6) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+Warning (10034): Output port "VGA_R" at chipInterfaceSenderTest.sv(7) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+Warning (10034): Output port "VGA_G" at chipInterfaceSenderTest.sv(7) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+Warning (10034): Output port "VGA_B" at chipInterfaceSenderTest.sv(7) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+Warning (10034): Output port "VGA_BLANK_N" at chipInterfaceSenderTest.sv(10) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 10
+Warning (10034): Output port "VGA_CLK" at chipInterfaceSenderTest.sv(10) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 10
+Warning (10034): Output port "VGA_SYNC_N" at chipInterfaceSenderTest.sv(10) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 10
+Warning (10034): Output port "VGA_VS" at chipInterfaceSenderTest.sv(11) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 11
+Warning (10034): Output port "VGA_HS" at chipInterfaceSenderTest.sv(11) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 11
+Warning (10034): Output port "UART_TXD" at chipInterfaceSenderTest.sv(14) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 14
+Warning (10034): Output port "UART_CTS" at chipInterfaceSenderTest.sv(14) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 14
+Warning (10034): Output port "ARCADE_LED" at chipInterfaceSenderTest.sv(17) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 17
+Warning (10034): Output port "NEO_OUT" at chipInterfaceSenderTest.sv(17) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 17
+Info (12128): Elaborating entity "CommunicationSender" for hierarchy "CommunicationSender:cs" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 86
+Warning (10270): Verilog HDL Case Statement warning at CommunicationSender.sv(55): incomplete case statement has no default case item File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/CommunicationSender.sv Line: 55
+Info (10264): Verilog HDL Case Statement information at CommunicationSender.sv(55): all case item expressions in this case statement are onehot File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/CommunicationSender.sv Line: 55
+Warning (10034): Output port "NEO_OUT" at CommunicationSender.sv(33) has no driver File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/CommunicationSender.sv Line: 33
+Info (12128): Elaborating entity "NeopixelControllerOneShot" for hierarchy "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/CommunicationSender.sv Line: 48
+Info (12128): Elaborating entity "NeopixelController_low_level" for hierarchy "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/NeopixelControllerOneShot.sv Line: 28
+Info (12128): Elaborating entity "ShiftRegister" for hierarchy "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|ShiftRegister:sr" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/NeopixelControllerOneShot.sv Line: 121
+Info (12128): Elaborating entity "CountDownToZero" for hierarchy "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/NeopixelControllerOneShot.sv Line: 128
+Info (12128): Elaborating entity "Counter" for hierarchy "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Counter:c" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 518
+Info (12128): Elaborating entity "Comparator" for hierarchy "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:c192|Comparator:cmp" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 523
+Info (12128): Elaborating entity "CountDownToZero" for hierarchy "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/NeopixelControllerOneShot.sv Line: 135
+Info (12128): Elaborating entity "Counter" for hierarchy "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Counter:c" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 518
+Info (12128): Elaborating entity "Comparator" for hierarchy "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|CountDownToZero:timer|Comparator:cmp" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 523
+Info (12128): Elaborating entity "Mux8to1" for hierarchy "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/NeopixelControllerOneShot.sv Line: 145
+Info (12128): Elaborating entity "Mux4to1" for hierarchy "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux4to1:m0" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 341
+Info (12128): Elaborating entity "Mux2to1" for hierarchy "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|Mux8to1:m8|Mux4to1:m0|Mux2to1:m0" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/Library.sv Line: 311
+Info (12128): Elaborating entity "fsm_ll" for hierarchy "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|NeopixelController_low_level:npc_ll|fsm_ll:f" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/NeopixelControllerOneShot.sv Line: 161
+Info (12128): Elaborating entity "fsm_hl" for hierarchy "CommunicationSender:cs|NeopixelControllerOneShot:neo1Shot|fsm_hl:fsm" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/NeopixelControllerOneShot.sv Line: 39
+Info (12128): Elaborating entity "CommunicationReceiver" for hierarchy "CommunicationReceiver:cr" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 88
+Info (12128): Elaborating entity "counter" for hierarchy "CommunicationReceiver:cr|counter:CountTime" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/CommunicationReceiver.sv Line: 42
+Info (12128): Elaborating entity "comparator" for hierarchy "CommunicationReceiver:cr|comparator:CmpTime" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/CommunicationReceiver.sv Line: 51
+Info (12128): Elaborating entity "counter" for hierarchy "CommunicationReceiver:cr|counter:CountBits" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/CommunicationReceiver.sv Line: 64
+Info (12128): Elaborating entity "comparator" for hierarchy "CommunicationReceiver:cr|comparator:CmpBits" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/CommunicationReceiver.sv Line: 73
+Info (12128): Elaborating entity "shift_register" for hierarchy "CommunicationReceiver:cr|shift_register:SftMsg" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/CommunicationReceiver.sv Line: 83
+Info (12128): Elaborating entity "register" for hierarchy "CommunicationReceiver:cr|register:RegMsg" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/CommunicationReceiver.sv Line: 93
+Info (12128): Elaborating entity "cr_fsm" for hierarchy "CommunicationReceiver:cr|cr_fsm:FSM" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/CommunicationReceiver.sv Line: 95
+Info (12128): Elaborating entity "DataSorter" for hierarchy "CommunicationReceiver:cr|DataSorter:ds" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/CommunicationReceiver.sv Line: 96
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX0[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX0[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX0[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX0[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX0[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX0[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX0[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX1[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX1[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX1[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX1[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX2[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX2[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX2[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX2[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX2[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX2[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX2[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX3[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 5
+    Warning (13410): Pin "HEX4[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX4[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX4[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX4[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX4[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX4[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX4[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX5[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX5[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX5[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX5[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX5[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX5[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX5[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX6[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX6[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX6[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX6[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX6[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX6[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX6[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX7[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX7[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX7[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX7[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX7[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX7[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "HEX7[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 6
+    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_R[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_R[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_R[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_R[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_R[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_R[7]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_G[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_G[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_G[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_G[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_G[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_G[7]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_B[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_B[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_B[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_B[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_B[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "VGA_B[7]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 7
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 8
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 8
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 8
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 8
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 8
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 8
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 8
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 8
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 8
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 8
+    Warning (13410): Pin "LEDR[10]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 8
+    Warning (13410): Pin "LEDR[11]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 8
+    Warning (13410): Pin "LEDR[12]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 8
+    Warning (13410): Pin "LEDR[13]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 8
+    Warning (13410): Pin "LEDR[14]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 8
+    Warning (13410): Pin "LEDR[15]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 8
+    Warning (13410): Pin "LEDR[16]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 8
+    Warning (13410): Pin "LEDG[0]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 9
+    Warning (13410): Pin "LEDG[1]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 9
+    Warning (13410): Pin "LEDG[2]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 9
+    Warning (13410): Pin "LEDG[3]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 9
+    Warning (13410): Pin "LEDG[4]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 9
+    Warning (13410): Pin "LEDG[5]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 9
+    Warning (13410): Pin "LEDG[6]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 9
+    Warning (13410): Pin "LEDG[7]" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 9
+    Warning (13410): Pin "VGA_BLANK_N" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 10
+    Warning (13410): Pin "VGA_CLK" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 10
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 10
+    Warning (13410): Pin "VGA_VS" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 11
+    Warning (13410): Pin "VGA_HS" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 11
+    Warning (13410): Pin "UART_TXD" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 14
+    Warning (13410): Pin "UART_CTS" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 14
+    Warning (13410): Pin "ARCADE_LED" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 17
+    Warning (13410): Pin "NEO_OUT" is stuck at GND File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 17
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 25 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/output_files/senderProj.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 27 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 3
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 3
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 3
+    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[10]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[11]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[12]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[13]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[14]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[15]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[16]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 4
+    Warning (15610): No output dependent on input pin "SW[17]" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 4
+    Warning (15610): No output dependent on input pin "UART_RXD" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 13
+    Warning (15610): No output dependent on input pin "UART_RTS" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 13
+    Warning (15610): No output dependent on input pin "JOY_UP" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 16
+    Warning (15610): No output dependent on input pin "JOY_DOWN" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 16
+    Warning (15610): No output dependent on input pin "ARCADE_BUTTON" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 16
+    Warning (15610): No output dependent on input pin "NEO_IN" File: C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv Line: 16
+Info (21057): Implemented 146 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 29 input pins
+    Info (21059): Implemented 115 output pins
+    Info (21061): Implemented 2 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 181 warnings
+    Info: Peak virtual memory: 4776 megabytes
+    Info: Processing ended: Thu Feb 10 16:25:05 2022
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:20
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/SimonYu/Documents/CMU/Build18/sociallyDistancedPong/FPGA/output_files/senderProj.map.smsg.
+
+

@@ -76,7 +76,7 @@ module fsm_hl
   // Next State Generation
   always_comb begin
     case (state)
-      INIT    : next_state = LOADING; // Immediately send the bits just cleared
+      INIT    : next_state = LOADING;
       LOADING : next_state = (go) ? SENDING : LOADING;
       SENDING : next_state = WAITING;
       WAITING : next_state = (done) ? LOADING : WAITING;
