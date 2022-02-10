@@ -5,6 +5,13 @@
 `define PADDLE_HEIGHT 50// half of the real height
 `define PADDLE_WIDTH 10// width of the paddle
 
+typedef enum logic [2:0] { r_u_there_h = 3'b001,
+                           I_am_here_h = 3'b010,
+                           start_game_h= 3'b011,
+                           ball_h      = 3'b100,
+                           I_missed_h  = 3'b101,
+                           I_lost_h    = 3'b110} header_t;
+
 module ChipInterface
     (input logic CLOCK_50,
     input logic [3:0] KEY,
@@ -69,6 +76,9 @@ module ChipInterface
     assign HEX6[1] = joystick_down;
     assign HEX6[2] = arcade_button_pressed;
     
+    assign arcade_led = SW[17];
+    //assign HEX5[0] = joystick_up | joystick_down | arcade_button_pressed;
+
     gameStateModule gsm(.*);
     
     /* Communications */
@@ -84,6 +94,10 @@ module ChipInterface
     // Miss message values
     logic [4:0] my_score_tx, your_score_tx, my_score_rx, your_score_rx;
     logic       you_should_serve_tx, you_should_serve_rx;
+
+    logic I_am_here_rx, I_am_here_tx;
+    logic I_lost_rx, I_lost_tx;
+    logic are_you_there_rx, are_you_there_tx;
     
     // New game message values
     logic       you_serve_first_tx, you_serve_first_rx;
@@ -128,28 +142,7 @@ module CommunicationSender
    
 endmodule : CommunicationSender
 
-module CommunicationReceiver
-  (output logic new_message_received,  // Tell "this side" of a new message.  Asserted until acked
-   input  logic message_acked, 
-   
-   // Ball message values: Received when ball is incoming
-   output logic [8:0] ball_y_rx,
-   output logic [3:0] velocity_x_rx,
-   output  logic [3:0] velocity_y_rx,  // unsigned magnitude
-   output  logic sign_y_rx,               // sign of vel_y
-   output logic       ball_message_rx, // if active, then this message is about the ball
-   
-   // Miss message values: Received when ball was missed on opponent's side
-   output logic       are_you_there_rx,
-   output logic       I_am_here_rx,
-   output logic       miss_message_rx,
-   output logic       I_lost_rx,
 
-   output logic       new_game_message_rx,
-   
-   );
-   
-endmodule : CommunicationReceiver
 
 module displayModule
     (input logic [9:0] ball_left, ball_top,
@@ -276,7 +269,7 @@ module gameStateModule
    input logic       are_you_there_rx,
    input logic       I_am_here_rx,
 
-   input logic       new_game_message_rx,
+   input logic       new_game_message_rx
 
   );
 
@@ -303,7 +296,8 @@ module gameStateModule
   enum {RESET, SYNC_LEFT, SYNC_RIGHT, SEND_I_AM_HERE, //SYNCING
   
    NEW_GAME_STATE, SEND_NEW_GAME_MSG,
-   NEW_GAME_STATE_WAIT_FOR_OPPO, SERVE_MODE_INIT, SERVE_MODE, 
+   NEW_GAME_STATE_WAIT_FOR_OPPO, SERVE_MODE_INIT, SERVE_MODE,
+   WAIT_BALL, 
    PLAY_MODE_INIT, PLAY_MODE, SEND_BALL} state, nextState;
 
 
@@ -451,8 +445,9 @@ module gameStateModule
   end
 
   always_comb begin
+    nextState = state;
     case(state)
-      RESET: nextState = SYNC_LEFT;
+      RESET: nextState = SERVE_MODE_INIT;
       SYNC_LEFT: begin
         if(!is_left_player) nextState = SYNC_RIGHT;
         if(I_am_here_rx && new_message_received) nextState = NEW_GAME_STATE;
