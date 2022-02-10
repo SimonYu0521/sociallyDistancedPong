@@ -223,3 +223,36 @@ module game_clock_generator
   assign game_clock = count[21];
    
 endmodule : game_clock_generator
+
+// A bidirectional-shifting, parallel-in, parallel-out, shift register
+module shift_register
+  #(parameter WIDTH = 4)
+  (input  logic             clock, left, en, load,
+   input  logic [WIDTH-1:0] D,
+   output logic [WIDTH-1:0] Q);
+   
+  always_ff @(posedge clock)
+    if (load)
+      Q <= D;
+    else if (en && left)
+      Q <= {Q[WIDTH-2:0], 1'b0};
+    else if (en && ~left)
+      Q <= {1'b0, Q[WIDTH-1:1]};
+      
+endmodule : shift_register
+
+// A left-shifting, serial-in, parallel-out, shift register
+module shift_register_sipo
+  #(parameter WIDTH = 4)
+  (input  logic             clock, en, clear,
+   input  logic             D,
+   output logic [WIDTH-1:0] Q);
+   
+  always_ff @(posedge clock)
+    if (clear)
+      Q <= 'b0;
+    else if (en)
+      Q <= {Q[WIDTH-2:0], D};
+      
+endmodule : shift_register
+
