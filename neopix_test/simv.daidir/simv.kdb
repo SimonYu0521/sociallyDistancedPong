@@ -1,0 +1,9 @@
+rc file Version 1.0
+
+[Design]
+COMPILE_PATH=/afs/andrew.cmu.edu/usr15/bohanyu/private/build18/sociallyDistancedPong/neopix_test
+SystemC=FALSE
+UUM=FALSE
+KDB=FALSE
+USE_NOVAS_HOME=FALSE
+TOP=test MagComp Adder Decoder Register ShiftRegister_PI BarrelShiftRegister Memory Debouncer 

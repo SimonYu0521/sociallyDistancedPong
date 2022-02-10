@@ -126,8 +126,6 @@ module CommunicationSender
    input  logic       ball_message_tx, // if active, then this message is about the ball
    
    // Miss message values: Sent when ball was missed on "my" side
-  //  input  logic [4:0] my_score_tx,
-  //  input  logic [4:0] your_score_tx,
    input  logic       are_you_there_tx,
    input  logic       I_am_here_tx,
    input  logic       miss_message_tx,

@@ -1,5 +1,5 @@
 Flow report for FPGAQuartusProject
-Mon Feb  7 20:16:36 2022
+Wed Feb  9 21:41:58 2022
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -41,17 +41,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Mon Feb  7 20:16:33 2022       ;
+; Flow Status                        ; Successful - Wed Feb  9 21:41:56 2022       ;
 ; Quartus Prime Version              ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                      ; FPGAQuartusProject                          ;
 ; Top-level Entity Name              ; ChipInterface                               ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 897 / 114,480 ( < 1 % )                     ;
-;     Total combinational functions  ; 703 / 114,480 ( < 1 % )                     ;
-;     Dedicated logic registers      ; 532 / 114,480 ( < 1 % )                     ;
-; Total registers                    ; 535                                         ;
+; Total logic elements               ; 1,059 / 114,480 ( < 1 % )                   ;
+;     Total combinational functions  ; 865 / 114,480 ( < 1 % )                     ;
+;     Dedicated logic registers      ; 545 / 114,480 ( < 1 % )                     ;
+; Total registers                    ; 553                                         ;
 ; Total pins                         ; 119 / 529 ( 22 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 1,280 / 3,981,312 ( < 1 % )                 ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 02/07/2022 20:15:53 ;
+; Start date & time ; 02/09/2022 21:41:13 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; FPGAQuartusProject  ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+------------------------------------------------------------------------+--------------------+---------------+------------------+
 ; Assignment Name                     ; Value                                                                  ; Default Value      ; Entity Name   ; Section Id       ;
 +-------------------------------------+------------------------------------------------------------------------+--------------------+---------------+------------------+
-; COMPILER_SIGNATURE_ID               ; 1097932358610.164428295317044                                          ; --                 ; --            ; --               ;
+; COMPILER_SIGNATURE_ID               ; 1097932358610.164446087312044                                          ; --                 ; --            ; --               ;
 ; ENABLE_SIGNALTAP                    ; On                                                                     ; --                 ; --            ; --               ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                                     ; --                 ; --            ; --               ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                                      ; --                 ; --            ; --               ;
@@ -125,11 +125,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:22     ; 1.0                     ; 4847 MB             ; 00:00:47                           ;
-; Fitter               ; 00:00:12     ; 1.0                     ; 5729 MB             ; 00:00:17                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 4720 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.1                     ; 4874 MB             ; 00:00:02                           ;
-; Total                ; 00:00:40     ; --                      ; --                  ; 00:01:10                           ;
+; Analysis & Synthesis ; 00:00:25     ; 1.0                     ; 4855 MB             ; 00:00:58                           ;
+; Fitter               ; 00:00:11     ; 1.0                     ; 5723 MB             ; 00:00:16                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 4717 MB             ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.1                     ; 4870 MB             ; 00:00:02                           ;
+; Total                ; 00:00:42     ; --                      ; --                  ; 00:01:19                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
