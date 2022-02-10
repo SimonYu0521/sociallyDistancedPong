@@ -1,3 +1,5 @@
+`default_nettype none
+
 module CommunicationReceiver
   (output logic new_message_received,  // Tell "this side" of a new message.  Asserted until acked
    input  logic message_acked, 
