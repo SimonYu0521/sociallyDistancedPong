@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Feb  9 22:33:38 2022
+Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+Revision Name : neopixTest
+Top-level Entity Name : ChipInterface
+Family : Cyclone IV E
+Total logic elements : 326
+    Total combinational functions : 314
+    Dedicated logic registers : 259
+Total registers : 259
+Total pins : 42
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

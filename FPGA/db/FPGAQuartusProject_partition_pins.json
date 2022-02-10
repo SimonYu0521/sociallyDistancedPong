@@ -4,6 +4,30 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "HEX6[0]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX6[1]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX6[2]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX7[0]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX7[1]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX7[2]",
+					"strict" : false
+				},
+				{
 					"name" : "VGA_R[0]",
 					"strict" : false
 				},
@@ -116,15 +140,31 @@
 					"strict" : false
 				},
 				{
-					"name" : "CLOCK_50",
+					"name" : "ARCADE_LED",
 					"strict" : false
 				},
 				{
-					"name" : "SW[0]",
+					"name" : "JOY_UP",
+					"strict" : false
+				},
+				{
+					"name" : "JOY_DOWN",
 					"strict" : false
 				},
 				{
 					"name" : "ARCADE_BUTTON",
+					"strict" : false
+				},
+				{
+					"name" : "CLOCK_50",
+					"strict" : false
+				},
+				{
+					"name" : "SW[17]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[0]",
 					"strict" : false
 				},
 				{

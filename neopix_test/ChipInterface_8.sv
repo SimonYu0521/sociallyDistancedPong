@@ -7,12 +7,14 @@
 module ChipInterface(input logic CLOCK_50, 
 		     input logic [3:0] KEY,
 		     input logic [17:0] SW,
+
 		     output logic NEO_OUT,
 		     output logic [17:0] LEDR);
 
 	logic add_red, add_green, add_blue, reset, load, go, ready; 
 	logic [2:0] pixel;
 	
+	assign LEDR[17:15] = {add_red, add_green, add_blue};
 
 	Synchronizer SyncR (.asynchronous(SW[17]), .local_clock(CLOCK_50), .synchronized(add_red));
 	Synchronizer SyncG (.asynchronous(SW[16]), .local_clock(CLOCK_50), .synchronized(add_green));
