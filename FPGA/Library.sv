@@ -225,7 +225,7 @@ module game_clock_generator
 endmodule : game_clock_generator
 
 // A bidirectional-shifting, parallel-in, parallel-out, shift register
-module shift_register
+module shift_register_pipo
   #(parameter WIDTH = 4)
   (input  logic             clock, left, en, load,
    input  logic [WIDTH-1:0] D,
@@ -239,20 +239,6 @@ module shift_register
     else if (en && ~left)
       Q <= {1'b0, Q[WIDTH-1:1]};
       
-endmodule : shift_register
+endmodule : shift_register_pipo
 
-// A left-shifting, serial-in, parallel-out, shift register
-module shift_register_sipo
-  #(parameter WIDTH = 4)
-  (input  logic             clock, en, clear,
-   input  logic             D,
-   output logic [WIDTH-1:0] Q);
-   
-  always_ff @(posedge clock)
-    if (clear)
-      Q <= 'b0;
-    else if (en)
-      Q <= {Q[WIDTH-2:0], D};
-      
-endmodule : shift_register
 

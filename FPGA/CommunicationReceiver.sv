@@ -28,11 +28,12 @@ module CommunicationReceiver
   
   // Counts how long the input is a one
   logic [5:0] clock_ticks;
+  logic count_time_clr, count_time_en;
   counter #(.WIDTH(6)) CountTime(.D(),  // unused
                                  .Q(clock_ticks),
                                  .up(1'b1),
-                                 .en(),
-                                 .clr(),
+                                 .en(count_time_en),
+                                 .clr(count_time_clr),
                                  .load(1'b0),
                                  .clk(clock),
                                  .reset(1'b0)
@@ -49,11 +50,12 @@ module CommunicationReceiver
 
    // Counts how many bits we've decoded.  Incremented during one-pulse (first half)
   logic [4:0] num_bits;
+  logic count_bits_clr, count_bits_en;
   counter #(.WIDTH(5)) CountBits(.D(),  // unused
                                  .Q(num_bits),
                                  .up(1'b1),
-                                 .en(),
-                                 .clr(),
+                                 .en(count_bits_en),
+                                 .clr(count_bits_clr),
                                  .load(1'b0),
                                  .clk(clock),
                                  .reset(1'b0)
@@ -70,18 +72,20 @@ module CommunicationReceiver
 
   // Collects the message data, bit-by-bit  
   logic [23:0] shifted_bits;
-  shift_register_sipo #(.WIDTH(24)) SftMsg(.D(bit_is_one),
-                                           .Q(shifted_bits),
-                                           .en(),
-                                           .clear(),
-                                           .clock
-                                           );
+  logic shift_msg_en;
+  shift_register #(.WIDTH(24)) SftMsg(.s_in(bit_is_one),
+                                      .Q(shifted_bits),
+                                      .en(shift_msg_en),
+                                      .clk(clock),
+                                      .left(1'b1)
+                                      );
 
   // Captures and holds the message data until acknowledged
   logic [23:0] message_data;
+  logic reg_msg_load;
   register #(.WIDTH(24)) RegMsg(.D(shifted_bits),
                                 .Q(message_data),
-                                .en(),
+                                .en(reg_msg_load),
                                 .clr(1'b0),
                                 .clk(clock)
                                 );
@@ -149,7 +153,7 @@ module cr_fsm
       RCV1: begin
         if (neo_data === 1'b1) 
           nextState = RCV1;
-        else if (message_done === 1'b0) begin
+        else if (message_is_done === 1'b0) begin
           nextState = RCV0;
           count_bits_en = 1'b1;
           shift_msg_en = 1'b1;
@@ -162,7 +166,7 @@ module cr_fsm
       RCV0: begin
         if (neo_data === 1'b1)
           nextState = RCV1;
-        else if (message_done === 1'b0)
+        else if (message_is_done === 1'b0)
           nextState = RCV0;
         else begin
           nextState = MESSAGEDONE;
