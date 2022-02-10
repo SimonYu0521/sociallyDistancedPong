@@ -20,7 +20,8 @@ module CommunicationReceiver
    output logic       new_game_message_rx,
    
    input  logic       NEO_IN,
-   input  logic       clock, reset
+   input  logic       clock, reset,
+   output logic [23:0]debug_message_data_out
    );
    
   logic neo_data;
@@ -92,6 +93,8 @@ module CommunicationReceiver
 
   cr_fsm FSM(.*);   
   DataSorter ds(.*);
+
+  assign debug_message_data_out = message_data;
    
 endmodule : CommunicationReceiver
 
