@@ -65,7 +65,7 @@ module CommunicationReceiver
   // Compares the bits received to 24 to tell when we have an entire message
   logic message_is_done;
   comparator #(.WIDTH(5)) CmpBits(.A(num_bits),
-                                  .B(6'd24),
+                                  .B(5'd24),
                                   .AeqB(message_is_done),
                                   .AltB(), .AgtB() // unused
                                   );
