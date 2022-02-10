@@ -15,8 +15,13 @@ module CommunicationReceiver
    output logic       miss_message_rx,
    output logic       I_lost_rx,
 
-   output logic       new_game_message_rx
+   output logic       new_game_message_rx,
    
+   input  logic       NEO_IN
    );
+   
+   
+   
+   
    
 endmodule : CommunicationReceiver
