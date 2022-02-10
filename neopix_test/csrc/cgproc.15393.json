@@ -1,0 +1,50 @@
+{
+    "Modules": {
+        "_vcs_unit__1155894993": {},
+        "...MASTER...": {},
+        "std": {},
+        "MagComp": {},
+        "timer_pkg": {},
+        "Adder": {},
+        "test": {
+            "Compiled": "Yes",
+            "Compiled Times": 5
+        },
+        "Decoder": {},
+        "Register": {},
+        "ShiftRegister_PI": {},
+        "BarrelShiftRegister": {},
+        "Memory": {},
+        "Debouncer": {}
+    },
+    "CompUnits": {
+        "amcQw_d": {
+            "bytes": 12254,
+            "mod": "...MASTER...",
+            "out": "objs/amcQw_d.o",
+            "mode": 4,
+            "checksum": 4294967295
+        },
+        "x9Hvb_d": {
+            "bytes": 47885,
+            "mod": "test",
+            "out": "x9Hvb_d.o",
+            "archive": "archive.4/_15393_archive_1.a",
+            "mode": 4,
+            "checksum": 4294967295
+        }
+    },
+    "reusePaths": {},
+    "ObjArchives": [
+        {
+            "archive": "archive.4/_15393_archive_1.a",
+            "objects": [
+                [
+                    "x9Hvb_d.o",
+                    47885
+                ]
+            ],
+            "size": 47885
+        }
+    ]
+}

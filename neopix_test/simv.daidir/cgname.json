@@ -1,0 +1,67 @@
+{
+    "_vcs_unit__1155894993": [
+        "_vcs_unit__1155894993",
+        "CvzWk",
+        "module"
+    ],
+    "Register": [
+        "Register",
+        "kynWL",
+        "module"
+    ],
+    "std": [
+        "std",
+        "reYIK",
+        "module"
+    ],
+    "MagComp": [
+        "MagComp",
+        "vaLRj",
+        "module"
+    ],
+    "timer_pkg": [
+        "timer_pkg",
+        "FzsAW",
+        "module"
+    ],
+    "Adder": [
+        "Adder",
+        "xUt1z",
+        "module"
+    ],
+    "test": [
+        "test",
+        "x9Hvb",
+        "module"
+    ],
+    "Decoder": [
+        "Decoder",
+        "t8TcA",
+        "module"
+    ],
+    "ShiftRegister_PI": [
+        "ShiftRegister_PI",
+        "Tf3nw",
+        "module"
+    ],
+    "BarrelShiftRegister": [
+        "BarrelShiftRegister",
+        "ts568",
+        "module"
+    ],
+    "Memory": [
+        "Memory",
+        "f0K8C",
+        "module"
+    ],
+    "Debouncer": [
+        "Debouncer",
+        "L0qc5",
+        "module"
+    ],
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
+        "module"
+    ]
+}

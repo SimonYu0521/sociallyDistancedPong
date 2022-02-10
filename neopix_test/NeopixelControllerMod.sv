@@ -80,7 +80,7 @@ module fsm_hl
       SENDING : next_state = WAITING;
       WAITING : next_state = (done) ? LOADING : WAITING;
     endcase
-   
+    
 endmodule : fsm_hl
 
 package timer_pkg;
