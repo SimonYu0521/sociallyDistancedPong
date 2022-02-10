@@ -22,3 +22,6 @@ ucli.key
 simv
 *.out
 *.exe
+
+# Garbage
+.DS_Store
