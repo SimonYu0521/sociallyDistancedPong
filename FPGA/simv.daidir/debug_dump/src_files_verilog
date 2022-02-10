@@ -1,0 +1,6 @@
+/afs/andrew.cmu.edu/usr15/bohanyu/private/build18/sociallyDistancedPong/FPGA/CommunicationReceiver.sv
+/afs/andrew.cmu.edu/usr15/bohanyu/private/build18/sociallyDistancedPong/FPGA/CommunicationSender.sv
+/afs/andrew.cmu.edu/usr15/bohanyu/private/build18/sociallyDistancedPong/FPGA/Library.sv
+/afs/andrew.cmu.edu/usr15/bohanyu/private/build18/sociallyDistancedPong/FPGA/NeopixelControllerOneShot.sv
+/afs/andrew.cmu.edu/usr15/bohanyu/private/build18/sociallyDistancedPong/FPGA/chipInterfaceSenderTest.sv
+/afs/andrew.cmu.edu/usr15/bohanyu/private/build18/sociallyDistancedPong/FPGA/chipinterfaceSenderSim.sv

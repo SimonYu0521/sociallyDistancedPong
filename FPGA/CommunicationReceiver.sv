@@ -148,16 +148,18 @@ module cr_fsm
     case (state)
       INIT: begin
         nextState = WAIT2START;
-        {count_time_clr, count_bits_clr} = 2'b0;
+        {count_time_clr, count_bits_clr} = 2'b11;
         end
       WAIT2START: begin
         nextState = (neo_data) ? RCV1 : WAIT2START;
         end
       RCV1: begin
+        count_time_en = 1'b1;
         if (neo_data === 1'b1) 
           nextState = RCV1;
         else if (message_is_done === 1'b0) begin
           nextState = RCV0;
+          count_time_clr = 1'b1;
           count_bits_en = 1'b1;
           shift_msg_en = 1'b1;
           end

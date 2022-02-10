@@ -35,12 +35,16 @@ module CommunicationSender
    input  logic       clock, reset);
 
 
+    
+
     logic [23:0]data;
     logic       CLOCK_50;
     logic       go;
     logic       neopixel_data, ready;
 
     assign CLOCK_50 = clock;
+
+    assign NEO_OUT = neopixel_data;
 
     assign data = 24'h808080;
 

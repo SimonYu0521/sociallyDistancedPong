@@ -1,6 +1,6 @@
 # Begin_DVE_Session_Save_Info
 # DVE full session
-# Saved on Thu Feb 10 14:49:57 2022
+# Saved on Thu Feb 10 16:39:25 2022
 # Designs open: 1
 #   Sim: /afs/andrew.cmu.edu/usr15/bohanyu/private/build18/sociallyDistancedPong/neopix_test/simv
 # Toplevel windows open: 1
@@ -8,7 +8,7 @@
 #   Source.1: timer_pkg
 #   Group count = 2
 #   Group Group1 signal count = 12
-#   Group Group2 signal count = 18
+#   Group Group2 signal count = 9
 # End_DVE_Session_Save_Info
 
 # DVE version: K-2015.09_Full64
@@ -67,7 +67,7 @@ if {![gui_exist_window -window TopLevel.1]} {
 } else { 
     set TopLevel.1 TopLevel.1
 }
-gui_show_window -window ${TopLevel.1} -show_state normal -rect {{8 31} {1546 814}}
+gui_show_window -window ${TopLevel.1} -show_state normal -rect {{8 31} {1545 813}}
 
 # ToolBar settings
 gui_set_toolbar_attributes -toolbar {TimeOperations} -dock_state top
@@ -114,23 +114,23 @@ gui_show_toolbar -toolbar {Testbench}
 # End ToolBar settings
 
 # Docked window settings
-set HSPane.1 [gui_create_window -type HSPane -parent ${TopLevel.1} -dock_state left -dock_on_new_line true -dock_extent 235]
+set HSPane.1 [gui_create_window -type HSPane -parent ${TopLevel.1} -dock_state left -dock_on_new_line true -dock_extent 234]
 catch { set Hier.1 [gui_share_window -id ${HSPane.1} -type Hier] }
-gui_set_window_pref_key -window ${HSPane.1} -key dock_width -value_type integer -value 235
+gui_set_window_pref_key -window ${HSPane.1} -key dock_width -value_type integer -value 234
 gui_set_window_pref_key -window ${HSPane.1} -key dock_height -value_type integer -value -1
 gui_set_window_pref_key -window ${HSPane.1} -key dock_offset -value_type integer -value 0
-gui_update_layout -id ${HSPane.1} {{left 0} {top 0} {width 234} {height 334} {dock_state left} {dock_on_new_line true} {child_hier_colhier 185} {child_hier_coltype 100} {child_hier_colpd 0} {child_hier_col1 0} {child_hier_col2 1} {child_hier_col3 -1}}
-set DLPane.1 [gui_create_window -type DLPane -parent ${TopLevel.1} -dock_state left -dock_on_new_line true -dock_extent 384]
+gui_update_layout -id ${HSPane.1} {{left 0} {top 0} {width 233} {height 334} {dock_state left} {dock_on_new_line true} {child_hier_colhier 185} {child_hier_coltype 100} {child_hier_colpd 0} {child_hier_col1 0} {child_hier_col2 1} {child_hier_col3 -1}}
+set DLPane.1 [gui_create_window -type DLPane -parent ${TopLevel.1} -dock_state left -dock_on_new_line true -dock_extent 383]
 catch { set Data.1 [gui_share_window -id ${DLPane.1} -type Data] }
-gui_set_window_pref_key -window ${DLPane.1} -key dock_width -value_type integer -value 384
-gui_set_window_pref_key -window ${DLPane.1} -key dock_height -value_type integer -value 394
+gui_set_window_pref_key -window ${DLPane.1} -key dock_width -value_type integer -value 383
+gui_set_window_pref_key -window ${DLPane.1} -key dock_height -value_type integer -value 334
 gui_set_window_pref_key -window ${DLPane.1} -key dock_offset -value_type integer -value 0
-gui_update_layout -id ${DLPane.1} {{left 0} {top 0} {width 383} {height 334} {dock_state left} {dock_on_new_line true} {child_data_colvariable 191} {child_data_colvalue 100} {child_data_coltype 92} {child_data_col1 0} {child_data_col2 1} {child_data_col3 2}}
-set Console.1 [gui_create_window -type Console -parent ${TopLevel.1} -dock_state bottom -dock_on_new_line true -dock_extent 351]
+gui_update_layout -id ${DLPane.1} {{left 0} {top 0} {width 382} {height 334} {dock_state left} {dock_on_new_line true} {child_data_colvariable 191} {child_data_colvalue 100} {child_data_coltype 92} {child_data_col1 0} {child_data_col2 1} {child_data_col3 2}}
+set Console.1 [gui_create_window -type Console -parent ${TopLevel.1} -dock_state bottom -dock_on_new_line true -dock_extent 350]
 gui_set_window_pref_key -window ${Console.1} -key dock_width -value_type integer -value 1476
-gui_set_window_pref_key -window ${Console.1} -key dock_height -value_type integer -value 351
+gui_set_window_pref_key -window ${Console.1} -key dock_height -value_type integer -value 350
 gui_set_window_pref_key -window ${Console.1} -key dock_offset -value_type integer -value 0
-gui_update_layout -id ${Console.1} {{left 0} {top 0} {width 1538} {height 350} {dock_state bottom} {dock_on_new_line true}}
+gui_update_layout -id ${Console.1} {{left 0} {top 0} {width 1537} {height 349} {dock_state bottom} {dock_on_new_line true}}
 #### Start - Readjusting docked view's offset / size
 set dockAreaList { top left right bottom }
 foreach dockArea $dockAreaList {
@@ -200,20 +200,19 @@ gui_set_time_units 1s
 # Global: Signal Compare
 
 # Global: Signal Groups
-gui_load_child_values {test.dut}
 
 
-set _session_group_5 Group1
-gui_sg_create "$_session_group_5"
-set Group1 "$_session_group_5"
+set _session_group_11 Group1
+gui_sg_create "$_session_group_11"
+set Group1 "$_session_group_11"
 
-gui_sg_addsignal -group "$_session_group_5" { test.dut.CLOCK_50 test.dut.KEY test.dut.SW test.dut.NEO_OUT test.dut.LEDR test.dut.state test.dut.input_data test.dut.reset test.dut.go test.dut.neopixel_data test.dut.ready test.dut.nextState }
+gui_sg_addsignal -group "$_session_group_11" { test.dut.CLOCK_50 test.dut.KEY test.dut.SW test.dut.NEO_OUT test.dut.LEDR test.dut.state test.dut.input_data test.dut.reset test.dut.go test.dut.neopixel_data test.dut.ready test.dut.nextState }
 
-set _session_group_6 Group2
-gui_sg_create "$_session_group_6"
-set Group2 "$_session_group_6"
+set _session_group_12 Group2
+gui_sg_create "$_session_group_12"
+set Group2 "$_session_group_12"
 
-gui_sg_addsignal -group "$_session_group_6" { test.dut.neo.npc_ll.data test.dut.neo.npc_ll.CLOCK_50 test.dut.neo.npc_ll.reset test.dut.neo.npc_ll.go test.dut.neo.npc_ll.neopixel_data test.dut.neo.npc_ll.done test.dut.neo.npc_ll.clock test.dut.neo.npc_ll.next_bit test.dut.neo.npc_ll.sr_load test.dut.neo.npc_ll.sr_en test.dut.neo.npc_ll.sr_q test.dut.neo.npc_ll.c192_go test.dut.neo.npc_ll.c192_done test.dut.neo.npc_ll.c192_en test.dut.neo.npc_ll.timer_d test.dut.neo.npc_ll.timer_sel test.dut.neo.npc_ll.timer_go test.dut.neo.npc_ll.timer_done }
+gui_sg_addsignal -group "$_session_group_12" { test.dut.neo.fsm.go test.dut.neo.fsm.done test.dut.neo.fsm.clock test.dut.neo.fsm.reset test.dut.neo.fsm.go_ll test.dut.neo.fsm.ready test.dut.neo.fsm.clear test.dut.neo.fsm.state test.dut.neo.fsm.next_state }
 
 # Global: Highlighting
 
@@ -223,7 +222,7 @@ gui_change_stack_mode -mode list
 # Post database loading setting...
 
 # Restore C1 time
-gui_set_time -C1_only 1
+gui_set_time -C1_only 235645
 
 
 
@@ -249,36 +248,31 @@ gui_list_set_filter -id ${Hier.1} -text {*}
 gui_hier_list_init -id ${Hier.1}
 gui_change_design -id ${Hier.1} -design Sim
 catch {gui_list_expand -id ${Hier.1} test}
-catch {gui_list_expand -id ${Hier.1} test.dut}
-catch {gui_list_expand -id ${Hier.1} test.dut.neo}
-catch {gui_list_expand -id ${Hier.1} test.dut.neo.npc_ll}
-catch {gui_list_select -id ${Hier.1} {test.dut.neo.npc_ll.c192}}
-gui_view_scroll -id ${Hier.1} -vertical -set 196
+catch {gui_list_select -id ${Hier.1} {test.dut}}
+gui_view_scroll -id ${Hier.1} -vertical -set 0
 gui_view_scroll -id ${Hier.1} -horizontal -set 0
 
 # Data 'Data.1'
 gui_list_set_filter -id ${Data.1} -list { {Buffer 1} {Input 1} {Others 1} {Linkage 1} {Output 1} {LowPower 1} {Parameter 1} {All 1} {Aggregate 1} {LibBaseMember 1} {Event 1} {Assertion 1} {Constant 1} {Interface 1} {BaseMembers 1} {Signal 1} {$unit 1} {Inout 1} {Variable 1} }
 gui_list_set_filter -id ${Data.1} -text {*}
-gui_list_show_data -id ${Data.1} {test.dut.neo.npc_ll.c192}
-gui_show_window -window ${Data.1}
-catch { gui_list_select -id ${Data.1} {test.dut.neo.npc_ll.c192.count }}
+gui_list_show_data -id ${Data.1} {test.dut}
 gui_view_scroll -id ${Data.1} -vertical -set 0
 gui_view_scroll -id ${Data.1} -horizontal -set 0
-gui_view_scroll -id ${Hier.1} -vertical -set 196
+gui_view_scroll -id ${Hier.1} -vertical -set 0
 gui_view_scroll -id ${Hier.1} -horizontal -set 0
 
 # Source 'Source.1'
 gui_src_value_annotate -id ${Source.1} -switch false
 gui_set_env TOGGLE::VALUEANNOTATE 0
 gui_open_source -id ${Source.1}  -replace -active timer_pkg /afs/andrew.cmu.edu/usr15/bohanyu/private/build18/sociallyDistancedPong/neopix_test/NeopixelControllerMod.sv
-gui_view_scroll -id ${Source.1} -vertical -set 225
+gui_view_scroll -id ${Source.1} -vertical -set 270
 gui_src_set_reusable -id ${Source.1}
 # Restore toplevel window zorder
 # The toplevel window could be closed if it has no view/pane
 if {[gui_exist_window -window ${TopLevel.1}]} {
 	gui_set_active_window -window ${TopLevel.1}
 	gui_set_active_window -window ${Source.1}
-	gui_set_active_window -window ${DLPane.1}
+	gui_set_active_window -window ${HSPane.1}
 }
 #</Session>
 

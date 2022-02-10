@@ -39,9 +39,13 @@ module ChipInterface
     
     logic       clock, reset;
 
+
+
     logic [3:0] KEY_synced, KEY_inter;
 
     logic [17:0] SW_synced, SW_inter;
+
+    assign clock = CLOCK_50;
 
     always_ff @( posedge CLOCK_50 ) begin 
         KEY_inter <= KEY;

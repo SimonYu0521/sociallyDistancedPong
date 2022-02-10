@@ -1,0 +1,62 @@
+{
+    "Modules": {
+        "timer_pkg": {},
+        "std": {},
+        "...MASTER...": {},
+        "mux": {},
+        "_vcs_unit__840899492": {},
+        "adder": {},
+        "mux2to1": {},
+        "ChipInterface_t": {
+            "Compiled": "Yes",
+            "Compiled Times": 12
+        },
+        "count_by_2": {},
+        "offset_check2D": {},
+        "MagComp": {},
+        "decoder": {},
+        "priority_encoder": {},
+        "range_check2D": {},
+        "Debouncer": {},
+        "simple_counter": {},
+        "Synchronizer": {},
+        "game_clock_generator": {},
+        "shift_register_pipo": {},
+        "Adder": {},
+        "Decoder": {},
+        "Register": {},
+        "ShiftRegister_PI": {},
+        "BarrelShiftRegister": {},
+        "Memory": {}
+    },
+    "CompUnits": {
+        "amcQw_d": {
+            "mod": "...MASTER...",
+            "mode": 4,
+            "out": "objs/amcQw_d.o",
+            "bytes": 18558,
+            "checksum": 4294967295
+        },
+        "rtzYI_d": {
+            "mod": "ChipInterface_t",
+            "mode": 4,
+            "out": "rtzYI_d.o",
+            "archive": "archive.62/_22431_archive_1.a",
+            "bytes": 75315,
+            "checksum": 4294967295
+        }
+    },
+    "reusePaths": {},
+    "ObjArchives": [
+        {
+            "archive": "archive.62/_22431_archive_1.a",
+            "objects": [
+                [
+                    "rtzYI_d.o",
+                    75315
+                ]
+            ],
+            "size": 75315
+        }
+    ]
+}
