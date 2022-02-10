@@ -55,11 +55,12 @@ module fsm_hl
   enum {INIT, LOADING, SENDING, WAITING} 
        state, next_state;
   
-  always_ff @(posedge clock, posedge reset)
+  always_ff @(posedge clock, posedge reset) begin
     if (reset)
       state <= INIT;
     else
       state <= next_state;
+  end
       
   // Output Generator (Mealy)
   always_comb begin
@@ -73,13 +74,14 @@ module fsm_hl
   end
   
   // Next State Generation
-  always_comb
+  always_comb begin
     case (state)
-      INIT    : next_state = SENDING; // Immediately send the bits just cleared
+      INIT    : next_state = LOADING; // Immediately send the bits just cleared
       LOADING : next_state = (go) ? SENDING : LOADING;
       SENDING : next_state = WAITING;
       WAITING : next_state = (done) ? LOADING : WAITING;
     endcase
+  end
     
 endmodule : fsm_hl
 
@@ -104,7 +106,7 @@ module NeopixelController_low_level
   logic clock, next_bit, sr_load, sr_en;
   assign clock = CLOCK_50;
   
-  logic [191:0] sr_q;
+  logic [383:0] sr_q;
   logic c192_go, c192_done, c192_en;
   logic [11:0] timer_d;
   timer_sel_t timer_sel;
@@ -112,7 +114,7 @@ module NeopixelController_low_level
   
   assign next_bit = sr_q[191];
   
-  ShiftRegister #(192) sr(.D(data),
+  ShiftRegister #(384) sr(.D(data),
                           .en(sr_en),
                           .left(1'b1),
                           .load(sr_load),
@@ -120,7 +122,7 @@ module NeopixelController_low_level
                           .Q(sr_q)
                          );
 
-  CountDownToZero #(8) c192(.D(8'd192),
+  CountDownToZero #(9) c192(.D(9'd384),
                             .clock,
                             .en(c192_en),
                             .load(c192_go),

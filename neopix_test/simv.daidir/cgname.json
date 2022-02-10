@@ -1,17 +1,12 @@
 {
-    "_vcs_unit__1155894993": [
-        "_vcs_unit__1155894993",
-        "CvzWk",
-        "module"
-    ],
-    "Register": [
-        "Register",
-        "kynWL",
-        "module"
-    ],
     "std": [
         "std",
         "reYIK",
+        "module"
+    ],
+    "_vcs_unit__1155894993": [
+        "_vcs_unit__1155894993",
+        "CvzWk",
         "module"
     ],
     "MagComp": [
@@ -24,14 +19,19 @@
         "FzsAW",
         "module"
     ],
-    "Adder": [
-        "Adder",
-        "xUt1z",
+    "Register": [
+        "Register",
+        "kynWL",
         "module"
     ],
     "test": [
         "test",
         "x9Hvb",
+        "module"
+    ],
+    "Adder": [
+        "Adder",
+        "xUt1z",
         "module"
     ],
     "Decoder": [
@@ -49,6 +49,11 @@
         "ts568",
         "module"
     ],
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
+        "module"
+    ],
     "Memory": [
         "Memory",
         "f0K8C",
@@ -57,11 +62,6 @@
     "Debouncer": [
         "Debouncer",
         "L0qc5",
-        "module"
-    ],
-    "...MASTER...": [
-        "SIM",
-        "amcQw",
         "module"
     ]
 }

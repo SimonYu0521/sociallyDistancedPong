@@ -16,8 +16,8 @@ module test();
 
     initial begin
         KEY[0] = 1;
-        #1 KEY[0] <= 0;
-        #2 KEY[0] <= 1;
+        #30 KEY[0] <= 0;
+        #50 KEY[0] <= 1;
 
         $monitor($time,"state=%s, controllerState=%s, NEO_OUT=%b", dut.state, dut.neo.fsm.state, NEO_OUT);
         #10000000;

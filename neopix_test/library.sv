@@ -358,7 +358,8 @@ module Debouncer
                              .en(1'b1),
                              .left(1'b1),
                              .clock(CLOCK_50),
-                             .Q(si_out));
+                             .Q(si_out),
+                             .serial_left(),.serial_right());
                            
    assign and_out = & si_out;
    assign nor_out = ~| si_out;
