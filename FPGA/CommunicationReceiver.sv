@@ -5,7 +5,7 @@ module CommunicationReceiver
    input  logic message_acked, 
    
    // Ball message values: Received when ball is incoming
-   output logic [8:0] ball_y_rx,
+   output logic [9:0] ball_y_rx,
    output logic [3:0] velocity_x_rx,
    output logic [3:0] velocity_y_rx,  // unsigned magnitude
    output logic       sign_y_rx,               // sign of vel_y
@@ -21,7 +21,7 @@ module CommunicationReceiver
    
    input  logic       NEO_IN,
    input  logic       clock, reset,
-   output logic [23:0]debug_message_data_out
+   output logic [23:0] debug_message_data_out
    );
    
   logic neo_data;
@@ -101,7 +101,7 @@ endmodule : CommunicationReceiver
 // Converts raw message data bits into the meaningful message status/data bits
 module DataSorter(
   input  logic [23:0] message_data,
-  output logic [8:0] ball_y_rx,
+  output logic [9:0] ball_y_rx,
   output logic [3:0] velocity_x_rx,
   output logic [3:0] velocity_y_rx,  // unsigned magnitude
   output logic       sign_y_rx,               // sign of vel_y
@@ -179,6 +179,7 @@ module cr_fsm
           end
         end
       MESSAGEDONE: begin
+        new_message_received = 1'b1;
         nextState = (message_acked) ? INIT : MESSAGEDONE;
         end
     endcase

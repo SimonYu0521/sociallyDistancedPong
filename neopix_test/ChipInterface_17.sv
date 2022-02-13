@@ -21,7 +21,7 @@ module ChipInterface(input logic CLOCK_50,
 	Synchronizer SyncP0 (.asynchronous(SW[0]), .local_clock(CLOCK_50), .synchronized(pixel[0]));
 	Synchronizer SyncP1 (.asynchronous(SW[1]), .local_clock(CLOCK_50), .synchronized(pixel[1]));
 	Synchronizer SyncP2 (.asynchronous(SW[2]), .local_clock(CLOCK_50), .synchronized(pixel[2]));
-  Synchronizer SyncP3 (.asynchronous(SW[3]), .local_clock(CLOCK_50), .synchronized(pixel[3]));
+   Synchronizer SyncP3 (.asynchronous(SW[3]), .local_clock(CLOCK_50), .synchronized(pixel[3]));
 	Synchronizer SyncP4 (.asynchronous(SW[4]), .local_clock(CLOCK_50), .synchronized(pixel[4]));
 
 
@@ -83,18 +83,20 @@ module NPX_GO_fsm (
     case (cstate)
       WAIT_GO_AND_READY: begin
         if (go & ready) begin
-          nstate = WAIT_GO_UNASSERT;
+		  go_npx = 1'b1;
+          nstate = SEND_GO;
+         
         end
       end
       WAIT_GO_UNASSERT: begin
         if (~go) begin
-          go_npx = 1'b1;
-          nstate = SEND_GO;
+          nstate = WAIT_GO_AND_READY;
         end
       end
       SEND_GO: begin
+		 nstate = WAIT_GO_UNASSERT;
         go_npx = 1'b1;
-        nstate = WAIT_GO_AND_READY;
+        
       end
     endcase
   end

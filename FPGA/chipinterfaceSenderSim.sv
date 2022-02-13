@@ -4,7 +4,7 @@ module ChipInterface_t ();
     logic [17:0] SW;
     logic [6:0] HEX0, HEX1, HEX2, HEX3,HEX4, HEX5, HEX6, HEX7;
     logic [7:0] VGA_R, VGA_G, VGA_B;
-	logic [17:0] LEDR;
+	  logic [17:0] LEDR;
     logic [7:0]  LEDG;
     logic VGA_BLANK_N, VGA_CLK, VGA_SYNC_N;
     logic VGA_VS, VGA_HS;

@@ -12,7 +12,7 @@ module NeopixelControllerOneShot
    output logic       neopixel_data, ready);
    
    logic clock, clear, dec_en, go_ll, done_ll;
-   logic [24:0] lldata;
+   logic [23:0] lldata;
    
    assign clock = CLOCK_50;
 

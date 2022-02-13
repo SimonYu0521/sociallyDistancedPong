@@ -1,9 +1,9 @@
 rc file Version 1.0
 
 [Design]
-COMPILE_PATH=/afs/andrew.cmu.edu/usr15/bohanyu/private/build18/sociallyDistancedPong/FPGA
+COMPILE_PATH=/afs/ece.cmu.edu/usr/allin/Private/sociallyDistancedPong/FPGA
 SystemC=FALSE
 UUM=FALSE
 KDB=FALSE
 USE_NOVAS_HOME=FALSE
-TOP=ChipInterface_t adder mux mux2to1 decoder priority_encoder count_by_2 simple_counter range_check2D offset_check2D game_clock_generator shift_register_pipo MagComp Adder Decoder Register ShiftRegister_PI BarrelShiftRegister Memory Synchronizer Debouncer 
+TOP=adder mux mux2to1 decoder priority_encoder count_by_2 range_check2D offset_check2D game_clock_generator shift_register_pipo MagComp Adder Decoder Register ShiftRegister_PI BarrelShiftRegister Memory Synchronizer Debouncer SystemTest 

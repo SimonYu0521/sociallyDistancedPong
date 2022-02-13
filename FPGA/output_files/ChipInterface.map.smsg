@@ -1,0 +1,4 @@
+Info (10281): Verilog HDL Declaration information at UserInterface.sv(11): object "arcade_led" differs only in case from object "ARCADE_LED" in the same scope
+Info (10281): Verilog HDL Declaration information at chipinterface.sv(23): object "ARCADE_LED" differs only in case from object "arcade_led" in the same scope
+Info (10281): Verilog HDL Declaration information at chipinterface.sv(193): object "reset" differs only in case from object "RESET" in the same scope
+Info (10281): Verilog HDL Declaration information at Library.sv(193): object "WIDTH" differs only in case from object "width" in the same scope

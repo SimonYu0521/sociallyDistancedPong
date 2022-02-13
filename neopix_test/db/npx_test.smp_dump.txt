@@ -1,0 +1,6 @@
+
+State Machine - |ChipInterface|SetNeopix:SN|NPX_GO_fsm:Ctrl_FSM|cstate
+Name cstate.WAIT_GO_AND_READY cstate.SEND_GO cstate.WAIT_GO_UNASSERT 
+cstate.WAIT_GO_AND_READY 0 0 0 
+cstate.WAIT_GO_UNASSERT 1 0 1 
+cstate.SEND_GO 1 1 0 

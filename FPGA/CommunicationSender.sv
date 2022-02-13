@@ -15,7 +15,7 @@ module CommunicationSender
    // This is data for any specific message.  Only one of the "xx_message" signals
    // can be asserted on any clock edge, and only on the edge when go is asserted.
    // Ball message values
-   input  logic [8:0] ball_y_tx,
+   input  logic [9:0] ball_y_tx,
    input  logic [3:0] velocity_x_tx,  // always positive (i.e. into the other side)
    input  logic [3:0] velocity_y_tx,  // unsigned magnitude
    input  logic sign_y_tx,               // sign of vel_y
@@ -46,7 +46,12 @@ module CommunicationSender
 
     assign NEO_OUT = neopixel_data;
 
-    assign data = 24'h808080;
+    assign data = {ball_y_tx, velocity_x_tx, velocity_y_tx,  sign_y_tx,  ball_message_tx, 
+                    are_you_there_tx, 
+                    I_am_here_tx, 
+                    miss_message_tx, 
+                    I_lost_tx, 
+                    new_game_message_tx};
 
 
     NeopixelControllerOneShot neo1Shot(.*);
@@ -57,15 +62,15 @@ module CommunicationSender
         message_sent = 0;
         go = 0;
         case(state)
-            WAIT_FOR_NEW: message_sent = 1;
             SEND: go = 1;
+            WAIT_FOR_DONE: if (ready) message_sent = 1;
         endcase
     end
 
     always_comb begin
         case(state)
             IDLE: nextState = WAIT_FOR_DONE;
-            WAIT_FOR_NEW: nextState = send_new_message ? SEND : WAIT_FOR_DONE;
+            WAIT_FOR_NEW: nextState = send_new_message ? SEND : WAIT_FOR_NEW;
             SEND: nextState = WAIT_FOR_DONE;
             WAIT_FOR_DONE: nextState = ready ? WAIT_FOR_NEW : WAIT_FOR_DONE;
         endcase

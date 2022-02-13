@@ -1,0 +1,62 @@
+{
+    "Modules": {
+        "SystemTest": {},
+        "...MASTER...": {},
+        "decoder": {},
+        "_vcs_unit__1224725401": {},
+        "timer_pkg": {},
+        "count_by_2": {},
+        "std": {},
+        "mux2to1": {},
+        "adder": {},
+        "Adder": {},
+        "mux": {},
+        "ChipInterface": {
+            "Compiled Times": 2,
+            "Compiled": "Yes"
+        },
+        "priority_encoder": {},
+        "game_clock_generator": {},
+        "range_check2D": {},
+        "Register": {},
+        "offset_check2D": {},
+        "shift_register_pipo": {},
+        "Memory": {},
+        "MagComp": {},
+        "Decoder": {},
+        "ShiftRegister_PI": {},
+        "BarrelShiftRegister": {},
+        "Debouncer": {},
+        "Synchronizer": {}
+    },
+    "CompUnits": {
+        "amcQw_d": {
+            "mod": "...MASTER...",
+            "mode": 4,
+            "out": "objs/amcQw_d.o",
+            "bytes": 17988,
+            "checksum": 4294967295
+        },
+        "VHM6x_d": {
+            "mod": "ChipInterface",
+            "mode": 4,
+            "out": "VHM6x_d.o",
+            "bytes": 79602,
+            "checksum": 4294967295,
+            "archive": "archive.200/_22638_archive_1.a"
+        }
+    },
+    "reusePaths": {},
+    "ObjArchives": [
+        {
+            "archive": "archive.200/_22638_archive_1.a",
+            "objects": [
+                [
+                    "VHM6x_d.o",
+                    79602
+                ]
+            ],
+            "size": 79602
+        }
+    ]
+}

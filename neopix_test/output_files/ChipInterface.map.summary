@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Fri Feb 11 18:40:18 2022
+Quartus II 64-Bit Version : 12.1 Build 177 11/07/2012 SJ Full Version
+Revision Name : ChipInterface
+Top-level Entity Name : ChipInterface
+Family : Cyclone IV E
+Total logic elements : 598
+    Total combinational functions : 584
+    Dedicated logic registers : 510
+Total registers : 510
+Total pins : 42
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

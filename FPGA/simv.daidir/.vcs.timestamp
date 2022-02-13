@@ -1,8 +1,7 @@
 0 
-30
-+itf+/afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/vcsdp_lite.tab
-+vcsd1
-+vpi
+32
++lint=all
++warn=all
 -Mamsrun=
 -Masflags=
 -Mcc=gcc
@@ -19,26 +18,24 @@
 -Msyslibs=-ldl
 -Mvcsaceobjs=
 -Mxcflags= -pipe -fPIC -I/afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/include
--debug_access+r
 -gen_obj
+-nc
 -picarchive
+-q
 -sverilog
 /afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/bin/vcs1
 CommunicationReceiver.sv
 CommunicationSender.sv
 Library.sv
 NeopixelControllerOneShot.sv
-chipInterfaceSenderTest.sv
-chipinterfaceSenderSim.sv
-58
-sysc_uni_pwd=/afs/andrew.cmu.edu/usr15/bohanyu/private/build18/sociallyDistancedPong/FPGA
-no_proxy=localhost,127.0.0.1,.cmu.edu,.cmu.local
-https_proxy=http://proximus.ece.cmu.edu:3128/
-http_proxy=http://proximus.ece.cmu.edu:3128/
-ftp_proxy=http://proximus.ece.cmu.edu:3128/
-XDG_SESSION_ID=32504
-XDG_RUNTIME_DIR=/run/user/2664047
-XDG_DATA_DIRS=/afs/andrew.cmu.edu/usr15/bohanyu/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+SystemTest.sv
+UserInterface.sv
+chipinterface.sv
+vga.sv
+35
+sysc_uni_pwd=/afs/ece.cmu.edu/usr/allin/Private/sociallyDistancedPong/FPGA
+XDG_SESSION_ID=34934
+XDG_RUNTIME_DIR=/run/user/2654136
 VMR_MODE_FLAG=32
 VCS_VERSION=vcs-mx_vK-2015.09
 VCS_TARGET_ARCH=amd64
@@ -56,51 +53,34 @@ SYN_DIR=/usr/local/synopsys/syn-vJ-2014.09-SP4
 SYNOPSYS_LICENSE=/afs/ece.cmu.edu/support/synopsys/license.dat
 SYNOPSYS_HOME=/afs/ece.cmu.edu/support/synopsys/synopsys.release
 SYNOPSYS=/usr/local/synopsys
-SSH_TTY=/dev/pts/6
-SSH_CONNECTION=128.2.13.167 40802 172.19.137.184 22
-SSH_CLIENT=128.2.13.167 40802 22
-SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+SSH_TTY=/dev/pts/9
+SSH_CONNECTION=128.2.13.133 51226 172.19.137.181 22
+SSH_CLIENT=128.2.13.133 51226 22
 SELINUX_USE_CURRENT_RANGE=
 SELINUX_ROLE_REQUESTED=
 SELINUX_LEVEL_REQUESTED=
 SCRNAME=vcs
 SCRIPT_NAME=vcs
 QUARTUS_64BIT=1
-QT_PLUGIN_PATH=/usr/lib64/kde4/plugins:/usr/lib/kde4/plugins
-QT_GRAPHICSSYSTEM_CHECKED=1
-QTLIB=/usr/lib64/qt-3.3/lib
-QTINC=/usr/lib64/qt-3.3/include
-QTDIR=/usr/lib64/qt-3.3
 OVA_UUM=0
-NO_PROXY=localhost,127.0.0.1,.cmu.edu,.cmu.local
-MODULESHOME=/usr/share/Modules
-MODULEPATH=/usr/share/Modules/modulefiles:/etc/modulefiles
-LOADEDMODULES=
-LESSOPEN=||/usr/bin/lesspipe.sh %s
 LC_ALL=C
-KRB5CCNAME=KEYRING:persistent:2664047:2664047
-KDEDIRS=/usr
-HTTP_PROXY=http://proximus.ece.cmu.edu:3128/
-HTTPS_PROXY=http://proximus.ece.cmu.edu:3128/
-HISTCONTROL=ignoredups
-FTP_PROXY=http://proximus.ece.cmu.edu:3128/
+KRB5CCNAME=KEYRING:persistent:2654136
 DC_VERSION=syn-vJ-2014.09-SP4
 DC_HOME=/afs/ece.cmu.edu/support/synopsys/synopsys.release/syn-vJ-2014.09-SP4
-CVS_RSH=ssh
-BASH_FUNC_module()=() {  eval `/usr/bin/modulecmd bash $*`_}
 AKLOG=/usr/bin/aklog
 0
-7
-1644528746 NeopixelControllerOneShot.sv
-1644528746 Library.sv
-1644530204 CommunicationSender.sv
-1644531424 CommunicationReceiver.sv
-1644530303 chipinterfaceSenderSim.sv
-1644529926 chipInterfaceSenderTest.sv
-1440562444 /afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/vcsdp_lite.tab
+8
+1644713872 SystemTest.sv
+1644687067 NeopixelControllerOneShot.sv
+1644686043 Library.sv
+1643486023 vga.sv
+1644686043 UserInterface.sv
+1644691781 CommunicationReceiver.sv
+1644714369 CommunicationSender.sv
+1644714737 chipinterface.sv
 4
 0 
 1440563255 /afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/libvirsim.so
 1440562843 /afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/liberrorinf.so
 1440562824 /afs/ece.cmu.edu/support/synopsys/synopsys.release/vcs-mx_vK-2015.09/linux64/lib/libsnpsmalloc.so
-1644531430 simv.daidir
+1644714752 simv.daidir
